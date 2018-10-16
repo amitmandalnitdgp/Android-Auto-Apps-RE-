@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.gogii.textplus" platformBuildVersionCode="25" platformBuildVersionName="7.1.1">
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_PROFILE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.CAPTURE_AUDIO_OUTPUT"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_MMS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.WRITE_SMS"/>
+    <uses-permission android:name="android.permission.BROADCAST_SMS"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.USE_SIP"/>
+    <uses-permission android:name="android.permission.CONFIGURE_SIP"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="com.gogii.textplus.permission.C2D_MESSAGE"/>
+    <permission android:name="com.gogii.textplus.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+    <uses-feature android:name="android.hardware.wifi" android:required="false"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.microphone" android:required="false"/>
+    <uses-feature android:name="android.hardware.bluetooth" android:required="false"/>
+    <uses-feature android:name="android.hardware.location" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.network" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <library android:name="moat-mobile-app-kit"/>
+    <application android:allowBackup="false" android:hardwareAccelerated="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="com.nextplus.android.NextPlusApplication" android:persistent="true" android:theme="@style/Theme.NextPlus">
+        <activity android:label="@string/app_name" android:name="com.nextplus.android.activity.SplashScreenActivity" android:screenOrientation="portrait" android:theme="@style/Theme.NextPlus.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="com.samsung.android.intent.category.PENWINDOW_LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.nextplus.android.activity.NextPlusLinks" android:taskAffinity="" android:theme="@style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="np"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="platform" android:value="android"/>
+        <meta-data android:name="market" android:value="@string/market"/>
+        <meta-data android:name="postitial-app-id" android:value="Y3huY3NUMHZ5S2g4QjJXZUxlS2ZReUZrQjlrdkYzd3lieVFjeWZ3M3U4SjZXcUFu"/>
+        <meta-data android:name="com.google.android.gms.car.application" android:resource="@xml/automotive_app_desc"/>
+        <meta-data android:name="merchTabBadgeCount" android:value="1"/>
+        <activity android:label="@string/title_activity_register" android:name="com.nextplus.android.activity.LandingPageActivity" android:screenOrientation="portrait" android:theme="@style/Theme.NextPlus.Registration" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:label="@string/title_activity_register" android:name="com.nextplus.android.activity.RegisterActivity" android:theme="@style/Theme.NextPlus.Registration"/>
+        <activity android:configChanges="keyboardHidden" android:label="@string/app_name" android:launchMode="singleTop" android:name="com.nextplus.android.activity.HomeActivity" android:theme="@style/Theme.NextPlus.Home" android:uiOptions="splitActionBarWhenNarrow" android:windowSoftInputMode="adjustPan">
+            <meta-data android:name="android.support.UI_OPTIONS" android:value="splitActionBarWhenNarrow"/>
+            <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER"/>
+        </activity>
+        <activity android:label="@string/title_activity_login" android:name="com.nextplus.android.activity.LoginActivity" android:theme="@style/Theme.NextPlus.Registration"/>
+        <activity android:name="com.nextplus.android.activity.ComposeActivity" android:parentActivityName="com.nextplus.android.activity.HomeActivity" android:theme="@style/Theme.NextPlus.ActionBar.ComposeActivity" android:windowSoftInputMode="adjustResize|stateVisible">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.HomeActivity"/>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND_MULTIPLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.GroupComposeActivity" android:parentActivityName="com.nextplus.android.activity.HomeActivity" android:theme="@style/Theme.NextPlus.ActionBar.ComposeActivity" android:windowSoftInputMode="adjustResize|stateVisible">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.HomeActivity"/>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.nextplus.android.activity.StoreActivity" android:parentActivityName="com.nextplus.android.activity.HomeActivity" android:theme="@style/Theme.NextPlus.ActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.HomeActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.MyNumberActivity" android:parentActivityName="com.nextplus.android.activity.HomeActivity" android:theme="@style/Theme.NextPlus.ActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.HomeActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.CustomizeNumberActivity" android:parentActivityName="com.nextplus.android.activity.MyNumberActivity" android:theme="@style/Theme.NextPlus.ActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.MyNumberActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.ProfileActivity" android:noHistory="true" android:theme="@style/Theme.NextPlus.Profile" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.nextplus.android.activity.ProfileCallHistoryActivity" android:parentActivityName="com.nextplus.android.activity.HomeActivity" android:theme="@style/Theme.NextPlus.Actionbar.Translucent.Overlay" android:windowSoftInputMode="adjustResize">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.HomeActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.ConversationActivity" android:parentActivityName="com.nextplus.android.activity.HomeActivity" android:theme="@style/Theme.NextPlus.ActionBar" android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.HomeActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.GroupConversationActivity" android:parentActivityName="com.nextplus.android.activity.HomeActivity" android:theme="@style/Theme.NextPlus.ActionBar" android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.HomeActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.InviteFriendsActivity" android:parentActivityName="com.nextplus.android.activity.HomeActivity" android:theme="@style/Theme.NextPlus.Invite">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.HomeActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.BrowserActivity"/>
+        <activity android:name="com.nextplus.android.activity.InviteOverlayActivity" android:parentActivityName="com.nextplus.android.activity.HomeActivity" android:screenOrientation="portrait" android:theme="@style/NextPlusNoActionBarTransparent">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.HomeActivity"/>
+        </activity>
+        <activity android:label="@string/label_settings" android:name="com.nextplus.android.activity.SettingsActivity" android:parentActivityName="com.nextplus.android.activity.HomeActivity" android:theme="@style/Theme.NextPlus.ActionBar" android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.HomeActivity"/>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.NOTIFICATION_PREFERENCES"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/label_settings" android:name="com.nextplus.android.activity.GeneralSettingActivity" android:parentActivityName="com.nextplus.android.activity.SettingsActivity" android:theme="@style/Theme.NextPlus.ActionBar" android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.SettingsActivity"/>
+        </activity>
+        <activity android:label="@string/label_settings" android:name="com.nextplus.android.activity.NotificationSettingsActivity" android:parentActivityName="com.nextplus.android.activity.SettingsActivity" android:theme="@style/Theme.NextPlus.ActionBar" android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.SettingsActivity"/>
+        </activity>
+        <activity android:label="@string/label_settings" android:name="com.nextplus.android.activity.DebugSettingsActivity" android:parentActivityName="com.nextplus.android.activity.SettingsActivity" android:theme="@style/Theme.NextPlus.ActionBar" android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.SettingsActivity"/>
+        </activity>
+        <activity android:label="@string/label_settings" android:name="com.nextplus.android.activity.MessagingCallingSettingsActivity" android:parentActivityName="com.nextplus.android.activity.SettingsActivity" android:theme="@style/Theme.NextPlus.ActionBar" android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.SettingsActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.NextPlusGoSimAlertActivity" android:parentActivityName="com.nextplus.android.activity.HomeActivity" android:theme="@style/Theme.NextPlus.ActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.HomeActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.NextplusGoSimEnterActivity" android:parentActivityName="com.nextplus.android.activity.HomeActivity" android:theme="@style/Theme.NextPlus.ActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.HomeActivity"/>
+        </activity>
+        <activity android:label="@string/forgot_password" android:name="com.nextplus.android.activity.PasswordRecoverActivity" android:theme="@style/Theme.NextPlus.ActionBar" android:windowSoftInputMode="stateVisible"/>
+        <activity android:name="com.nextplus.android.activity.UserProfileActivity" android:parentActivityName="com.nextplus.android.activity.HomeActivity" android:theme="@style/Theme.NextPlus.Actionbar.Translucent.Overlay">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.HomeActivity"/>
+        </activity>
+        <activity android:label="@string/image_gallery" android:name="com.nextplus.android.activity.SingleImageGalleryActivity" android:theme="@style/Theme.AppCompat" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.nextplus.android.activity.MoreActivity" android:parentActivityName="com.nextplus.android.activity.HomeActivity" android:theme="@style/Theme.NextPlus.Actionbar.Translucent.Overlay">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.HomeActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.UpdateNameActivity" android:parentActivityName="com.nextplus.android.activity.UserProfileActivity" android:theme="@style/Theme.NextPlus.ActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.UserProfileActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.VerificationsActivity" android:parentActivityName="com.nextplus.android.activity.UserProfileActivity" android:theme="@style/Theme.NextPlus.ActionBar" android:windowSoftInputMode="adjustResize|stateVisible">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.UserProfileActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.BlockListActivity" android:parentActivityName="com.nextplus.android.activity.UserProfileActivity" android:theme="@style/Theme.NextPlus.ActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.UserProfileActivity"/>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.nextplus.android.activity.DialerActivity" android:parentActivityName="com.nextplus.android.activity.HomeActivity" android:screenOrientation="portrait" android:theme="@style/Theme.NextPlus.ActionBar" android:windowSoftInputMode="adjustNothing|stateAlwaysHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.HomeActivity"/>
+            <intent-filter>
+                <action android:name="android.phone.extra.NEW_CALL_INTENT"/>
+                <action android:name="android.intent.action.CALL"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="sip"/>
+                <data android:scheme="sips"/>
+                <data android:scheme="tel"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SENDTO"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.DIAL"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="sip"/>
+                <data android:scheme="sips"/>
+                <data android:scheme="imto"/>
+                <data android:scheme="tel"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.CheckEmailVerificationActivity" android:parentActivityName="com.nextplus.android.activity.UserProfileActivity" android:theme="@style/Theme.NextPlus.ActionBar" android:windowSoftInputMode="stateAlwaysHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.UserProfileActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.CheckPhoneVerificationActivity" android:parentActivityName="com.nextplus.android.activity.UserProfileActivity" android:theme="@style/Theme.NextPlus.ActionBar" android:windowSoftInputMode="stateAlwaysHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.UserProfileActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.FindUserActivity" android:parentActivityName="com.nextplus.android.activity.HomeActivity" android:theme="@style/Theme.NextPlus.ActionBar" android:windowSoftInputMode="stateVisible">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.HomeActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.FriendMatchingInfoActivity" android:parentActivityName="com.nextplus.android.activity.UserProfileActivity" android:theme="@style/Theme.NextPlus.ActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.UserProfileActivity"/>
+        </activity>
+        <activity android:allowTaskReparenting="true" android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.nextplus.android.activity.InCallActivity" android:screenOrientation="portrait" android:taskAffinity="" android:theme="@style/Theme.NextPlus.NoTitleBar" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.nextplus.android.activity.ChangePasswordActivity" android:parentActivityName="com.nextplus.android.activity.SettingsActivity" android:theme="@style/Theme.NextPlus.ActionBar" android:windowSoftInputMode="adjustResize|stateVisible">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.SettingsActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.FindGifsActivity" android:parentActivityName="com.nextplus.android.activity.SettingsActivity" android:theme="@style/Theme.NextPlus.ActionBar.FindGifActivity" android:windowSoftInputMode="stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.SettingsActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.LearnMoreActivity" android:parentActivityName="com.nextplus.android.activity.HomeActivity" android:theme="@style/Theme.NextPlus.ActionBar" android:windowSoftInputMode="stateAlwaysHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.HomeActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.WebActivity" android:parentActivityName="com.nextplus.android.activity.HomeActivity" android:theme="@style/Theme.NextPlus.ActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activity.HomeActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.StickerStoreActivity" android:parentActivityName="com.nextplus.android.activity.HomeActivity" android:theme="@style/Theme.NextPlus.ActionBar.FindGifActivity" android:windowSoftInputMode="adjustResize|stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.HomeActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.NextplusGoIntroActivity" android:parentActivityName="com.nextplus.android.activity.HomeActivity" android:theme="@style/Theme.NextPlus.ActionBar" android:windowSoftInputMode="adjustResize|stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.HomeActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.NextplusGoMainMenuActivity" android:parentActivityName="com.nextplus.android.activity.HomeActivity" android:theme="@style/Theme.NextPlus.ActionBar" android:windowSoftInputMode="adjustResize|stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.HomeActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.NextplusGoSimActivateActivity" android:parentActivityName="com.nextplus.android.activity.HomeActivity" android:theme="@style/Theme.NextPlus.ActionBar" android:windowSoftInputMode="adjustResize|stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.HomeActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.NextplusGoResendCodeActivity" android:parentActivityName="com.nextplus.android.activity.HomeActivity" android:theme="@style/Theme.NextPlus.ActionBar" android:windowSoftInputMode="adjustResize|stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.HomeActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.DownloadStickerActivity" android:parentActivityName="com.nextplus.android.activity.LearnMoreActivity" android:theme="@style/Theme.NextPlus.ActionBar.FindGifActivity" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="orientation" android:name="com.nextplus.android.activity.ThemePickerActivity" android:parentActivityName="com.nextplus.android.activity.SettingsActivity" android:theme="@style/Theme.NextPlus.ActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.SettingsActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.ContactsAddFavoritesActivity" android:parentActivityName="com.nextplus.android.activity.HomeActivity" android:theme="@style/Theme.NextPlus.ActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.HomeActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.ContactsMakeCallActivity" android:parentActivityName="com.nextplus.android.activity.HomeActivity" android:theme="@style/Theme.NextPlus.ActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.HomeActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.CountryPickerActivity" android:parentActivityName="com.nextplus.android.activity.SettingsActivity" android:theme="@style/Theme.NextPlus.ActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.SettingsActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.MessageSignatureActivity" android:parentActivityName="com.nextplus.android.activity.SettingsActivity" android:theme="@style/Theme.NextPlus.ActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.SettingsActivity"/>
+        </activity>
+        <activity android:exported="true" android:name="com.nextplus.android.activity.AudioVoiceChatActivity">
+            <intent-filter>
+                <action android:name="com.google.android.voicesearch.SEND_MESSAGE_TO_CONTACTS"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="audio/wav"/>
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.NoBalanceActivity" android:parentActivityName="com.nextplus.android.activity.HomeActivity" android:theme="@style/Theme.NoBalance">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.HomeActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.PayGardenInfoActivity" android:parentActivityName="com.nextplus.android.activity.HomeActivity" android:theme="@style/Theme.NoBalance">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.HomeActivity"/>
+        </activity>
+        <activity android:excludeFromRecents="true" android:name="com.nextplus.android.activity.QuickReplyActivity" android:theme="@style/Theme.NextPlus.Transparent" android:windowSoftInputMode="adjustPan"/>
+        <activity android:launchMode="singleTop" android:name="com.nextplus.android.activity.QuickReplyViewPagerActivity" android:theme="@style/Theme.NextPlus.Transparent"/>
+        <activity android:name="com.nextplus.android.activity.ApnSettingsActivity" android:parentActivityName="com.nextplus.android.activity.HomeActivity" android:theme="@style/Theme.NextPlus.ActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.HomeActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.NextplusGoWebViewActivity" android:theme="@style/Theme.NextPlus.ActionBar"/>
+        <activity android:label="@string/title_activity_tone_picker" android:name="com.nextplus.android.activity.TonePickerActivity" android:parentActivityName="com.nextplus.android.activity.SettingsActivity" android:theme="@style/Theme.NextPlus.ActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.SettingsActivity"/>
+        </activity>
+        <activity android:label="@string/tone_picker_title" android:name="com.nextplus.android.activity.RingTonePickerActivity" android:parentActivityName="com.nextplus.android.activity.SettingsActivity" android:theme="@style/Theme.NextPlus.ActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.SettingsActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.SearchContactActivity" android:parentActivityName="com.nextplus.android.activity.HomeActivity" android:theme="@style/Theme.NextPlus.ActionBar" android:windowSoftInputMode="adjustResize|stateVisible">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.HomeActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.RemoveAdsActivity" android:parentActivityName="com.nextplus.android.activity.HomeActivity" android:theme="@style/Theme.NextPlus.ActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.HomeActivity"/>
+        </activity>
+        <activity android:label="@string/are_you_sure" android:name="com.nextplus.android.activity.LogoutActivtity" android:parentActivityName="com.nextplus.android.activity.SettingsActivity" android:theme="@style/Theme.NextPlus.ActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.SettingsActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.LifeLineActivity" android:parentActivityName="com.nextplus.android.activity.HomeActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Lifeline">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.HomeActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.LifeLineStatusActivity" android:parentActivityName="com.nextplus.android.activity.HomeActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Lifeline">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.HomeActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.LifeLineSuccessActivity" android:parentActivityName="com.nextplus.android.activity.HomeActivity" android:theme="@style/Theme.Lifeline">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.HomeActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.LifeLineComingSoonActivity" android:parentActivityName="com.nextplus.android.activity.HomeActivity" android:theme="@style/Theme.Lifeline">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.HomeActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.LifeLineCaliforniaEligibilityDetailActivity" android:parentActivityName="com.nextplus.android.activity.LifeLineActivity" android:theme="@style/Theme.Lifeline">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.LifeLineActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.LifeLineTermsConditionsDetailActivity" android:parentActivityName="com.nextplus.android.activity.LifeLineActivity" android:theme="@style/Theme.Lifeline">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.LifeLineActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.NativeInterstitialAdActivity" android:parentActivityName="com.nextplus.android.activity.HomeActivity" android:theme="@style/Theme.NextPlus.ActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.HomeActivity"/>
+        </activity>
+        <activity android:name="com.nextplus.android.activity.EarningLedgerActivity" android:parentActivityName="com.nextplus.android.activity.StoreActivity" android:theme="@style/Theme.NextPlus.ActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nextplus.android.activity.StoreActivity"/>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.flurry.android.FlurryFullscreenTakeoverActivity"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <provider android:authorities="com.gogii.textplus.provider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <provider android:authorities="com.gogii.textplus.MediaContentProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.millennialmedia.internal.utils.MediaContentProvider"/>
+        <receiver android:name="com.tapjoy.GCMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.gcm.intent.RETRY"/>
+                <category android:name="me.nextplus.smsfreetext.phonecalls"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.tapjoy.TapjoyReceiver"/>
+        <receiver android:name="com.nextplus.android.push.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.gogii.textplus"/>
+                <action android:name="com.gogii.textplus.intent.APPBOY_PUSH_RECEIVED"/>
+                <action android:name="com.gogii.textplus.intent.APPBOY_NOTIFICATION_OPENED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.nextplus.android.receiver.AutoBroadcastReceiver">
+            <intent-filter>
+                <category android:name="com.gogii.textplus"/>
+                <action android:name="com.gogii.textplus.intent.AUTO_MESSAGE_HEARD"/>
+                <action android:name="com.gogii.textplus.intent.AUTO_MESSAGE_REPLY"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.nextplus.android.network.NetworkConnectionMonitor">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.nextplus.android.receiver.ShortCodeSmsReceiver">
+            <intent-filter android:priority="100">
+                <action android:name="android.provider.telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.nextplus.android.voice.bluetooth.BluetoothBootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:name="com.nextplus.android.receiver.SimStateReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.SIM_STATE_CHANGED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:name="com.nextplus.android.push.RegisterForPushService"/>
+        <service android:enabled="true" android:name="com.nextplus.android.push.PushNotificationService"/>
+        <service android:exported="true" android:name="com.nextplus.android.services.NextplusIndexService" android:permission="com.google.android.gms.permission.APPINDEXING">
+            <intent-filter>
+                <action android:name="com.google.firebase.appindexing.UPDATE_INDEX"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:name="com.nextplus.android.services.FreshInstallPushNotificationIntentService"/>
+        <service android:enabled="true" android:name="com.nextplus.android.services.LogoutPushNotificationService"/>
+        <service android:name="com.nextplus.android.services.NextplusFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.nextplus.android.services.NextplusFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MoPubActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MraidActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.common.MoPubBrowser"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MraidVideoPlayerActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.RewardedMraidActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:name="com.tapjoy.TJAdUnitActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tapjoy.mraid.view.ActionHandler"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tapjoy.mraid.view.Browser"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tapjoy.TJContentActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="orientation|screenSize" android:hardwareAccelerated="true" android:name="com.ironsource.sdk.controller.ControllerActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:hardwareAccelerated="true" android:name="com.ironsource.sdk.controller.InterstitialActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="orientation|screenSize" android:hardwareAccelerated="true" android:name="com.ironsource.sdk.controller.OpenUrlActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.nextplus.android.activity.SambaRewardedVideoActivity" android:theme="@style/Theme.NoBalance"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:hardwareAccelerated="true" android:name="com.inmobi.rendering.InMobiAdActivity" android:resizeableActivity="false" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mobvista.msdk.reward.player.MVRewardVideoActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <receiver android:name="com.cuebiq.cuebiqsdk.receiver.CoverageReceiver">
+            <intent-filter>
+                <action android:name="android.location.PROVIDERS_CHANGED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:name="com.inmobi.commons.core.utilities.uid.ImIdShareBroadCastReceiver">
+            <intent-filter>
+                <action android:name="com.inmobi.share.id"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:name="com.flurry.android.marketing.messaging.notification.NotificationCancelledReceiver">
+            <intent-filter>
+                <action android:name="com.flurry.android.marketing.NOTIFICATION_CANCELLED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:name="com.flurry.android.marketing.messaging.notification.NotificationClickedReceiver">
+            <intent-filter>
+                <action android:name="com.flurry.android.marketing.NOTIFICATION_CLICKED"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.gogii.textplus.CuebiqSDKProvider" android:exported="false" android:name="com.cuebiq.cuebiqsdk.model.CuebiqSDKProvider"/>
+        <service android:enabled="true" android:exported="false" android:name="com.nextplus.android.voice.CallHandlingService" android:stopWithTask="false"/>
+        <service android:enabled="true" android:exported="false" android:name="com.nextplus.android.voice.LinphoneCallStackService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.nextplus.android.voice.bluetooth.BluetoothTrackerService"/>
+        <service android:enabled="true" android:name="com.nextplus.android.services.PushVoiceNotesService"/>
+        <service android:enabled="true" android:name="com.nextplus.android.services.WearableService"/>
+        <service android:enabled="true" android:name="com.nextplus.android.services.DirectReplyService"/>
+        <service android:name="com.nextplus.android.services.AudioVoiceChatService"/>
+        <service android:enabled="true" android:name="com.nextplus.android.services.BackgroundCallingService"/>
+        <service android:enabled="true" android:name="com.nextplus.android.services.BackgroundMessagingService"/>
+        <service android:enabled="true" android:name="com.nextplus.android.services.BackgroundNotificationService"/>
+        <service android:enabled="true" android:name="com.nextplus.android.services.BackgroundQuickReplyService"/>
+        <meta-data android:name="com.samsung.android.sdk.multiwindow.penwindow.enable" android:value="true"/>
+        <meta-data android:name="com.sec.android.support.multiwindow" android:value="true"/>
+        <meta-data android:name="com.sec.android.multiwindow.DEFAULT_SIZE_W" android:value="632.0dip"/>
+        <meta-data android:name="com.sec.android.multiwindow.DEFAULT_SIZE_H" android:value="598.0dip"/>
+        <meta-data android:name="com.sec.android.multiwindow.MINIMUM_SIZE_W" android:value="632.0dip"/>
+        <meta-data android:name="com.sec.android.multiwindow.MINIMUM_SIZE_H" android:value="598.0dip"/>
+        <meta-data android:name="com.tapjoy.notification.icon" android:resource="@drawable/notification_n"/>
+        <meta-data android:name="applovin.sdk.key" android:value="Z6t47NnG2IHxqDkNvBEzFRiUP6Ku1igbpTfxwRBzkSvXgcvZp8X2ZFX-MssNTW-M3eH-4SypwrKaSE9FMhIwxq"/>
+        <meta-data android:name="com.cuebiq.sdk.AppKey" android:value="@string/cuebiq_app_key"/>
+        <meta-data android:name="applovin.sdk.verbose_logging" android:value="false"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/notification_n"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_color" android:resource="@color/next_plus_color"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="d777a322b86e037136399f160ed7112dc1095ce8"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="com.gogii.textplus.firebaseperfprovider" android:exported="false" android:initOrder="101" android:name="com.google.firebase.perf.provider.FirebasePerfProvider"/>
+        <service android:exported="true" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.gogii.textplus"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"/>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.gogii.textplus.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <meta-data android:name="android.support.VERSION" android:value="25.4.0"/>
+        <activity android:configChanges="layoutDirection|locale" android:label="@string/mmadsdk_app_name" android:name="com.millennialmedia.internal.MMActivity" android:theme="@style/Theme.MMTransparent"/>
+        <activity android:configChanges="layoutDirection|locale" android:label="sdk" android:name="com.millennialmedia.internal.MMIntentWrapperActivity"/>
+        <service android:exported="true" android:name="com.millennialmedia.internal.task.handshake.HandshakeRequestService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="true" android:name="com.millennialmedia.internal.task.reporting.PlacementReportingService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:name="com.gfycat.picker.PickerCoreInitializationListener">
+            <intent-filter>
+                <action android:name="com.gfycat.core.action.GFY_CORE_INITIALIZED"/>
+                <category android:name="com.gfycat.core.category.GFY_CORE"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.appnext.core.AdsService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.appnext.base.services.OperationService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.appnext.base.services.ReceiverService"/>
+        <receiver android:enabled="true" android:name="com.appnext.base.receivers.imp.bootreceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.facebook.ads.AudienceNetworkActivity"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.avocarrot.sdk.vast.activity.VASTActivity" android:screenOrientation="landscape"/>
+        <service android:exported="false" android:name="com.avocarrot.sdk.CallbackService"/>
+        <service android:exported="false" android:name="com.avocarrot.sdk.insights.ScheduleAlarmService"/>
+        <receiver android:exported="false" android:name="com.avocarrot.sdk.insights.ScheduleAlarmReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.DATE_CHANGED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="9"/>
+    </application>
+</manifest>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="it.deejay.radiodeejay" platformBuildVersionCode="22" platformBuildVersionName="5.1.1-1819727">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <permission android:name="android.permission.MEDIA_CONTENT_CONTROL"/>
+    <uses-feature android:name="android.hardware.camera" android:required="true"/>
+    <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="it.deejay.radiodeejay.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="it.deejay.radiodeejay.permission.C2D_MESSAGE"/>
+    <application android:allowBackup="true" android:hardwareAccelerated="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="it.deejay.radiodeejay.DeejayApplication" android:theme="@style/DeejayTheme">
+        <activity android:name="it.deejay.radiodeejay.activities.SplashScreenActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.media.action.MEDIA_PLAY_FROM_SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="it.deejay.radiodeejay.activities.FirstLevelActivity" android:screenOrientation="portrait"/>
+        <activity android:name="it.deejay.radiodeejay.activities.MusicaActivity" android:screenOrientation="portrait"/>
+        <activity android:name="it.deejay.radiodeejay.activities.ProgrammiActivity" android:screenOrientation="portrait"/>
+        <activity android:name="it.deejay.radiodeejay.activities.ProgramDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="it.deejay.radiodeejay.activities.ProgramInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="it.deejay.radiodeejay.activities.ProgramCalendarActivity" android:screenOrientation="portrait"/>
+        <activity android:name="it.deejay.radiodeejay.activities.WhatsHotActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="it.deejay.radiodeejay.activities.PostDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="it.deejay.radiodeejay.activities.BlogDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="it.deejay.radiodeejay.activities.BlogCalendarActivity" android:screenOrientation="portrait"/>
+        <activity android:name="it.deejay.radiodeejay.activities.SongDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="it.deejay.radiodeejay.activities.ExpandedPlayerActivity" android:screenOrientation="portrait"/>
+        <activity android:name="it.deejay.radiodeejay.activities.ImpostazioniActivity" android:screenOrientation="portrait"/>
+        <activity android:name="it.deejay.radiodeejay.activities.GestioneNotificheActivity" android:screenOrientation="portrait"/>
+        <activity android:name="it.deejay.radiodeejay.activities.ChitChatActivity" android:screenOrientation="portrait"/>
+        <activity android:name="it.deejay.radiodeejay.activities.SelezionaTonoSvegliaActivity" android:screenOrientation="portrait"/>
+        <activity android:name="it.deejay.radiodeejay.activities.GestioneSvegliaActivity" android:screenOrientation="portrait"/>
+        <activity android:excludeFromRecents="true" android:name="it.deejay.radiodeejay.activities.SvegliaActivity" android:noHistory="true" android:screenOrientation="portrait"/>
+        <activity android:name="it.deejay.radiodeejay.activities.RecorderActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="it.deejay.radiodeejay.action.RECORD"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="it.deejay.radiodeejay.activities.WebViewDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="it.deejay.radiodeejay.activities.PhotoGalleryActivity"/>
+        <activity android:name="it.deejay.radiodeejay.activities.DatiPersonaliActivity" android:screenOrientation="portrait"/>
+        <activity android:name="it.deejay.radiodeejay.activities.EnablePushNotificationActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize|smallestScreenSize" android:name="it.deejay.radiodeejay.activities.VideoPlayerActivity" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="false" android:name="it.deejay.radiodeejay.spice.services.UncachedSpiceService"/>
+        <service android:exported="false" android:name="it.deejay.radiodeejay.spice.services.LocalSpiceService"/>
+        <service android:exported="false" android:name="it.deejay.radiodeejay.services.BackgroundDownloaderService"/>
+        <service android:exported="false" android:name="it.deejay.radiodeejay.player.PlayerService">
+            <intent-filter>
+                <action android:name="it.deejay.radiodeejay.player.action.ACTION_PLAY_NEW_URL"/>
+                <action android:name="it.deejay.radiodeejay.player.action.ACTION_PLAY"/>
+                <action android:name="it.deejay.radiodeejay.player.action.ACTION_TOGGLE_PLAY"/>
+                <action android:name="it.deejay.radiodeejay.player.action.ACTION_PAUSE"/>
+                <action android:name="it.deejay.radiodeejay.player.action.ACTION_STOP"/>
+                <action android:name="it.deejay.radiodeejay.player.action.ACTION_GET_INFO"/>
+                <action android:name="it.deejay.radiodeejay.player.action.ACTION_PREV"/>
+                <action android:name="it.deejay.radiodeejay.player.action.ACTION_NEXT"/>
+                <action android:name="it.deejay.radiodeejay.player.action.ACTION_SEEK"/>
+                <action android:name="it.deejay.radiodeejay.player.action.ACTION_APP_GOES_BKG"/>
+                <action android:name="it.deejay.radiodeejay.player.action.ACTION_APP_COME_FRG"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="it.deejay.radiodeejay.receivers.StartingProgramReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="it.deejay.radiodeejay.player.remotecontrol.RemoteControlIntentReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="it.deejay.radiodeejay.player.remotecontrol.HeadsetPlugReceiver">
+            <intent-filter>
+                <action android:name="android.media.AudioManager.ACTION_HEADSET_PLUG"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:label="NetworkChangeReceiver" android:name="it.deejay.radiodeejay.receivers.NetworkChangeReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="it.deejay.radiodeejay.sveglia.AlarmsReceiver"/>
+        <service android:name="com.parse.PushService"/>
+        <receiver android:name="com.parse.ParseBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="it.deejay.radiodeejay.receivers.CustomParsePushBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.parse.push.intent.RECEIVE"/>
+                <action android:name="com.parse.push.intent.DELETE"/>
+                <action android:name="com.parse.push.intent.OPEN"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.parse.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="it.deejay.radiodeejay"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:name="com.krux.androidsdk.aggregator.EventPublisherService"/>
+        <service android:exported="true" android:name="it.deejay.radiodeejay.services.DeejayMediaBrowserService">
+            <intent-filter>
+                <action android:name="android.media.browse.MediaBrowserService"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.facebook.app.FacebookContentProvider120633074649662" android:exported="true" android:name="com.facebook.FacebookContentProvider"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="1a6e864decec851b7c6cb82e4c072916584e5c47"/>
+        <meta-data android:name="com.parse.push.gcm_sender_id" android:value="id:585654619010"/>
+        <meta-data android:name="com.google.android.gms.car.application" android:resource="@xml/automotive_app_desc"/>
+        <meta-data android:name="com.google.android.gms.car.notification.SmallIcon" android:resource="@drawable/deejay_radio_notification"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity" android:theme="@style/Theme.IAPTheme"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+    </application>
+</manifest>

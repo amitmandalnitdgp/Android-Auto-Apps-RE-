@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.quanticapps.quranandroid" platformBuildVersionCode="26" platformBuildVersionName="8.0.0">
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <permission android:name="com.quanticapps.quranandroid.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.quanticapps.quranandroid.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="com.quanticapps.quranandroid.QuranApplication" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/AppThemeDarkMain">
+        <meta-data android:name="android.max_aspect" android:value="2.1"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.quanticapps.quranandroid.ActivitySplash" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter android:priority="1">
+                <action android:name="android.media.action.MEDIA_PLAY_FROM_SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="open.quranpro.co" android:path="/play" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="play" android:scheme="quranapp"/>
+            </intent-filter>
+            <meta-data android:name="android.app.shortcuts" android:resource="@xml/shortcuts"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.quanticapps.quranandroid.activity.ActivityMain"/>
+        <activity android:clearTaskOnLaunch="true" android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.quanticapps.quranandroid.activity.ActivityFileChooser" android:taskAffinity="" android:theme="@style/Theme.UserDialog">
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="content"/>
+                <data android:scheme="file"/>
+                <data android:mimeType="audio/*"/>
+                <data android:mimeType="application/ogg"/>
+                <data android:mimeType="application/x-ogg"/>
+                <data android:mimeType="application/itunes"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.android.music.PLAYBACK_VIEWER"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:label="@string/music_picker_title" android:name="com.quanticapps.quranandroid.activity.MusicPicker">
+            <intent-filter>
+                <action android:name="android.intent.action.GET_CONTENT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.OPENABLE"/>
+                <data android:mimeType="audio/*"/>
+                <data android:mimeType="application/ogg"/>
+                <data android:mimeType="application/x-ogg"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PICK"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.OPENABLE"/>
+                <data android:mimeType="vnd.android.cursor.dir/audio"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:label="@string/mediapickerlabel" android:name="com.quanticapps.quranandroid.activity.MediaPickerActivity"/>
+        <activity android:label="@string/support_activity_title" android:name="com.zendesk.sdk.support.SupportActivity" android:theme="@style/SupportLightTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/contact_fragment_title" android:name="com.zendesk.sdk.feedback.ui.ContactZendeskActivity" android:theme="@style/SupportLightTheme" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.zendesk.sdk.support.ViewArticleActivity" android:theme="@style/SupportLightTheme"/>
+        <activity android:label="@string/request_list_activity_title" android:name="com.zendesk.sdk.requests.RequestActivity" android:theme="@style/SupportLightTheme"/>
+        <activity android:label="@string/contact_fragment_title" android:name="com.zendesk.sdk.requests.ViewRequestActivity" android:theme="@style/SupportLightTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <receiver android:name="com.quanticapps.quranandroid.utilPicker.MediaButtonIntentReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+                <action android:name="android.media.AUDIO_BECOMING_NOISY"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.quanticapps.quranandroid.utilPicker.MediaPlaybackService"/>
+        <activity android:exported="true" android:name="com.quanticapps.quranandroid.utilPicker.MusicBrowserActivity" android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MUSIC_PLAYER"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.APP_MUSIC"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.quanticapps.quranandroid.activity.ActivityLinkPicker" android:theme="@android:style/Theme.Dialog">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="*" android:pathPattern=".*\\.mp3" android:scheme="http"/>
+                <data android:host="*" android:pathPattern=".*\\.mp3" android:scheme="https"/>
+                <data android:host="*" android:mimeType="*/*" android:pathPattern=".*\\.mp3" android:scheme="http"/>
+                <data android:host="*" android:mimeType="*/*" android:pathPattern=".*\\.mp3" android:scheme="https"/>
+                <data android:mimeType="audio/*" android:scheme="http"/>
+                <data android:mimeType="audio/*" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/download_title" android:name="com.quanticapps.quranandroid.activity.ActivityDownloadManager"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.quanticapps.quranandroid.activity.ActivityTutorial" android:screenOrientation="portrait"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.quanticapps.quranandroid.receiver.onBootDevice">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.quanticapps.quranandroid.receiver.TimeAlarm"/>
+        <service android:enabled="true" android:exported="false" android:name="com.quanticapps.quranandroid.service.ServiceDownload">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:exported="false" android:name="com.quanticapps.quranandroid.service.ServicePlayer"/>
+        <provider android:authorities="com.quanticapps.quranandroid.provider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_provider_paths"/>
+        </provider>
+        <meta-data android:name="io.fabric.ApiKey" android:value="b892beea3639e4216e321b811632a7b3bf580079"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MoPubActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MraidActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.common.MoPubBrowser"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MraidVideoPlayerActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.facebook.ads.InterstitialAdActivity"/>
+        <meta-data android:name="com.google.android.gms.car.application" android:resource="@xml/automotive_app_desc"/>
+        <meta-data android:name="com.google.android.gms.car.application.theme" android:resource="@style/QuranCarTheme"/>
+        <service android:enabled="true" android:exported="true" android:name="com.quanticapps.quranandroid.service.QuranMusicService">
+            <intent-filter>
+                <action android:name="android.media.browse.MediaBrowserService"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.media.action.MEDIA_PLAY_FROM_SEARCH"/>
+                <action android:name="android.media.action.ACTION_PLAY_PAUSE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.quanticapps.quranandroid.receiver.MediaButtonCompatReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+                <action android:name="android.media.AUDIO_BECOMING_NOISY"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:label="@string/widget_audio" android:name="com.quanticapps.quranandroid.widget.WidgetAudio">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_audio"/>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.quran.labs.androidquran.QuranDataActivity" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name="com.quran.labs.androidquran.ui.QuranActivity" android:theme="@style/QuranToolBar"/>
+        <activity android:launchMode="singleTop" android:name="com.quran.labs.androidquran.ui.PagerActivity" android:theme="@style/QuranToolBar.Overlay"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.quran.labs.androidquran.ui.TranslationManagerActivity" android:theme="@style/Quran"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.quran.labs.androidquran.QuranPreferenceActivity" android:screenOrientation="portrait" android:theme="@style/QuranToolBar"/>
+        <activity android:launchMode="singleTop" android:name="com.quran.labs.androidquran.SearchActivity" android:theme="@style/Quran">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:name="com.quran.labs.androidquran.QuranForwarderActivity" android:theme="@style/Quran">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="quran"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.quran.labs.androidquran.ui.AudioManagerActivity" android:theme="@style/Quran"/>
+        <meta-data android:name="android.app.default_searchable" android:value=".SearchActivity"/>
+        <provider android:authorities="com.quanticapps.quranandroid.data.QuranDataProvider" android:exported="false" android:name="com.quanticapps.quranandroid.data.QuranDataProvider"/>
+        <receiver android:name="android.support.v4.media.session.MediaButtonReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.quran.labs.androidquran.QuranImportActivity" android:screenOrientation="portrait" android:theme="@style/Quran">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="application/json"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="*" android:mimeType="*/*" android:pathPattern=".*\\.backup" android:scheme="file"/>
+                <data android:host="*" android:mimeType="*/*" android:pathPattern=".*\\..*\\.backup" android:scheme="file"/>
+                <data android:host="*" android:mimeType="*/*" android:pathPattern=".*\\..*\\..*\\.backup" android:scheme="file"/>
+                <data android:host="*" android:mimeType="*/*" android:pathPattern=".*\\..*\\..*\\..*\\.backup" android:scheme="file"/>
+            </intent-filter>
+        </activity>
+        <service android:enabled="true" android:name="com.quran.labs.androidquran.service.QuranDownloadService"/>
+        <service android:exported="false" android:name="com.quran.labs.androidquran.service.AudioService">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME" android:value="com.quanticapps.quranandroid.CastOptionsProvider"/>
+        <service android:name="com.batch.android.BatchPushService"/>
+        <receiver android:name="com.batch.android.BatchPushReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.quanticapps.quranandroid"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.batch.android.BatchPushInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="android.support.VERSION" android:value="26.1.0"/>
+        <receiver android:name="com.google.android.gms.cast.framework.media.MediaIntentReceiver"/>
+        <service android:name="com.google.android.gms.cast.framework.media.MediaNotificationService"/>
+        <service android:name="com.google.android.gms.cast.framework.ReconnectionService"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.quanticapps.quranandroid"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.quanticapps.quranandroid.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:exported="false" android:name="com.batch.android.MessagingActivity" android:theme="@style/com.batch.android.MessagingActivityTheme"/>
+        <activity android:exported="false" android:name="com.batch.android.BatchActionActivity" android:theme="@style/com.batch.android.ActionActivityTheme"/>
+        <service android:exported="false" android:name="com.batch.android.BatchActionService"/>
+        <service android:name="com.batch.android.BatchPushJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:name="com.batch.android.ProvidersChangedBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.location.PROVIDERS_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.batch.android.BootCompletedBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.batch.android.AlarmNotificationBroadcastReceiver"/>
+        <service android:name="com.batch.android.GeofenceTransitionsIntentService"/>
+        <service android:name="com.batch.android.BeaconIntentService"/>
+        <receiver android:name="com.zendesk.sdk.power.BatteryStateBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.zendesk.sdk.deeplinking.ZendeskDeepLinkingBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.zendesk.sdk.deeplinking"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.quanticapps.quranandroid.belvedere.attachments" android:exported="false" android:grantUriPermissions="true" android:name="com.zendesk.belvedere.BelvedereFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/belvedere_attachment_storage"/>
+        </provider>
+        <meta-data android:name="android.arch.lifecycle.VERSION" android:value="27.0.0-SNAPSHOT"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
+    </application>
+</manifest>

@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.jetappfactory.jetaudio" platformBuildVersionCode="21" platformBuildVersionName="5.0.1-1624448">
+    <uses-permission android:name="com.android.vending.CHECK_LICENSE"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <application android:backupAgent="com.jetappfactory.jetaudio.preferences.JBackupAgent" android:hardwareAccelerated="true" android:icon="@drawable/icon" android:label="@string/strAppName" android:restoreAnyVersion="true" android:theme="@style/jetAudioTheme">
+        <meta-data android:name="com.google.android.backup.api_key" android:value="AEdPqrEAAAAIAe72XMGjP3XvCa1y4r34RQPnSjwe1DI1qcHI8Q"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.google.android.gms.car.application" android:resource="@xml/automotive_app_desc"/>
+        <meta-data android:name="com.google.android.gms.car.notification.SmallIcon" android:resource="@drawable/stat_notify_musicplayer"/>
+        <meta-data android:name="com.google.android.gms.car.application.theme" android:resource="@style/jetAudioCarTheme"/>
+        <meta-data android:name="android.app.default_searchable" android:value="com.jetappfactory.jetaudio.QueryBrowserActivity"/>
+        <receiver android:name="com.jetappfactory.jetaudio.MediaButtonIntentReceiver">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:name="com.inmobi.androidsdk.IMBrowserActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:name="com.tapit.adview.AdActivity"/>
+        <activity android:name="com.jetappfactory.jetaudio.MusicBrowserActivity" android:theme="@style/jetAudioTheme.Browser.Launch">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:name="com.jetappfactory.jetaudio.PlaylistBrowserActivity" android:theme="@style/jetAudioTheme.Browser.Gray">
+            <intent-filter>
+                <action android:name="android.intent.action.PICK"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="vnd.android.cursor.dir/com.jetappfactory.jetaudio.jetaudio_playlist"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="vnd.android.cursor.dir/com.jetappfactory.jetaudio.jetaudio_playlist"/>
+            </intent-filter>
+        </activity>
+        <activity-alias android:icon="@drawable/ic_launcher_shortcut_music_playlist" android:label="@string/musicshortcutlabel" android:name="com.jetappfactory.jetaudio.PlaylistShortcutActivity" android:targetActivity="com.jetappfactory.jetaudio.PlaylistBrowserActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity-alias>
+        <activity android:exported="false" android:name="com.jetappfactory.jetaudio.dialog.CreatePlaylist" android:theme="@style/jetAudioTheme.Dialog"/>
+        <activity android:exported="false" android:name="com.jetappfactory.jetaudio.dialog.RenamePlaylist" android:theme="@style/jetAudioTheme.Dialog"/>
+        <activity android:exported="false" android:name="com.jetappfactory.jetaudio.dialog.WeekSelector" android:theme="@style/jetAudioTheme.Dialog"/>
+        <activity android:exported="false" android:name="com.jetappfactory.jetaudio.dialog.DeleteItems" android:theme="@style/jetAudioTheme.Dialog"/>
+        <activity android:exported="false" android:name="com.jetappfactory.jetaudio.SFX.SfxProfileManager" android:theme="@style/jetAudioTheme.Dialog"/>
+        <activity android:label="@string/strAppName" android:launchMode="singleTop" android:name="com.jetappfactory.jetaudio.MediaPlaybackActivity" android:theme="@style/jetAudioTheme.Browser.Gray.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="content"/>
+                <data android:scheme="file"/>
+                <data android:mimeType="audio/*"/>
+                <data android:mimeType="application/ogg"/>
+                <data android:mimeType="application/x-ogg"/>
+                <data android:mimeType="application/itunes"/>
+                <data android:mimeType="vnd.android.cursor.dir/com.jetappfactory.jetaudio.jetaudio_player_main"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.jetappfactory.jetaudio.PLAYBACK_VIEWER"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.media.action.MEDIA_PLAY_FROM_SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/strAppName" android:name="com.jetappfactory.jetaudio.TrackBrowserActivity" android:theme="@style/jetAudioTheme.Browser.Gray">
+            <intent-filter>
+                <action android:name="android.intent.action.EDIT"/>
+                <action android:name="android.intent.action.PICK"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="vnd.android.cursor.dir/com.jetappfactory.jetaudio.jetaudio_track"/>
+            </intent-filter>
+        </activity>
+        <service android:exported="false" android:name="com.jetappfactory.jetaudio.MediaPlaybackService"/>
+        <service android:exported="true" android:name="com.jetappfactory.jetaudio.auto.JMusicBrowserService">
+            <intent-filter>
+                <action android:name="android.media.browse.MediaBrowserService"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name="com.jetappfactory.jetaudio.utils.ExMediaScan.JExMediaScanService">
+            <intent-filter>
+                <action android:name="com.jetappfactory.jetaudio.jexmediascanner.SCAN_DIR"/>
+                <data android:scheme="file"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.jetappfactory.jetaudio.utils.TimerAlarm.JAlarmReceiver" android:process=":remote"/>
+        <receiver android:exported="true" android:name="com.jetappfactory.jetaudio.utils.ExMediaScan.JExMediaScanerAlertReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_SCANNER_FINISHED"/>
+                <data android:scheme="file"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_SCANNER_STARTED"/>
+                <data android:scheme="file"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.jetappfactory.jetaudio.widget.MediaAppWidgetSettingsActivity_4x1" android:theme="@style/jetAudioTheme">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.jetappfactory.jetaudio.widget.MediaAppWidgetSettingsActivity_4x2" android:theme="@style/jetAudioTheme">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.jetappfactory.jetaudio.widget.MediaAppWidgetSettingsActivity_4x3" android:theme="@style/jetAudioTheme">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.jetappfactory.jetaudio.widget.MediaAppWidgetSettingsActivity_4x4" android:theme="@style/jetAudioTheme">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.jetappfactory.jetaudio.widget.MediaAppWidgetSettingsActivity_5x5" android:theme="@style/jetAudioTheme">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.jetappfactory.jetaudio.widget.MediaAppWidgetSettingsActivity_2x2" android:theme="@style/jetAudioTheme">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.jetappfactory.jetaudio.widget.MediaAppWidgetSettingsActivity_2x3" android:theme="@style/jetAudioTheme">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.jetappfactory.jetaudio.widget.MediaAppWidgetSettingsActivity_3x3" android:theme="@style/jetAudioTheme">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <receiver android:label="@string/jetaudiowidget_4x1" android:name="com.jetappfactory.jetaudio.widget.MediaAppWidgetProvider_4x1">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_info_4x1"/>
+        </receiver>
+        <receiver android:label="@string/jetaudiowidget_4x2" android:name="com.jetappfactory.jetaudio.widget.MediaAppWidgetProvider_4x2">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_info_4x2"/>
+        </receiver>
+        <receiver android:label="@string/jetaudiowidget_4x3" android:name="com.jetappfactory.jetaudio.widget.MediaAppWidgetProvider_4x3">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_info_4x3"/>
+        </receiver>
+        <receiver android:label="@string/jetaudiowidget_4x4" android:name="com.jetappfactory.jetaudio.widget.MediaAppWidgetProvider_4x4">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_info_4x4"/>
+        </receiver>
+        <receiver android:label="@string/jetaudiowidget_5x5" android:name="com.jetappfactory.jetaudio.widget.MediaAppWidgetProvider_5x5">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_info_5x5"/>
+        </receiver>
+        <receiver android:label="@string/jetaudiowidget_2x2" android:name="com.jetappfactory.jetaudio.widget.MediaAppWidgetProvider_2x2">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_info_2x2"/>
+        </receiver>
+        <receiver android:label="@string/jetaudiowidget_2x3" android:name="com.jetappfactory.jetaudio.widget.MediaAppWidgetProvider_2x3">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_info_2x3"/>
+        </receiver>
+        <receiver android:label="@string/jetaudiowidget_3x3" android:name="com.jetappfactory.jetaudio.widget.MediaAppWidgetProvider_3x3">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_info_3x3"/>
+        </receiver>
+        <activity android:configChanges="keyboard|orientation" android:exported="false" android:name="com.jetappfactory.jetaudio.preferences.jetAudioSettingsActivity_v2" android:theme="@style/jetAudioTheme"/>
+        <activity android:configChanges="keyboard|orientation" android:exported="false" android:name="com.jetappfactory.jetaudio.preferences.jetAudioSettingsActivity_v2_legacy" android:theme="@style/jetAudioTheme"/>
+        <activity android:exported="false" android:name="com.jetappfactory.jetaudio.ArtistBrowserActivity" android:theme="@style/jetAudioTheme.Browser.Gray">
+            <intent-filter>
+                <action android:name="android.intent.action.PICK"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="vnd.android.cursor.dir/com.jetappfactory.jetaudio.jetaudio_artist"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:name="com.jetappfactory.jetaudio.AlbumBrowserActivity" android:theme="@style/jetAudioTheme.Browser.Gray">
+            <intent-filter>
+                <action android:name="android.intent.action.PICK"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="vnd.android.cursor.dir/com.jetappfactory.jetaudio.jetaudio_album"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:name="com.jetappfactory.jetaudio.GenreBrowserActivity" android:theme="@style/jetAudioTheme.Browser.Gray">
+            <intent-filter>
+                <action android:name="android.intent.action.PICK"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="vnd.android.cursor.dir/com.jetappfactory.jetaudio.jetaudio_genre"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.jetappfactory.jetaudio.folderBrowser.JFolderBrowserWnd" android:theme="@style/jetAudioTheme.Browser.Gray">
+            <intent-filter>
+                <action android:name="android.intent.action.PICK"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="vnd.android.cursor.dir/com.jetappfactory.jetaudio.jetaudio_folder"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="true" android:name="com.jetappfactory.jetaudio.QueryBrowserActivity" android:theme="@style/jetAudioTheme.Browser.Gray">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+                <action android:name="android.intent.action.MEDIA_SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:name="com.jetappfactory.jetaudio.ui_component.ScanningProgress"/>
+        <activity android:name="com.jetappfactory.jetaudio.SFX.JpEQUserBandSettingWnd" android:theme="@style/jetAudioTheme.Browser.Gray.NoTitleBar"/>
+        <activity android:name="com.jetappfactory.jetaudio.SFX.JpSFXUserSettingWnd" android:theme="@style/jetAudioTheme.Browser.Gray.NoTitleBar"/>
+        <activity android:name="com.jetappfactory.jetaudio.SFX.JpBGVSettingWnd" android:theme="@style/jetAudioTheme.Browser.Gray.NoTitleBar"/>
+        <activity android:name="com.jetappfactory.jetaudio.SFX.JpAM3DSettingWnd" android:theme="@style/jetAudioTheme.Browser.Gray.NoTitleBar"/>
+        <activity android:name="com.jetappfactory.jetaudio.SFX.JpXTALSettingWnd" android:theme="@style/jetAudioTheme.Browser.Gray.NoTitleBar"/>
+        <activity android:name="com.jetappfactory.jetaudio.utils.TimerAlarm.JTimerTaskDialog" android:theme="@style/jetAudioTheme.Dialog"/>
+        <activity android:name="com.jetappfactory.jetaudio.utils.Twitter.JTwitter" android:theme="@style/jetAudioTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.jetappfactory.jetaudio.utils.Twitter.JTwitterLogin" android:theme="@style/jetAudioTheme.NoTitleBar" android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="com.jetappfactory.jetaudio.TWITTER_LOGIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.jetappfactory.jetaudio.utils.LockScreen.LockScreenForNonICS"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.amazon.device.ads.AdActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.jetappfactory.jetaudio.PurchaseActivity" android:theme="@style/jetAudioTheme.Dialog">
+            <intent-filter>
+                <action android:name="com.jetappfactory.jetaudio.PURCHASE_VIEWER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.jetappfactory.jetaudio.tageditor.JTagEditor" android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.jetappfactory.jetaudio.visualization.JVisActivity" android:theme="@style/jetAudioTheme.Browser.Gray.NoTitleBar"/>
+        <activity android:label="@string/strAppName" android:name="com.facebook.LoginActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebookAppId"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <receiver android:name="com.amazon.device.iap.ResponseReceiver">
+            <intent-filter>
+                <action android:name="com.amazon.inapp.purchasing.NOTIFY" android:permission="com.amazon.inapp.purchasing.Permission.NOTIFY"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.jetappfactory.jetaudio.wear.JWearConnectionCheckListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.wearable.BIND_LISTENER"/>
+            </intent-filter>
+        </service>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:icon="@drawable/qcircle_icon" android:label="@string/strAppName" android:name="com.jetappfactory.jetaudio.QCircle.QCircleActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="com.lge.quickcover"/>
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

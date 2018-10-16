@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="xyz.klinker.messenger" platformBuildVersionCode="25" platformBuildVersionName="7.1.1">
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.WRITE_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_MMS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_PROFILE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.provider.Telephony.SMS_RECEIVED"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.microphone" android:required="false"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.location" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.network" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+    <uses-feature android:name="android.software.leanback" android:required="false"/>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+    <uses-feature android:name="android.software.app_widget" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.portrait" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.landscape" android:required="false"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <meta-data android:name="android.support.VERSION" android:value="25.3.1"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.READ"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE"/>
+    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT"/>
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE"/>
+    <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE"/>
+    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT"/>
+    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_APP_BADGE"/>
+    <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS"/>
+    <permission android:name="xyz.klinker.messenger.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="xyz.klinker.messenger.permission.C2D_MESSAGE"/>
+    <application android:allowBackup="false" android:banner="@drawable/ic_banner" android:hardwareAccelerated="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="xyz.klinker.messenger.MessengerApplication" android:supportsRtl="true" android:theme="@style/PulseTheme">
+        <meta-data android:name="com.google.android.gms.car.application" android:resource="@xml/automotive_app_desc"/>
+        <activity android:configChanges="keyboardHidden" android:launchMode="singleTop" android:name="xyz.klinker.messenger.activity.MessengerActivity" android:theme="@style/PulseTheme.MessengerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.APP_MESSAGING"/>
+                <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER"/>
+            </intent-filter>
+            <meta-data android:name="android.app.shortcuts" android:resource="@xml/shortcuts"/>
+        </activity>
+        <activity android:name="xyz.klinker.messenger.activity.MessengerTvActivity" android:theme="@style/AppTheme.Leanback">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:name="xyz.klinker.messenger.activity.ComposeActivity" android:theme="@style/PulseTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.SEND"/>
+                <action android:name="android.intent.action.SENDTO"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="sms"/>
+                <data android:scheme="smsto"/>
+                <data android:scheme="mms"/>
+                <data android:scheme="mmsto"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"/>
+                <data android:mimeType="text/vcard"/>
+                <data android:mimeType="text/x-vcard"/>
+                <data android:mimeType="image/*"/>
+                <data android:mimeType="audio/*"/>
+                <data android:mimeType="video/*"/>
+            </intent-filter>
+            <meta-data android:name="android.service.chooser.chooser_target_service" android:value=".shared.service.MessengerChooserTargetService"/>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:launchMode="singleTask" android:name="xyz.klinker.messenger.activity.AccountPurchaseActivity" android:theme="@style/api_Theme.AppCompat.Translucent"/>
+        <activity android:name="xyz.klinker.messenger.shared.util.RedirectToMyAccount" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name="com.yalantis.ucrop.UCropActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:launchMode="singleInstance" android:name="xyz.klinker.messenger.activity.OnboardingActivity" android:theme="@style/AppIntro"/>
+        <activity android:name="xyz.klinker.messenger.activity.OnBoardingPayActivity" android:theme="@style/AppIntro"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="xyz.klinker.messenger.activity.InitialLoadActivity"/>
+        <activity android:name="xyz.klinker.messenger.activity.InitialLoadTvActivity" android:theme="@style/PulseTheme.NoActionBar"/>
+        <activity android:name="xyz.klinker.messenger.activity.MediaGridActivity" android:theme="@style/PulseTheme.NoColors"/>
+        <activity android:name="xyz.klinker.messenger.activity.ContactSettingsActivity" android:theme="@style/PulseTheme.NoColors"/>
+        <activity android:label="@string/menu_settings" android:name="xyz.klinker.messenger.activity.SettingsActivity" android:theme="@style/PulseTheme.NoColors"/>
+        <activity android:name="xyz.klinker.messenger.activity.ImageViewerActivity" android:theme="@style/PulseTheme.NoActionBar.Translucent"/>
+        <activity android:name="com.afollestad.materialcamera.CaptureActivity" android:theme="@style/MaterialCamera.CaptureActivity"/>
+        <activity android:name="com.afollestad.materialcamera.CaptureActivity2" android:theme="@style/MaterialCamera.CaptureActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:launchMode="singleInstance" android:name="xyz.klinker.giphy.GiphyActivity" android:theme="@style/PulseTheme.NoActionBar" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="xyz.klinker.messenger.activity.NotificationReplyActivity" android:theme="@style/api_Theme.AppCompat.Translucent" android:windowSoftInputMode="stateAlwaysVisible|adjustPan"/>
+        <activity android:name="net.rdrei.android.dirchooser.DirectoryChooserActivity"/>
+        <receiver android:name="xyz.klinker.messenger.shared.widget.MessengerAppWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_info"/>
+        </receiver>
+        <service android:name="xyz.klinker.messenger.shared.widget.MessengerWidgetService" android:permission="android.permission.BIND_REMOTEVIEWS"/>
+        <uses-library android:name="com.sec.android.app.multiwindow" android:required="false"/>
+        <meta-data android:name="com.sec.android.support.multiwindow" android:value="true"/>
+        <meta-data android:name="com.sec.android.multiwindow.DEFAULT_SIZE_W" android:resource="@dimen/multiwindow_defaultsize_w"/>
+        <meta-data android:name="com.sec.android.multiwindow.DEFAULT_SIZE_H" android:resource="@dimen/multiwindow_defaultsize_h"/>
+        <meta-data android:name="com.sec.android.multiwindow.MINIMUM_SIZE_W" android:resource="@dimen/multiwindow_minimumsize_w"/>
+        <meta-data android:name="com.sec.android.multiwindow.MINIMUM_SIZE_H" android:resource="@dimen/multiwindow_minimumsize_h"/>
+        <provider android:authorities="xyz.klinker.messenger.provider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyBg-de2pZC1JTdIEidArhOpSRs_AmxNomY"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.google.android.wearable.notificationBridgeMode" android:value="NO_BRIDGING"/>
+        <service android:name="com.android.mms.transaction.TransactionService"/>
+        <service android:label="@string/app_name" android:name="xyz.klinker.messenger.shared.service.MessengerChooserTargetService" android:permission="android.permission.BIND_CHOOSER_TARGET_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.chooser.ChooserTargetService"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="xyz.klinker.messenger.shared.receiver.SmsReceivedReceiver" android:permission="android.permission.BROADCAST_SMS">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_DELIVER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="xyz.klinker.messenger.shared.receiver.SmsSentReceiver" android:taskAffinity="xyz.klinker.messenger.SMS_SENT"/>
+        <receiver android:exported="false" android:name="xyz.klinker.messenger.shared.receiver.SmsDeliveredReceiver" android:taskAffinity="xyz.klinker.messenger.SMS_DELIVERED"/>
+        <receiver android:name="com.android.mms.transaction.PushReceiver" android:permission="android.permission.BROADCAST_WAP_PUSH">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.WAP_PUSH_DELIVER"/>
+                <data android:mimeType="application/vnd.wap.mms-message"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="xyz.klinker.messenger.shared.receiver.MmsSentReceiver" android:taskAffinity="com.klinker.android.messaging.MMS_SENT"/>
+        <receiver android:exported="true" android:name="xyz.klinker.messenger.shared.receiver.MmsReceivedReceiver" android:taskAffinity="com.klinker.android.messaging.MMS_RECEIVED"/>
+        <receiver android:name="xyz.klinker.messenger.shared.receiver.BootCompletedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="xyz.klinker.messenger.shared.receiver.NotificationDismissedReceiver"/>
+        <receiver android:exported="false" android:name="xyz.klinker.messenger.shared.receiver.CarReplyReceiver"/>
+        <service android:exported="true" android:name="xyz.klinker.messenger.shared.service.HeadlessSmsSendService" android:permission="android.permission.SEND_RESPOND_VIA_MESSAGE">
+            <intent-filter>
+                <action android:name="android.intent.action.RESPOND_VIA_MESSAGE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="sms"/>
+                <data android:scheme="smsto"/>
+                <data android:scheme="mms"/>
+                <data android:scheme="mmsto"/>
+            </intent-filter>
+        </service>
+        <service android:icon="@drawable/ic_stat_notify_group" android:label="@string/app_name" android:name="xyz.klinker.messenger.shared.service.DashclockExtension" android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA">
+            <intent-filter>
+                <action android:name="com.google.android.apps.dashclock.Extension"/>
+            </intent-filter>
+            <meta-data android:name="protocolVersion" android:value="2"/>
+            <meta-data android:name="worldReadable" android:value="true"/>
+        </service>
+        <service android:name="xyz.klinker.messenger.shared.service.jobs.CleanupOldMessagesJob" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="xyz.klinker.messenger.shared.service.jobs.RepeatNotificationJob" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="xyz.klinker.messenger.shared.service.jobs.ContentObserverRunCheckJob" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="xyz.klinker.messenger.shared.service.jobs.ContactSyncJob" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="xyz.klinker.messenger.shared.service.jobs.ScheduledMessageJob" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="xyz.klinker.messenger.shared.service.jobs.SubscriptionExpirationCheckJob" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="xyz.klinker.messenger.shared.service.jobs.SignoutJob" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="xyz.klinker.messenger.shared.service.jobs.ContentObserverJob" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="xyz.klinker.messenger.shared.service.ForceTokenRefreshService"/>
+        <service android:name="xyz.klinker.messenger.shared.service.FirebaseHandlerService"/>
+        <service android:name="xyz.klinker.messenger.shared.service.NotificationService"/>
+        <service android:name="xyz.klinker.messenger.shared.service.NotificationDismissedService"/>
+        <service android:name="xyz.klinker.messenger.shared.service.NotificationMarkReadService"/>
+        <service android:name="xyz.klinker.messenger.shared.service.NotificationDeleteService"/>
+        <service android:name="xyz.klinker.messenger.shared.service.NotificationCallService"/>
+        <service android:name="xyz.klinker.messenger.shared.service.ReplyService"/>
+        <service android:name="xyz.klinker.messenger.shared.service.ContentObserverService"/>
+        <service android:name="xyz.klinker.messenger.shared.service.ApiUploadService"/>
+        <service android:name="xyz.klinker.messenger.shared.service.ApiDownloadService"/>
+        <service android:name="xyz.klinker.messenger.shared.service.SimpleSubscriptionCheckService"/>
+        <service android:name="xyz.klinker.messenger.shared.service.SimpleLifetimeSubscriptionCheckService"/>
+        <service android:name="xyz.klinker.messenger.shared.service.MediaParserService"/>
+        <service android:name="xyz.klinker.messenger.shared.service.NewMessagesCheckService"/>
+        <service android:name="xyz.klinker.messenger.shared.service.FirebaseResetService"/>
+        <service android:name="xyz.klinker.messenger.shared.service.ResendFailedMessage"/>
+        <service android:icon="@drawable/ic_stat_notify_group" android:label="@string/shortcut_compose_short" android:name="xyz.klinker.messenger.shared.service.ComposeTileService" android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="xyz.klinker.messenger.MmsFileProvider" android:enabled="true" android:exported="false" android:grantUriPermissions="true" android:name="com.klinker.android.send_message.MmsFileProvider"/>
+        <activity android:name="xyz.klinker.android.article.ArticleActivity" android:theme="@style/ArticleTheme"/>
+        <activity android:name="xyz.klinker.android.article.ImageViewActivity" android:theme="@style/ArticleTheme"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:launchMode="singleTask" android:name="xyz.klinker.messenger.api.implementation.LoginActivity" android:theme="@style/api_Theme.AppCompat.Translucent"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:launchMode="singleTask" android:name="xyz.klinker.messenger.api.implementation.RecreateAccountActivity" android:theme="@style/api_Theme.AppCompat.Translucent"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:launchMode="singleTask" android:name="xyz.klinker.messenger.api.implementation.ActivateActivity" android:theme="@style/api_Theme.AppCompat.Activate"/>
+        <service android:exported="false" android:name="xyz.klinker.messenger.api.implementation.firebase.MessengerFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="xyz.klinker.messenger.api.implementation.firebase.MessengerFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="xyz.klinker.messenger.api.implementation.firebase.ScheduledTokenRefreshService"/>
+        <service android:exported="true" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="xyz.klinker.messenger"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"/>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="xyz.klinker.messenger.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+    </application>
+</manifest>

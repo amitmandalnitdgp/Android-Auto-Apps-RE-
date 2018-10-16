@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.disa" platformBuildVersionCode="24" platformBuildVersionName="7.0">
+    <uses-permission android:name="com.disa.gcm.permission.C2D_MESSAGE" android:required="false"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" android:required="false"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" android:required="false"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" android:required="false"/>
+    <uses-permission android:name="android.permission.CAMERA" android:required="false"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" android:required="false"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS" android:required="false"/>
+    <uses-permission android:name="android.permission.READ_PROFILE" android:required="false"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS" android:required="false"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:required="false"/>
+    <uses-permission android:name="android.permission.VIBRATE" android:required="false"/>
+    <uses-permission android:name="android.permission.SEND_SMS" android:required="false"/>
+    <uses-permission android:name="android.permission.INTERNET" android:required="false"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" android:required="false"/>
+    <uses-permission android:name="android.permission.RECEIVE_MMS" android:required="false"/>
+    <uses-permission android:name="android.permission.READ_SMS" android:required="false"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" android:required="false"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" android:required="false"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" android:required="false"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" android:required="false"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" android:required="false"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" android:required="false"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" android:required="false"/>
+    <uses-permission android:name="android.permission.MAPS_RECEIVE" android:required="false"/>
+    <uses-permission android:name="android.permission.READ_GSERVICES" android:required="false"/>
+    <uses-permission android:name="android.permission.GET_TASKS" android:required="false"/>
+    <uses-permission android:name="android.permission.WRITE_SMS" android:required="false"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" android:required="false"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" android:required="false"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" android:required="false"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:required="false"/>
+    <uses-permission android:name="android.permission.BATTERY_STATS" android:required="false"/>
+    <uses-permission android:name="android.permission.READ_LOGS" android:required="false"/>
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" android:required="false"/>
+    <uses-permission android:name="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" android:required="false"/>
+    <permission android:name="com.disa.permission.MAPS_RECEIVE" android:protectionLevel="signature"/>
+    <permission android:name="com.disa.gcm.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+    <uses-feature android:name="android.hardware.microphone" android:required="false"/>
+    <application android:allowBackup="true" android:icon="@drawable/icon" android:label="Disa" android:largeHeap="true" android:name="md5e9f95577ed91de1d706f596ad26c9217.DisaApp">
+        <receiver android:enabled="true" android:name="com.google.android.gms.analytics.AnalyticsReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.analytics.CampaignTrackingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.CampaignTrackingService"/>
+        <meta-data android:name="com.google.android.gms.car.application" android:resource="@xml/automotive_app_desc"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDqFGG1ZfUqmaJTIMwVA9Gp22OaK7vFGmw"/>
+        <uses-library android:name="com.sec.android.app.multiwindow" android:required="false"/>
+        <meta-data android:name="com.sec.android.support.multiwindow" android:value="true"/>
+        <provider android:authorities="com.disa.mms" android:exported="false" android:grantUriPermissions="true" android:name=".googlemmswrapper2.MmsBodyProvider"/>
+        <meta-data android:name="disa.android.common.DisaGlideModule" android:value="GlideModule"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <receiver android:name="md5e9f95577ed91de1d706f596ad26c9217.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:label="Connectivity Receiver" android:name="md5e9f95577ed91de1d706f596ad26c9217.ConnectivityReceiver">
+            <intent-filter android:priority="99999">
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="orientation|screenSize" android:icon="@drawable/icon" android:label="@string/disa_Disa" android:launchMode="singleTop" android:name="md5e9f95577ed91de1d706f596ad26c9217.Disa" android:theme="@style/Disa.Launcher" android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="Disa" android:name="md5e9f95577ed91de1d706f596ad26c9217.MediaIntentManager" android:theme="@style/Disa.Transparent">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND_MULTIPLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/x-vcard"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/vcard"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="audio/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="video/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="*/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="vnd.android-dir/mms-sms"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="Disa" android:name="md5e9f95577ed91de1d706f596ad26c9217.MessageIntentManager" android:theme="@style/Disa.Transparent">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.SEND"/>
+                <action android:name="android.intent.action.SENDTO"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="sms"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.SEND"/>
+                <action android:name="android.intent.action.SENDTO"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="smsto"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.SEND"/>
+                <action android:name="android.intent.action.SENDTO"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="mms"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.SEND"/>
+                <action android:name="android.intent.action.SENDTO"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="mmsto"/>
+            </intent-filter>
+        </activity>
+        <service android:exported="true" android:label="Disa" android:name="md5e9f95577ed91de1d706f596ad26c9217.QuickResponseService" android:permission="android.permission.SEND_RESPOND_VIA_MESSAGE">
+            <intent-filter>
+                <action android:name="android.intent.action.RESPOND_VIA_MESSAGE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="sms"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.RESPOND_VIA_MESSAGE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="smsto"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.RESPOND_VIA_MESSAGE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="mms"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.RESPOND_VIA_MESSAGE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="mmsto"/>
+            </intent-filter>
+        </service>
+        <service android:name="md5e9f95577ed91de1d706f596ad26c9217.MainService"/>
+        <receiver android:name="md5e9f95577ed91de1d706f596ad26c9217.MainService_StickyAlarmManager"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/merge_title" android:name="md5e9f95577ed91de1d706f596ad26c9217.Merge" android:theme="@style/Disa.DarkActionBar"/>
+        <activity android:configChanges="orientation|screenSize" android:name="md5e9f95577ed91de1d706f596ad26c9217.NewChannel" android:theme="@style/Disa.DarkActionBarAppCompat"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/party_participant_requests_title" android:name="md5e9f95577ed91de1d706f596ad26c9217.PartyParticipantRequests" android:theme="@style/Disa.DarkActionBar"/>
+        <activity android:icon="@drawable/icon" android:label="Disa QR Tap" android:name="md5e9f95577ed91de1d706f596ad26c9217.QrTap" android:screenOrientation="portrait" android:theme="@style/Disa.Transparent">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="plugin"/>
+                <data android:path="/"/>
+                <data android:scheme="disa"/>
+            </intent-filter>
+        </activity>
+        <receiver android:enabled="true" android:label="Notification Deleted" android:name="md5e9f95577ed91de1d706f596ad26c9217.Statics_NotificationDeleteBroadcastReceiver">
+            <intent-filter>
+                <action android:name="notification_deleted"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:label="Notification Read" android:name="md5e9f95577ed91de1d706f596ad26c9217.Statics_NotificationReadBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.disa.NOTIFICATION_READ"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:label="Notification Reply" android:name="md5e9f95577ed91de1d706f596ad26c9217.Statics_NotificationReplyBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.disa.NOTIFICATION_REPLY"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:label="DisaStartupSmsReceiver" android:name="md5e9f95577ed91de1d706f596ad26c9217.SmsReceiver" android:permission="android.permission.BROADCAST_SMS">
+            <intent-filter android:priority="2">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:label="DisaStartupMmsReceiver" android:name="md5e9f95577ed91de1d706f596ad26c9217.MmsReceiver" android:permission="android.permission.BROADCAST_WAP_PUSH">
+            <intent-filter android:priority="2">
+                <action android:name="android.provider.Telephony.WAP_PUSH_RECEIVED"/>
+                <data android:mimeType="application/vnd.wap.mms-message"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="md5e9f95577ed91de1d706f596ad26c9217.GcmReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="disa.android"/>
+            </intent-filter>
+        </receiver>
+        <activity android:label="@string/service_user_settings_title" android:name="md5e9f95577ed91de1d706f596ad26c9217.ServiceUserSettings" android:theme="@style/Disa.DarkActionBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/settings_title" android:name="md5e9f95577ed91de1d706f596ad26c9217.Settings" android:screenOrientation="portrait" android:theme="@style/Disa.DarkActionBar"/>
+        <activity android:label="NotificationSnooze" android:name="md5e9f95577ed91de1d706f596ad26c9217.NotificationSnooze" android:theme="@android:style/Theme.Holo.Light.Dialog"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/party_options_title" android:name="md5e9f95577ed91de1d706f596ad26c9217.PartyOptions" android:theme="@style/Disa.DarkActionBar"/>
+        <activity android:label="@string/settings_backup_restore_name" android:name="md5e9f95577ed91de1d706f596ad26c9217.SettingsBackup" android:screenOrientation="portrait" android:theme="@style/Disa.DarkActionBar"/>
+        <receiver android:name="md5e9f95577ed91de1d706f596ad26c9217.AirPlaneModeReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.AIRPLANE_MODE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="orientation|screenSize" android:name="md5e9f95577ed91de1d706f596ad26c9217.NewMessage" android:theme="@style/Disa.DarkActionBar"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/add_service_title" android:name="md5e9f95577ed91de1d706f596ad26c9217.AddService" android:theme="@style/Disa.DarkActionBar"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/privacy_list_title" android:name="md5e9f95577ed91de1d706f596ad26c9217.PrivacyList" android:theme="@style/Disa.DarkActionBar"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/solo_options_title" android:name="md5e9f95577ed91de1d706f596ad26c9217.SoloOptions" android:theme="@style/Disa.DarkActionBar"/>
+        <activity android:configChanges="orientation|screenSize" android:label="Disa" android:name="md5e9f95577ed91de1d706f596ad26c9217.ForegroundServiceSettingsAlert" android:theme="@style/Disa.Transparent"/>
+        <activity android:configChanges="orientation|screenSize" android:name="md5e9f95577ed91de1d706f596ad26c9217.TutorialIntroduction" android:screenOrientation="portrait" android:theme="@style/Disa.Dark.NoActionBar"/>
+        <receiver android:enabled="true" android:label="Connectivity Receiver" android:name="md5e9f95577ed91de1d706f596ad26c9217.TutorialIntroduction_ConnectivityReceiver">
+            <intent-filter android:priority="99999">
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/help_and_feedback_title" android:name="md5e9f95577ed91de1d706f596ad26c9217.HelpAndFeedback" android:theme="@style/Disa.DarkActionBar"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/whats_new_title" android:name="md5e9f95577ed91de1d706f596ad26c9217.WhatsNew" android:screenOrientation="portrait" android:theme="@style/Disa.DarkActionBar"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/conversation_gallery_title" android:name="md5e9f95577ed91de1d706f596ad26c9217.ConversationGallery" android:theme="@style/Disa.DarkActionBar"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/web_browser_title" android:name="md5e9f95577ed91de1d706f596ad26c9217.WebBrowser" android:theme="@style/Disa.DarkActionBar"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/party_options_blocked_participants_list_title" android:name="md5e9f95577ed91de1d706f596ad26c9217.PartyBlockedParticipantsList" android:theme="@style/Disa.DarkActionBar"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/party_options_settings_bootstrapper_label" android:name="md5e9f95577ed91de1d706f596ad26c9217.PartyOptionsSettingsBootstrapper" android:theme="@style/Disa.XamarinFormsBootstrapper"/>
+        <activity android:configChanges="orientation|screenSize" android:name="md5e9f95577ed91de1d706f596ad26c9217.ExportConvoBootstrapper" android:theme="@style/Disa.XamarinFormsBootstrapper"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/media_flipper_title" android:name="md55255986904ae77645b3f20ba3548e3e4.MediaFlipper" android:theme="@style/Disa.DarkActionBar"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/media_viewer_title" android:name="md55255986904ae77645b3f20ba3548e3e4.MediaViewer" android:theme="@style/Disa.DarkActionBar"/>
+        <activity android:configChanges="orientation|screenSize" android:name="md55255986904ae77645b3f20ba3548e3e4.PluginPageBootstrapper" android:theme="@style/Disa.XamarinFormsBootstrapper"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/crop_image_title" android:name="md55255986904ae77645b3f20ba3548e3e4.CropImage" android:theme="@style/Disa.DarkActionBar"/>
+        <receiver android:enabled="true" android:label="Disa" android:name="md54841d768c0f01306de7627c8e4a0b7cc.MmsReceiver" android:permission="android.permission.BROADCAST_WAP_PUSH">
+            <intent-filter android:priority="2">
+                <action android:name="android.provider.Telephony.WAP_PUSH_RECEIVED"/>
+                <action android:name="android.provider.Telephony.WAP_PUSH_DELIVER"/>
+                <data android:mimeType="application/vnd.wap.mms-message"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="md54841d768c0f01306de7627c8e4a0b7cc.MmsSystemAckSentReceiver">
+            <intent-filter>
+                <action android:name="disa.framework.text.android.MMS_ACK_SENT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="md54841d768c0f01306de7627c8e4a0b7cc.MmsSystemSentReceiver">
+            <intent-filter>
+                <action android:name="disa.framework.text.android.MMS_SENT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:label="EnableMMS Receiver" android:name="md54841d768c0f01306de7627c8e4a0b7cc.EnableMmsReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:label="Disa" android:name="md54841d768c0f01306de7627c8e4a0b7cc.SmsReceiver" android:permission="android.permission.BROADCAST_SMS">
+            <intent-filter android:priority="2">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+                <action android:name="android.provider.Telephony.SMS_DELIVER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="md54841d768c0f01306de7627c8e4a0b7cc.SmsSentReceiver">
+            <intent-filter>
+                <action android:name="disa.framework.text.android.MESSAGE_SENT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="md54841d768c0f01306de7627c8e4a0b7cc.SmsDeliveredReceiver">
+            <intent-filter>
+                <action android:name="disa.framework.text.android.MESSAGE_DELIVERED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:label="@string/text_settings_activity_title" android:name="md54841d768c0f01306de7627c8e4a0b7cc.TextSettingsActivity" android:theme="@style/Disa.DarkActionBar"/>
+        <activity android:label="@string/text_settings_new_apn_activity_title" android:name="md54841d768c0f01306de7627c8e4a0b7cc.TextSettingsNewApnActivity" android:theme="@style/Disa.DarkActionBar"/>
+        <activity android:label="@string/text_mms_inbox_title" android:name="md54841d768c0f01306de7627c8e4a0b7cc.TextMmsInboxActivity" android:theme="@style/Disa.DarkActionBar"/>
+        <receiver android:enabled="true" android:label="EnableMMS Download Failed Receiver" android:name="md54841d768c0f01306de7627c8e4a0b7cc.TextMmsInboxActivity_EnableMmsReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="md54841d768c0f01306de7627c8e4a0b7cc.TextMmsSystem_MmsDownloadReceiver">
+            <intent-filter>
+                <action android:name="disa.framework.text.android.MMS_DOWNLOAD"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.disa.google_measurement_service" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementContentProvider"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.measurement.AppMeasurementReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout" android:label="Scanner" android:name="md50a65ff1b1859ab33eb4678a38c3c2bcd.ZxingActivity"/>
+        <provider android:authorities="com.disa.mono.MonoRuntimeProvider.__mono_init__" android:exported="false" android:initOrder="2147483647" android:name="mono.MonoRuntimeProvider"/>
+        <activity android:name="com.disa.backgroundcropper.BackgroundCropper" android:theme="@style/Disa.DarkActionBarAppCompat"/>
+        <meta-data android:name="android.support.VERSION" android:value="25.4.0"/>
+    </application>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:xlargeScreens="true"/>
+</manifest>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="gonemad.gmmp" platformBuildVersionCode="23" platformBuildVersionName="6.0-2438415">
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="net.dinglisch.android.tasker.PERMISSION_RUN_TASKS"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <application android:allowBackup="true" android:allowClearUserData="true" android:hardwareAccelerated="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:name="gonemad.gmmp.GMMPApplication" android:theme="@style/GMMPTheme.HoloDark">
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="gonemad.gmmp.activities.MainActivity" android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MUSIC_PLAYER"/>
+                <category android:name="android.intent.category.APP_MUSIC"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER"/>
+                <category android:name="android.intent.category.CATEGORY_APP_MUSIC"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="file"/>
+                <data android:host="*"/>
+                <data android:mimeType="audio/*"/>
+                <data android:mimeType="application/ogg"/>
+                <data android:mimeType="application/x-ogg"/>
+                <data android:mimeType="application/x-flac"/>
+                <data android:mimeType="application/itunes"/>
+                <data android:mimeType="application/x-mpegurl"/>
+                <data android:mimeType="application/x-scpls"/>
+                <data android:mimeType="application/vnd.ms-wpl"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="file"/>
+                <data android:host="*"/>
+                <data android:pathPattern=".*\\.ape"/>
+                <data android:pathPattern=".*\\.flac"/>
+                <data android:pathPattern=".*\\.m4a"/>
+                <data android:pathPattern=".*\\.mp3"/>
+                <data android:pathPattern=".*\\.mp4"/>
+                <data android:pathPattern=".*\\.mpc"/>
+                <data android:pathPattern=".*\\.ogg"/>
+                <data android:pathPattern=".*\\.tta"/>
+                <data android:pathPattern=".*\\.wav"/>
+                <data android:pathPattern=".*\\.wma"/>
+                <data android:pathPattern=".*\\.wv"/>
+                <data android:pathPattern=".*\\.opus"/>
+                <data android:pathPattern=".*\\.m4b"/>
+                <data android:pathPattern=".*\\.m3u"/>
+                <data android:pathPattern=".*\\.m3u8"/>
+                <data android:pathPattern=".*\\.pls"/>
+                <data android:pathPattern=".*\\.wpl"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="gonemad.gmmp.activities.LockscreenActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="gonemad.gmmp.activities.SettingsActivity" android:parentActivityName="gonemad.gmmp.activities.MainActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="gonemad.gmmp.activities.ErrorLogActivity" android:parentActivityName="gonemad.gmmp.activities.SettingsActivity" android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="gonemad.gmmp.activities.ErrorLogActivity"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="gonemad.gmmp.activities.CustomMetadataActivity" android:parentActivityName="gonemad.gmmp.activities.SettingsActivity" android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="gonemad.gmmp.activities.CustomMetadataActivity"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/tag_editor" android:launchMode="singleTask" android:name="gonemad.gmmp.activities.TagEditorActivity" android:parentActivityName="gonemad.gmmp.activities.MainActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/smart_playlist_editor" android:name="gonemad.gmmp.activities.SmartEditorActivity" android:parentActivityName="gonemad.gmmp.activities.MainActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="gonemad.gmmp.activities.EqualizerActivity" android:parentActivityName="gonemad.gmmp.activities.MainActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="gonemad.gmmp.activities.ImageSelectorActivity" android:parentActivityName="gonemad.gmmp.activities.MainActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/whats_new" android:name="gonemad.gmmp.activities.WhatsNewActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/help" android:name="gonemad.gmmp.activities.HelpActivity" android:parentActivityName="gonemad.gmmp.activities.SettingsActivity" android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="gonemad.gmmp.activities.HelpActivity"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="gonemad.gmmp.activities.WidgetSetupActivity" android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="gonemad.gmmp.activities.WidgetSetupLimitedActivity" android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/lyrics" android:name="gonemad.gmmp.activities.LyricsActivity" android:parentActivityName="gonemad.gmmp.activities.MainActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="gonemad.gmmp.activities.FragmentHolderActivity" android:parentActivityName="gonemad.gmmp.activities.SettingsActivity" android:windowSoftInputMode="stateHidden"/>
+        <service android:enabled="true" android:exported="true" android:name="gonemad.gmmp.core.MusicService"/>
+        <service android:enabled="true" android:exported="true" android:name="gonemad.gmmp.data.scanner.FileScanService"/>
+        <service android:enabled="true" android:exported="true" android:name="gonemad.gmmp.widgets.WidgetUpdateService"/>
+        <service android:enabled="true" android:exported="true" android:name="gonemad.gmmp.data.art.AlbumArtDownloadService"/>
+        <receiver android:label="@string/gmmp_widget_2x1" android:name="gonemad.gmmp.widgets.Widget2x1Provider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="gonemad.gmmp.service.STARTED"/>
+                <action android:name="gonemad.gmmp.widget.OPACITY"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_2x1"/>
+        </receiver>
+        <receiver android:label="@string/gmmp_widget_2x2" android:name="gonemad.gmmp.widgets.Widget2x2Provider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="gonemad.gmmp.service.STARTED"/>
+                <action android:name="gonemad.gmmp.widget.OPACITY"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_2x2"/>
+        </receiver>
+        <receiver android:label="@string/gmmp_widget_4x1" android:name="gonemad.gmmp.widgets.Widget4x1Provider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="gonemad.gmmp.service.STARTED"/>
+                <action android:name="gonemad.gmmp.widget.OPACITY"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_4x1"/>
+        </receiver>
+        <receiver android:label="@string/gmmp_widget_4x2" android:name="gonemad.gmmp.widgets.Widget4x2Provider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="gonemad.gmmp.service.STARTED"/>
+                <action android:name="gonemad.gmmp.widget.OPACITY"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_4x2"/>
+        </receiver>
+        <receiver android:label="@string/gmmp_widget_4x4" android:name="gonemad.gmmp.widgets.Widget4x4Provider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="gonemad.gmmp.service.STARTED"/>
+                <action android:name="gonemad.gmmp.widget.OPACITY"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_4x4"/>
+        </receiver>
+        <receiver android:enabled="true" android:name="gonemad.gmmp.receivers.BluetoothBroadcastReceiver$MediaIntentEcho">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:label="@string/backup" android:name="gonemad.gmmp.receivers.BackupReceiver">
+            <intent-filter>
+                <action android:name="gonemad.gmmp.action.BACKUP_STATS"/>
+                <action android:name="gonemad.gmmp.action.BACKUP_SETTINGS"/>
+                <action android:name="gonemad.gmmp.action.RESTORE_STATS"/>
+                <action android:name="gonemad.gmmp.action.RESTORE_SETTINGS"/>
+            </intent-filter>
+        </receiver>
+        <uses-library android:name="com.sec.android.app.multiwindow" android:required="false"/>
+        <meta-data android:name="com.sec.android.support.multiwindow" android:value="true"/>
+        <meta-data android:name="com.sec.android.multiwindow.DEFAULT_SIZE_W" android:resource="@dimen/app_defaultsize_w"/>
+        <meta-data android:name="com.sec.android.multiwindow.DEFAULT_SIZE_H" android:resource="@dimen/app_defaultsize_h"/>
+        <meta-data android:name="com.sec.android.multiwindow.MINIMUM_SIZE_W" android:resource="@dimen/app_minimumsize_w"/>
+        <meta-data android:name="com.sec.android.multiwindow.MINIMUM_SIZE_H" android:resource="@dimen/app_minimumsize_h"/>
+        <meta-data android:name="com.crashlytics.ApiKey" android:value="9f2224c84e2f7828a5a2cf220c71a7e4dbd4b86c"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:name="gonemad.gmmp.activities.ThemePreviewActivity" android:parentActivityName="gonemad.gmmp.activities.MainActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="gonemad.gmmp.activities.MainActivity"/>
+        </activity>
+        <receiver android:enabled="true" android:name="com.google.android.gms.analytics.AnalyticsReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <receiver android:exported="true" android:name="com.google.android.gms.analytics.CampaignTrackingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService"/>
+    </application>
+</manifest>

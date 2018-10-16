@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.icq.mobile.client" platformBuildVersionCode="25" platformBuildVersionName="7.1.1">
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission-sdk-23 android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_PROFILE"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
+    <uses-permission android:name="com.icq.mobile.client.permission.GET_SETTINGS"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <permission android:name="com.icq.mobile.client.permission.SEND_SETTINGS" android:protectionLevel="signature"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+    <supports-screens android:largeScreens="true" android:normalScreens="true" android:smallScreens="true"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.READ"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE"/>
+    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT"/>
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE"/>
+    <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE"/>
+    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT"/>
+    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_APP_BADGE"/>
+    <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="com.icq.mobile.client.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.icq.mobile.client.permission.C2D_MESSAGE"/>
+    <compatible-screens>
+        <screen android:screenDensity="xxhdpi" android:screenSize="small"/>
+        <screen android:screenDensity="xxhdpi" android:screenSize="normal"/>
+        <screen android:screenDensity="xxhdpi" android:screenSize="large"/>
+        <screen android:screenDensity="xxhdpi" android:screenSize="xlarge"/>
+    </compatible-screens>
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <application android:allowBackup="false" android:icon="@drawable/ic_launcher" android:label="@string/app_label_main" android:largeHeap="true" android:name="ru.mail.instantmessanger.App" android:supportsRtl="true" android:theme="@style/Theme.Custom">
+        <meta-data android:name="ru.mail.instantmessanger.imageloading.glide.IcqGlideModule" android:value="GlideModule"/>
+        <activity android:label="@string/share_file" android:name="com.icq.mobile.client.share.SharingActivity" android:theme="@style/Theme.Custom.Startup">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="*/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND_MULTIPLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="*/*"/>
+            </intent-filter>
+            <meta-data android:name="android.service.chooser.chooser_target_service" android:value="com.icq.mobile.client.share.IcqChooserTargetService"/>
+        </activity>
+        <activity android:label="@string/share_file" android:name="com.icq.mobile.ui.send.SendActivity_"/>
+        <activity android:label="@string/chat_menu_user_info" android:name="ru.mail.instantmessanger.flat.summary.ProfileActivity_"/>
+        <service android:name="com.icq.mobile.client.absync.ICQAccountAuthenticatorService">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+            <meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@xml/authenticator"/>
+        </service>
+        <service android:exported="true" android:name="com.icq.mobile.client.absync.SyncService">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter"/>
+            </intent-filter>
+            <meta-data android:name="android.content.SyncAdapter" android:resource="@xml/sync_contacts"/>
+            <meta-data android:name="android.provider.CONTACTS_STRUCTURE" android:resource="@xml/contacts"/>
+        </service>
+        <activity android:launchMode="singleTask" android:name="com.icq.mobile.registration.RegistrationActivity_" android:windowSoftInputMode="stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.icq.mobile.registration.PreRegistrationActivity_"/>
+        <activity android:name="net.hockeyapp.android.UpdateActivity"/>
+        <receiver android:name="com.icq.mobile.widget.IcqCombinedWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/chats_appwidget_info"/>
+        </receiver>
+        <activity android:exported="true" android:name="ru.mail.instantmessanger.flat.main.MainActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter android:icon="@drawable/contact_call">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="@string/call_mime_type"/>
+            </intent-filter>
+            <intent-filter android:icon="@drawable/contact_chat">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="@string/chat_mime_type"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="icq.com" android:pathPrefix="/" android:scheme="http"/>
+                <data android:host="www.icq.com" android:pathPrefix="/" android:scheme="http"/>
+                <data android:host="icq.com" android:pathPrefix="/" android:scheme="https"/>
+                <data android:host="www.icq.com" android:pathPrefix="/" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="icq"/>
+            </intent-filter>
+        </activity>
+        <activity-alias android:exported="true" android:name="ru.mail.instantmessanger.activities.contactlist.ContactListActivity" android:targetActivity="ru.mail.instantmessanger.flat.main.MainActivity"/>
+        <activity android:name="ru.mail.instantmessanger.modernui.store.PreviewActivity"/>
+        <activity android:label="@string/stickers_title" android:name="ru.mail.instantmessanger.modernui.store.StoreActivity"/>
+        <activity android:label="@string/chat_menu_set_background" android:name="ru.mail.instantmessanger.background.BackgroundListActivity"/>
+        <activity android:label="@string/background_confirmation_title" android:name="ru.mail.instantmessanger.background.BackgroundPreviewActivity" android:theme="@style/Theme.Custom.TranslucentActionBar.Dark"/>
+        <activity android:launchMode="singleTop" android:name="ru.mail.instantmessanger.pinlock.PinLockActivity" android:noHistory="true" android:screenOrientation="portrait"/>
+        <activity android:name="ru.mail.instantmessanger.pinlock.SetPinActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/about_title" android:name="ru.mail.instantmessanger.modernui.about.AboutActivity"/>
+        <activity android:label="@string/prefs_feedback" android:name="ru.mail.instantmessanger.flat.feedback.FeedbackComposeActivity"/>
+        <activity android:name="ru.mail.instantmessanger.flat.gallery.ChatFullscreenActivity" android:theme="@style/Theme.Custom.TranslucentActionBar.Dark.FullscreenViewer"/>
+        <activity android:name="ru.mail.instantmessanger.flat.gallery.ChatGalleryActivity"/>
+        <activity android:name="com.icq.mobile.client.WaitingActivity"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="ru.mail.instantmessanger.flat.voip.IncallActivity_" android:resizeableActivity="false" android:theme="@style/Theme.Voip"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleInstance" android:name="ru.mail.instantmessanger.flat.voip.CallActivity_" android:resizeableActivity="false" android:theme="@style/Theme.Voip"/>
+        <activity android:name="ru.mail.instantmessanger.sharing.ShareToClipboardActivity"/>
+        <service android:exported="false" android:name="ru.mail.voip.VoipService"/>
+        <receiver android:name="ru.mail.util.ui.LocaleChangeReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.LOCALE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="false" android:name="ru.mail.instantmessanger.IMNetworkStateReceiver"/>
+        <service android:enabled="false" android:name="ru.mail.util.KeepAliveService"/>
+        <service android:name="ru.mail.instantmessanger.notifications.NotificationBarService"/>
+        <receiver android:exported="true" android:name="ru.mail.util.NotificationDeletedReceiver">
+            <intent-filter>
+                <action android:name="ru.mail.util.NOTIFICATION_DELETED"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="ru.mail.appwidget.ChatsRemoteViewsService" android:permission="android.permission.BIND_REMOTEVIEWS"/>
+        <service android:exported="false" android:label="@string/telepush_fetch_service_name" android:name="com.icq.mobile.bg.TelepushFetchService_" android:process=":background"/>
+        <service android:exported="false" android:label="@string/telepush_service_name" android:name="com.icq.mobile.service.TelepushService_"/>
+        <service android:exported="false" android:name="ru.mail.instantmessanger.flat.chat.PopupSendMessageService"/>
+        <receiver android:exported="true" android:name="ru.mail.statistics.MultipleInstallBroadcastReceiverImpl">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="ru.mail.android.mytracker.campaign.CampaignReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="ru.mail.instantmessanger.ChatReferrerReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.icq.mobile.broadcast.TelepushRestart">
+            <intent-filter>
+                <action android:name="com.icq.mobile.RESTART"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.icq.mobile.broadcast.TelepushRestartExported">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="ru.mail.android.mytracker.campaign.CampaignService"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:launchMode="singleTask" android:name="ru.mail.instantmessanger.flat.chat.QuickResponseActivity" android:noHistory="true" android:taskAffinity="com.icq.mobile.client.ui.QuickResponseActivity" android:theme="@style/Theme.Custom.Dialog" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:launchMode="singleTop" android:name="com.icq.mobile.registration.PostRegistrationActivity_"/>
+        <activity android:name="com.icq.mobile.client.gallery.GalleryActivity_" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:icon="@mipmap/ic_launcher" android:label="Camera ICQ" android:name="com.icq.mobile.camera.ICamActivity_" android:screenOrientation="portrait" android:taskAffinity="com.icq.mobile.camera" android:theme="@style/Theme.Custom.TranslucentActionBar.Dark">
+            <intent-filter>
+                <action android:name="android.media.action.IMAGE_CAPTURE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.media.action.STILL_IMAGE_CAMERA"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.icq.mobile.photoeditor.PhotoEditorActivity_" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:name="com.icq.mobile.client.gallery.ImageSendActivity_" android:theme="@style/Theme.Custom.TranslucentActionBar.Dark"/>
+        <activity android:name="com.icq.mobile.client.gallery.TabletGalleryActivity_" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:name="com.icq.mobile.ui.snaps.viewer.SnapViewerActivity_" android:theme="@style/TranslucentAppCompat.NoTitleBar" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:name="com.icq.mobile.ui.snaps.viewer.viewer_list.SnapViewersActivity_"/>
+        <activity android:name="com.icq.mobile.client.PreferenceProxyActivity" android:theme="@android:style/Theme.NoDisplay"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <service android:name="ru.mail.util.gcm.GcmInstanceIDListenerService_">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="ru.mail.util.gcm.GcmPushHandleService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="com.google.android.gms.car.application" android:resource="@xml/automotive_app_desc"/>
+        <service android:name="ru.mail.auto.AutoIntentService"/>
+        <receiver android:name="ru.mail.auto.AutoMessageReadReceiver">
+            <intent-filter>
+                <action android:name="com.icq.mobile.client.auto.ACTION_MESSAGE_HEARD"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="ru.mail.auto.AutoMessageReplyReceiver" android:permission="android.permission.SEND_RESPOND_VIA_MESSAGE">
+            <intent-filter>
+                <action android:name="com.icq.mobile.client.auto.ACTION_MESSAGE_REPLY"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="@string/local_media_provider_authorities" android:exported="false" android:name="ru.mail.instantmessanger.sharing.LocalMediaProvider"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="3f1ad332618d35d3fef4002845dd0dc10c42f665"/>
+        <meta-data android:name="optimization_key" android:value="rUthZwvk/Um0UAvvVEqsVR8qqfj4LGpPLms9NpmlkHvUZ7z6ZQjcMsjSygwYzQlwgjLa/ewNdbhIm+2g+SIvGuDAF3Bt4LgxwkgCwIc48MwWL+p9ndKVOJQPAnReIlMWrWS+R1nYsbdIEXqvUKz7fthRaWpPv/wvS7t3E6bJlQifeuBS+O1bo9Islc0sbr3bd5xUsCYup6wzowQdAQiUROuxcFtZLxc/WPdhmieQPbgQIXcV4rcz/p+dDXQKeYJxKAJ4yobuUhPiODi9KhPKWimRHdvwwQsV/gWz3937k5sFCFuY2sx36IbQVkj9RsuUu/mtV9MAHDVlaY/eNBqy9g=="/>
+        <service android:exported="false" android:name="com.icq.mobile.photoeditor.PhotoEditorSaveService"/>
+        <service android:name="com.icq.mobile.client.share.IcqChooserTargetService" android:permission="android.permission.BIND_CHOOSER_TARGET_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.chooser.ChooserTargetService"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name="com.icq.mobile.client.voicechat.VoiceChatBroadcastService_"/>
+        <provider android:authorities="@string/file_provider_authorities" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <activity android:name="com.icq.mobile.client.gallery.GalleryTutorialActivity_" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:name="com.icq.mobile.photoeditor.avatar.AvatarActivity_" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:name="ru.mail.fragments.MailWebViewActivity_" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <meta-data android:name="android.support.VERSION" android:value="25.4.0"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:exported="false" android:name="ru.mail.libverify.gcm.GcmMessageHandlerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="ru.mail.libverify.gcm.GcmInstanceIDListenerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="ru.mail.libverify.gcm.GcmRegisterService"/>
+        <service android:exported="false" android:name="ru.mail.libverify.gcm.GcmMessageDeliverService"/>
+        <receiver android:enabled="false" android:exported="true" android:name="ru.mail.libverify.sms.IncomingSmsReceiver" android:permission="android.permission.BROADCAST_SMS">
+            <intent-filter android:priority="999">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="false" android:exported="true" android:name="ru.mail.libverify.sms.IncomingCallReceiver" android:permission="android.permission.READ_PHONE_STATE">
+            <intent-filter android:priority="999">
+                <action android:name="android.intent.action.PHONE_STATE"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="ru.mail.libverify.sms.SmsHandlingService">
+            <intent-filter>
+                <action android:name="ru.mail.sms.SmsHandlingService"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:exported="true" android:name="ru.mail.libverify.ipc.IpcMessageService" android:permission="android.permission.INTERNET">
+            <intent-filter>
+                <action android:name="ru.mail.libverify.ipc.IpcMessageService"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:exported="true" android:name="ru.mail.libverify.ipc.IpcNotificationService" android:permission="android.permission.INTERNET">
+            <intent-filter>
+                <action android:name="ru.mail.libverify.ipc.IpcNotificationService"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:exported="false" android:name="ru.mail.libverify.notifications.NotificationService">
+            <intent-filter>
+                <action android:name="ru.mail.notifications.NotificationService"/>
+            </intent-filter>
+        </service>
+        <activity android:clearTaskOnLaunch="true" android:excludeFromRecents="true" android:exported="false" android:launchMode="singleTask" android:name="ru.mail.libverify.notifications.SettingsActivity" android:noHistory="true" android:taskAffinity="ru.mail.libverify.notifications.SettingsActivity" android:theme="@style/libverify.Theme.Settings"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:exported="false" android:launchMode="singleTask" android:name="ru.mail.libverify.notifications.SmsCodeNotificationActivity" android:noHistory="true" android:taskAffinity="ru.mail.libverify.notifications.SmsCodeNotificationActivity" android:theme="@style/libverify.Theme.Custom.Popup" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:clearTaskOnLaunch="true" android:excludeFromRecents="true" android:exported="false" android:launchMode="singleTask" android:name="ru.mail.libverify.notifications.SmsDialogsActivity" android:taskAffinity="ru.mail.libverify.notifications.SmsDialogsActivity" android:theme="@style/libverify.Theme.Settings"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="ru.mail.libverify.notifications.SmsMessagesActivity" android:parentActivityName="ru.mail.libverify.notifications.SmsDialogsActivity" android:taskAffinity="ru.mail.libverify.notifications.SmsDialogsActivity" android:theme="@style/libverify.Theme.Settings">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".notifications.SmsDialogsActivity"/>
+        </activity>
+        <receiver android:name="ru.mail.libverify.utils.NetworkStateReceiver"/>
+        <receiver android:name="ru.mail.libverify.utils.network.NetworkStateReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="ru.mail.libverify.utils.ScreenStateReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.SCREEN_OFF"/>
+                <action android:name="android.intent.action.SCREEN_ON"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="ru.mail.libverify.utils.VerificationService"/>
+        <service android:enabled="true" android:exported="false" android:name="ru.mail.libverify.utils.network.NetworkCheckService"/>
+        <receiver android:label="PackageStateReceiver:155" android:name="ru.mail.libverify.utils.PackageStateReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_MY_PACKAGE_REPLACED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="ru.mail.libverify.utils.PackageStateReceiver"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:label="VerificationCheckService" android:name="ru.mail.libverify.fetcher.FetcherService"/>
+        <service android:enabled="true" android:exported="false" android:name="ru.mail.libverify.utils.SettingsCheckService"/>
+        <receiver android:enabled="false" android:name="ru.mail.libverify.utils.SystemRestartReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="ru.mail.libverify.utils.AlarmReceiver"/>
+        <receiver android:enabled="false" android:name="ru.mail.libverify.utils.BatteryLevelReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="ru.mail.libverify.utils.permissions.ShadowActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.icq.mobile.client"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"/>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.icq.mobile.client.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+    </application>
+</manifest>

@@ -1,0 +1,926 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="internalOnly" package="com.bambuna.podcastaddict" platformBuildVersionCode="26" platformBuildVersionName="8.0.0">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-feature android:name="android.hardware.screen.portrait" android:required="false"/>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+    <uses-feature android:name="android.hardware.bluetooth" android:required="false"/>
+    <uses-feature android:name="android.software.leanback" android:required="false"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.READ"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE"/>
+    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT"/>
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE"/>
+    <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE"/>
+    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT"/>
+    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_APP_BADGE"/>
+    <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_READ"/>
+    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_WRITE"/>
+    <meta-data android:name="android.support.VERSION" android:value="25.3.1"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="com.bambuna.podcastaddict.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.bambuna.podcastaddict.permission.C2D_MESSAGE"/>
+    <application android:allowBackup="true" android:banner="@drawable/android_tv_banner" android:fullBackupContent="@xml/auto_backup_scheme" android:hardwareAccelerated="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:name="com.bambuna.podcastaddict.PodcastAddictApplication" android:theme="@style/Theme.PodcastAddict.Black">
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="com.bambuna.podcastaddict.activity.PodcastListActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER"/>
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER"/>
+                <category android:name="android.intent.category.APP_MUSIC"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="android.app.shortcuts" android:resource="@xml/shortcuts"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/feed_content" android:launchMode="singleTop" android:name="com.bambuna.podcastaddict.activity.EpisodeListActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+            <meta-data android:name="android.app.default_searchable" android:value=".activity.EpisodeListActivity"/>
+        </activity>
+        <activity android:label="@string/statistics" android:name="com.bambuna.podcastaddict.activity.StatisticsActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/chapterBookmark" android:name="com.bambuna.podcastaddict.activity.ChapterBookmarkActivity"/>
+        <activity android:label="@string/licenses" android:name="com.bambuna.podcastaddict.activity.LicensesActivity"/>
+        <activity android:label="@string/changelog" android:name="com.bambuna.podcastaddict.activity.ChangelogActivity"/>
+        <activity android:label="@string/privacyPolicy" android:name="com.bambuna.podcastaddict.activity.PrivacyActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/episodeFilteringSettingTitle" android:name="com.bambuna.podcastaddict.activity.PodcastFilteringActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/episodeTagsSettingTitle" android:name="com.bambuna.podcastaddict.activity.PodcastTagsActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/podcastArtworkSettingTitle" android:name="com.bambuna.podcastaddict.activity.PodcastArtworkActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/podcastArtworkSettingTitle" android:name="com.bambuna.podcastaddict.activity.EpisodeArtworkActivity"/>
+        <activity android:exported="true" android:icon="@drawable/ic_launcher" android:label="@string/playList" android:launchMode="singleTask" android:name="com.bambuna.podcastaddict.activity.PlayListActivity"/>
+        <activity android:exported="true" android:icon="@drawable/ic_launcher" android:label="@string/priority" android:launchMode="singleTask" android:name="com.bambuna.podcastaddict.activity.PodcastPriorityActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/downloadManager" android:launchMode="singleTop" android:name="com.bambuna.podcastaddict.activity.DownloadManagerActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/trash" android:launchMode="singleTop" android:name="com.bambuna.podcastaddict.activity.TrashActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/episode_content" android:launchMode="singleTop" android:name="com.bambuna.podcastaddict.activity.EpisodeActivity"/>
+        <activity android:exported="true" android:icon="@drawable/ic_launcher" android:label="@string/podcastAddictPlayer" android:launchMode="singleTask" android:name="com.bambuna.podcastaddict.activity.AudioPlayerActivity">
+            <intent-filter>
+                <action android:name="android.media.action.MEDIA_PLAY_FROM_SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="rtmp"/>
+                <data android:scheme="rtmpe"/>
+                <data android:scheme="rtmps"/>
+                <data android:scheme="rtp"/>
+                <data android:scheme="rtsp"/>
+                <data android:scheme="mms"/>
+                <data android:scheme="mmsh"/>
+                <data android:scheme="icyx"/>
+                <data android:scheme="httplive"/>
+                <data android:scheme="udp"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:mimeType="audio/*"/>
+                <data android:scheme="rtmp"/>
+                <data android:scheme="rtmpe"/>
+                <data android:scheme="rtmps"/>
+                <data android:scheme="rtp"/>
+                <data android:scheme="rtsp"/>
+                <data android:scheme="mms"/>
+                <data android:scheme="mmsh"/>
+                <data android:scheme="icyx"/>
+                <data android:scheme="httplive"/>
+                <data android:scheme="udp"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme=""/>
+                <data android:scheme="file"/>
+                <data android:scheme="ftp"/>
+                <data android:scheme="content"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:mimeType="audio/*"/>
+                <data android:mimeType="application/ogg"/>
+                <data android:mimeType="application/x-flac"/>
+                <data android:mimeType="application/x-ogg"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme=""/>
+                <data android:scheme="file"/>
+                <data android:scheme="ftp"/>
+                <data android:scheme="content"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="*"/>
+                <data android:pathPattern=".*\\.3ga"/>
+                <data android:pathPattern=".*\\.a52"/>
+                <data android:pathPattern=".*\\.aac"/>
+                <data android:pathPattern=".*\\.ac3"/>
+                <data android:pathPattern=".*\\.adt"/>
+                <data android:pathPattern=".*\\.adts"/>
+                <data android:pathPattern=".*\\.aif"/>
+                <data android:pathPattern=".*\\.aifc"/>
+                <data android:pathPattern=".*\\.aiff"/>
+                <data android:pathPattern=".*\\.amr"/>
+                <data android:pathPattern=".*\\.aob"/>
+                <data android:pathPattern=".*\\.ape"/>
+                <data android:pathPattern=".*\\.awb"/>
+                <data android:pathPattern=".*\\.caf"/>
+                <data android:pathPattern=".*\\.dts"/>
+                <data android:pathPattern=".*\\.flac"/>
+                <data android:pathPattern=".*\\.it"/>
+                <data android:pathPattern=".*\\.m4a"/>
+                <data android:pathPattern=".*\\.m4b"/>
+                <data android:pathPattern=".*\\.m4p"/>
+                <data android:pathPattern=".*\\.mid"/>
+                <data android:pathPattern=".*\\.mka"/>
+                <data android:pathPattern=".*\\.mlp"/>
+                <data android:pathPattern=".*\\.mod"/>
+                <data android:pathPattern=".*\\.mpa"/>
+                <data android:pathPattern=".*\\.mp1"/>
+                <data android:pathPattern=".*\\.mp2"/>
+                <data android:pathPattern=".*\\.mp3"/>
+                <data android:pathPattern=".*\\.mpc"/>
+                <data android:pathPattern=".*\\.mpga"/>
+                <data android:pathPattern=".*\\.oga"/>
+                <data android:pathPattern=".*\\.ogg"/>
+                <data android:pathPattern=".*\\.oma"/>
+                <data android:pathPattern=".*\\.opus"/>
+                <data android:pathPattern=".*\\.ra"/>
+                <data android:pathPattern=".*\\.ram"/>
+                <data android:pathPattern=".*\\.rmi"/>
+                <data android:pathPattern=".*\\.s3m"/>
+                <data android:pathPattern=".*\\.spx"/>
+                <data android:pathPattern=".*\\.tta"/>
+                <data android:pathPattern=".*\\.voc"/>
+                <data android:pathPattern=".*\\.vqf"/>
+                <data android:pathPattern=".*\\.w64"/>
+                <data android:pathPattern=".*\\.wav"/>
+                <data android:pathPattern=".*\\.wma"/>
+                <data android:pathPattern=".*\\.wv"/>
+                <data android:pathPattern=".*\\.xa"/>
+                <data android:pathPattern=".*\\.xm"/>
+                <data android:pathPattern=".*\\.3GA"/>
+                <data android:pathPattern=".*\\.A52"/>
+                <data android:pathPattern=".*\\.AAC"/>
+                <data android:pathPattern=".*\\.AC3"/>
+                <data android:pathPattern=".*\\.ADT"/>
+                <data android:pathPattern=".*\\.ADTS"/>
+                <data android:pathPattern=".*\\.AIF"/>
+                <data android:pathPattern=".*\\.AIFC"/>
+                <data android:pathPattern=".*\\.AIFF"/>
+                <data android:pathPattern=".*\\.AMR"/>
+                <data android:pathPattern=".*\\.AOB"/>
+                <data android:pathPattern=".*\\.APE"/>
+                <data android:pathPattern=".*\\.AWB"/>
+                <data android:pathPattern=".*\\.CAF"/>
+                <data android:pathPattern=".*\\.DTS"/>
+                <data android:pathPattern=".*\\.FLAC"/>
+                <data android:pathPattern=".*\\.IT"/>
+                <data android:pathPattern=".*\\.M4A"/>
+                <data android:pathPattern=".*\\.M4B"/>
+                <data android:pathPattern=".*\\.M4P"/>
+                <data android:pathPattern=".*\\.MID"/>
+                <data android:pathPattern=".*\\.MKA"/>
+                <data android:pathPattern=".*\\.MLP"/>
+                <data android:pathPattern=".*\\.MOD"/>
+                <data android:pathPattern=".*\\.MPA"/>
+                <data android:pathPattern=".*\\.MP1"/>
+                <data android:pathPattern=".*\\.MP2"/>
+                <data android:pathPattern=".*\\.MP3"/>
+                <data android:pathPattern=".*\\.MPC"/>
+                <data android:pathPattern=".*\\.MPGA"/>
+                <data android:pathPattern=".*\\.OGA"/>
+                <data android:pathPattern=".*\\.OGG"/>
+                <data android:pathPattern=".*\\.OMA"/>
+                <data android:pathPattern=".*\\.OPUS"/>
+                <data android:pathPattern=".*\\.RA"/>
+                <data android:pathPattern=".*\\.RAM"/>
+                <data android:pathPattern=".*\\.RMI"/>
+                <data android:pathPattern=".*\\.S3M"/>
+                <data android:pathPattern=".*\\.SPX"/>
+                <data android:pathPattern=".*\\.TTA"/>
+                <data android:pathPattern=".*\\.VOC"/>
+                <data android:pathPattern=".*\\.VQF"/>
+                <data android:pathPattern=".*\\.W64"/>
+                <data android:pathPattern=".*\\.WAV"/>
+                <data android:pathPattern=".*\\.WMA"/>
+                <data android:pathPattern=".*\\.WV"/>
+                <data android:pathPattern=".*\\.XA"/>
+                <data android:pathPattern=".*\\.XM"/>
+                <data android:pathPattern=".*\\.m3u"/>
+                <data android:pathPattern=".*\\.M3U"/>
+                <data android:pathPattern=".*\\.pls"/>
+                <data android:pathPattern=".*\\.PLS"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="content"/>
+                <data android:mimeType="audio/*"/>
+                <data android:mimeType="application/ogg"/>
+                <data android:mimeType="application/x-ogg"/>
+                <data android:mimeType="application/itunes"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="file"/>
+                <data android:mimeType="audio/*"/>
+                <data android:mimeType="application/ogg"/>
+                <data android:mimeType="application/x-ogg"/>
+                <data android:mimeType="application/itunes"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:mimeType="audio/*"/>
+                <data android:mimeType="application/ogg"/>
+                <data android:mimeType="application/x-ogg"/>
+                <data android:mimeType="application/itunes"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:exported="true" android:label="@string/podcastAddictPlayer" android:launchMode="singleTask" android:name="com.bambuna.podcastaddict.activity.VideoPlayerActivity" android:resizeableActivity="true" android:supportsPictureInPicture="true" android:theme="@style/Theme.VideoPlayerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:mimeType="video/*"/>
+                <data android:scheme="rtmp"/>
+                <data android:scheme="rtmpe"/>
+                <data android:scheme="rtmps"/>
+                <data android:scheme="rtp"/>
+                <data android:scheme="rtsp"/>
+                <data android:scheme="mms"/>
+                <data android:scheme="mmsh"/>
+                <data android:scheme="icyx"/>
+                <data android:scheme="httplive"/>
+                <data android:scheme="udp"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme=""/>
+                <data android:scheme="file"/>
+                <data android:scheme="ftp"/>
+                <data android:scheme="content"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:mimeType="video/*"/>
+                <data android:mimeType="*/rmvb"/>
+                <data android:mimeType="*/avi"/>
+                <data android:mimeType="*/mkv"/>
+                <data android:mimeType="application/3gpp*"/>
+                <data android:mimeType="application/mp4"/>
+                <data android:mimeType="application/mpeg*"/>
+                <data android:mimeType="application/sdp"/>
+                <data android:mimeType="application/vnd.3gp*"/>
+                <data android:mimeType="application/vnd.apple.mpegurl"/>
+                <data android:mimeType="application/vnd.dvd*"/>
+                <data android:mimeType="application/vnd.dolby*"/>
+                <data android:mimeType="application/vnd.rn-realmedia*"/>
+                <data android:mimeType="application/x-iso9660-image"/>
+                <data android:mimeType="application/x-extension-mp4"/>
+                <data android:mimeType="application/x-matroska"/>
+                <data android:mimeType="application/x-mpegURL"/>
+                <data android:mimeType="application/x-quicktimeplayer"/>
+                <data android:mimeType="application/x-shockwave-flash"/>
+                <data android:mimeType="application/xspf+xml"/>
+                <data android:mimeType="misc/ultravox"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme=""/>
+                <data android:scheme="file"/>
+                <data android:scheme="ftp"/>
+                <data android:scheme="content"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="*"/>
+                <data android:pathPattern=".*\\.3g2"/>
+                <data android:pathPattern=".*\\.3gp"/>
+                <data android:pathPattern=".*\\.3gp2"/>
+                <data android:pathPattern=".*\\.3gpp"/>
+                <data android:pathPattern=".*\\.amv"/>
+                <data android:pathPattern=".*\\.asf"/>
+                <data android:pathPattern=".*\\.avi"/>
+                <data android:pathPattern=".*\\.divx"/>
+                <data android:pathPattern=".*\\.drc"/>
+                <data android:pathPattern=".*\\.dv"/>
+                <data android:pathPattern=".*\\.f4v"/>
+                <data android:pathPattern=".*\\.flv"/>
+                <data android:pathPattern=".*\\.gvi"/>
+                <data android:pathPattern=".*\\.gxf"/>
+                <data android:pathPattern=".*\\.ismv"/>
+                <data android:pathPattern=".*\\.iso"/>
+                <data android:pathPattern=".*\\.m1v"/>
+                <data android:pathPattern=".*\\.m2v"/>
+                <data android:pathPattern=".*\\.m2t"/>
+                <data android:pathPattern=".*\\.m2ts"/>
+                <data android:pathPattern=".*\\.m3u8"/>
+                <data android:pathPattern=".*\\.mkv"/>
+                <data android:pathPattern=".*\\.mov"/>
+                <data android:pathPattern=".*\\.mp2"/>
+                <data android:pathPattern=".*\\.mp2v"/>
+                <data android:pathPattern=".*\\.mp4"/>
+                <data android:pathPattern=".*\\.mp4v"/>
+                <data android:pathPattern=".*\\.mpe"/>
+                <data android:pathPattern=".*\\.mpeg"/>
+                <data android:pathPattern=".*\\.mpeg1"/>
+                <data android:pathPattern=".*\\.mpeg2"/>
+                <data android:pathPattern=".*\\.mpeg4"/>
+                <data android:pathPattern=".*\\.mpg"/>
+                <data android:pathPattern=".*\\.mpv2"/>
+                <data android:pathPattern=".*\\.mts"/>
+                <data android:pathPattern=".*\\.mtv"/>
+                <data android:pathPattern=".*\\.mxf"/>
+                <data android:pathPattern=".*\\.mxg"/>
+                <data android:pathPattern=".*\\.nsv"/>
+                <data android:pathPattern=".*\\.nut"/>
+                <data android:pathPattern=".*\\.nuv"/>
+                <data android:pathPattern=".*\\.ogm"/>
+                <data android:pathPattern=".*\\.ogv"/>
+                <data android:pathPattern=".*\\.ogx"/>
+                <data android:pathPattern=".*\\.ps"/>
+                <data android:pathPattern=".*\\.rec"/>
+                <data android:pathPattern=".*\\.rm"/>
+                <data android:pathPattern=".*\\.rmvb"/>
+                <data android:pathPattern=".*\\.tod"/>
+                <data android:pathPattern=".*\\.ts"/>
+                <data android:pathPattern=".*\\.tts"/>
+                <data android:pathPattern=".*\\.vob"/>
+                <data android:pathPattern=".*\\.vro"/>
+                <data android:pathPattern=".*\\.webm"/>
+                <data android:pathPattern=".*\\.wm"/>
+                <data android:pathPattern=".*\\.wmv"/>
+                <data android:pathPattern=".*\\.wtv"/>
+                <data android:pathPattern=".*\\.xesc"/>
+                <data android:pathPattern=".*\\.3G2"/>
+                <data android:pathPattern=".*\\.3GP"/>
+                <data android:pathPattern=".*\\.3GP2"/>
+                <data android:pathPattern=".*\\.3GPP"/>
+                <data android:pathPattern=".*\\.AMV"/>
+                <data android:pathPattern=".*\\.ASF"/>
+                <data android:pathPattern=".*\\.AVI"/>
+                <data android:pathPattern=".*\\.DIVX"/>
+                <data android:pathPattern=".*\\.DRC"/>
+                <data android:pathPattern=".*\\.DV"/>
+                <data android:pathPattern=".*\\.F4V"/>
+                <data android:pathPattern=".*\\.FLV"/>
+                <data android:pathPattern=".*\\.GVI"/>
+                <data android:pathPattern=".*\\.GXF"/>
+                <data android:pathPattern=".*\\.ISMV"/>
+                <data android:pathPattern=".*\\.ISO"/>
+                <data android:pathPattern=".*\\.M1V"/>
+                <data android:pathPattern=".*\\.M2V"/>
+                <data android:pathPattern=".*\\.M2T"/>
+                <data android:pathPattern=".*\\.M2TS"/>
+                <data android:pathPattern=".*\\.M3U8"/>
+                <data android:pathPattern=".*\\.MKV"/>
+                <data android:pathPattern=".*\\.MOV"/>
+                <data android:pathPattern=".*\\.MP2"/>
+                <data android:pathPattern=".*\\.MP2V"/>
+                <data android:pathPattern=".*\\.MP4"/>
+                <data android:pathPattern=".*\\.MP4V"/>
+                <data android:pathPattern=".*\\.MPE"/>
+                <data android:pathPattern=".*\\.MPEG"/>
+                <data android:pathPattern=".*\\.MPEG1"/>
+                <data android:pathPattern=".*\\.MPEG2"/>
+                <data android:pathPattern=".*\\.MPEG4"/>
+                <data android:pathPattern=".*\\.MPG"/>
+                <data android:pathPattern=".*\\.MPV2"/>
+                <data android:pathPattern=".*\\.MTS"/>
+                <data android:pathPattern=".*\\.MTV"/>
+                <data android:pathPattern=".*\\.MXF"/>
+                <data android:pathPattern=".*\\.MXG"/>
+                <data android:pathPattern=".*\\.NSV"/>
+                <data android:pathPattern=".*\\.NUT"/>
+                <data android:pathPattern=".*\\.NUV"/>
+                <data android:pathPattern=".*\\.OGM"/>
+                <data android:pathPattern=".*\\.OGV"/>
+                <data android:pathPattern=".*\\.OGX"/>
+                <data android:pathPattern=".*\\.PS"/>
+                <data android:pathPattern=".*\\.REC"/>
+                <data android:pathPattern=".*\\.RM"/>
+                <data android:pathPattern=".*\\.RMVB"/>
+                <data android:pathPattern=".*\\.TOD"/>
+                <data android:pathPattern=".*\\.TS"/>
+                <data android:pathPattern=".*\\.TTS"/>
+                <data android:pathPattern=".*\\.VOB"/>
+                <data android:pathPattern=".*\\.VRO"/>
+                <data android:pathPattern=".*\\.WEBM"/>
+                <data android:pathPattern=".*\\.WM"/>
+                <data android:pathPattern=".*\\.WMV"/>
+                <data android:pathPattern=".*\\.WTV"/>
+                <data android:pathPattern=".*\\.XESC"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:mimeType="video/*"/>
+                <data android:mimeType="application/sdp"/>
+                <data android:mimeType="video/*" android:scheme="content"/>
+                <data android:mimeType="video/*" android:scheme="file"/>
+                <data android:host="*" android:mimeType="video/*" android:scheme="http"/>
+                <data android:host="*" android:mimeType="video/*" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:launchMode="singleTop" android:name="com.bambuna.podcastaddict.activity.FilteredEpisodeListActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+            <meta-data android:name="android.app.default_searchable" android:value=".activity.FilteredEpisodeListActivity"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:launchMode="singleTop" android:name="com.bambuna.podcastaddict.activity.EpisodeSearchActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.google.android.gms.actions.SEARCH_ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+            <meta-data android:name="android.app.default_searchable" android:value=".activity.EpisodeSearchActivity"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/search_activity" android:launchMode="singleTop" android:name="com.bambuna.podcastaddict.activity.PodcastSearchResultActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/reviews" android:launchMode="singleTop" android:name="com.bambuna.podcastaddict.activity.ITunesReviewsActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/episodes" android:launchMode="singleTop" android:name="com.bambuna.podcastaddict.activity.PodcastPreviewSearchResultActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/search_activity" android:launchMode="singleTop" android:name="com.bambuna.podcastaddict.activity.PodcastSearchResultDetailActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/search_activity" android:launchMode="singleTop" android:name="com.bambuna.podcastaddict.activity.SinglePodcastSearchResultDetailActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:launchMode="singleTop" android:name="com.bambuna.podcastaddict.activity.EpisodeSearchResultDetailActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="podplayer.net"/>
+                <data android:host=".*podplayer.net"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:label="@string/podcastAddictSubscription" android:launchMode="singleTask" android:name="com.bambuna.podcastaddict.activity.NewPodcastsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:scheme="ftp"/>
+                <data android:scheme="ftps"/>
+                <data android:host="*"/>
+                <data android:pathPattern=".*\\.xml"/>
+                <data android:pathPattern=".*\\.rss"/>
+                <data android:pathPattern=".*/rss/.*"/>
+                <data android:pathPattern=".*rss"/>
+                <data android:pathPattern=".*Rss"/>
+                <data android:pathPattern=".*RSS"/>
+                <data android:pathPattern=".*/feed/.*"/>
+                <data android:pathPattern=".*/Feed/.*"/>
+                <data android:pathPattern=".*feeds.*"/>
+                <data android:pathPattern=".*Feeds.*"/>
+                <data android:pathPattern=".*/podcast/.*"/>
+                <data android:pathPattern=".*/podcasts/.*"/>
+                <data android:pathPattern=".*/podcast"/>
+                <data android:pathPattern=".*/podcasts"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="soundcloud.com"/>
+                <data android:host="*.soundcloud.com"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="feeds.feedburner.com"/>
+                <data android:host="feeds2.feedburner.com"/>
+                <data android:host="feedproxy.google.com"/>
+                <data android:host="feedsproxy.google.com"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="youtube.com" android:pathPattern=".*channel/.*" android:scheme="http"/>
+                <data android:host="*.youtube.com" android:pathPattern=".*channel/.*" android:scheme="http"/>
+                <data android:host="youtube.com" android:pathPattern=".*playlist.*" android:scheme="http"/>
+                <data android:host="*.youtube.com" android:pathPattern=".*playlist.*" android:scheme="http"/>
+                <data android:host="youtube.com" android:pathPattern=".*user/.*" android:scheme="http"/>
+                <data android:host="*.youtube.com" android:pathPattern=".*user/.*" android:scheme="http"/>
+                <data android:host="youtube.com" android:pathPattern=".*channel/.*" android:scheme="https"/>
+                <data android:host="*.youtube.com" android:pathPattern=".*channel/.*" android:scheme="https"/>
+                <data android:host="youtube.com" android:pathPattern=".*playlist.*" android:scheme="https"/>
+                <data android:host="*.youtube.com" android:pathPattern=".*playlist.*" android:scheme="https"/>
+                <data android:host="youtube.com" android:pathPattern=".*user/.*" android:scheme="https"/>
+                <data android:host="*.youtube.com" android:pathPattern=".*user/.*" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="itunes.apple.com" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:scheme="ftp"/>
+                <data android:scheme="ftps"/>
+                <data android:host="*"/>
+                <data android:mimeType="text/xml"/>
+                <data android:mimeType="application/rss+xml"/>
+                <data android:mimeType="application/atom+xml"/>
+                <data android:mimeType="application/xml"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="feed"/>
+                <data android:scheme="pcast"/>
+                <data android:scheme="podcast"/>
+                <data android:scheme="podcastaddict"/>
+                <data android:scheme="itpc"/>
+                <data android:host="*"/>
+            </intent-filter>
+            <intent-filter android:label="Subscribe on Android">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:pathPattern=".*\\..*/.*"/>
+                <data android:host="subscribeonandroid.com"/>
+                <data android:host="www.subscribeonandroid.com"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/opml_import" android:launchMode="singleTop" android:name="com.bambuna.podcastaddict.activity.OPMLImportResultActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="file"/>
+                <data android:scheme="content"/>
+                <data android:scheme="http"/>
+                <data android:scheme="ftp"/>
+                <data android:scheme="ftps"/>
+                <data android:host="*"/>
+                <data android:mimeType="application/octet-stream"/>
+                <data android:mimeType="application/xml"/>
+                <data android:mimeType="text/x-opml"/>
+                <data android:mimeType="text/xml"/>
+                <data android:pathPattern=".*\\.opml"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="file"/>
+                <data android:scheme="content"/>
+                <data android:host="*"/>
+                <data android:mimeType="*/*"/>
+                <data android:pathPattern=".*\\.xml"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:label="@string/app_name" android:launchMode="singleTask" android:name="com.bambuna.podcastaddict.activity.RegisteredPodcastActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:label="@string/app_name" android:launchMode="singleTask" android:name="com.bambuna.podcastaddict.activity.PodcastsByTagActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:label="@string/newBookmark" android:launchMode="singleTask" android:name="com.bambuna.podcastaddict.activity.BookmarkActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:label="@string/episodeTagsSettingTitle" android:name="com.bambuna.podcastaddict.activity.TagsActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:label="@string/teamListTitle" android:name="com.bambuna.podcastaddict.activity.TeamListActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:label="@string/searchEngine" android:name="com.bambuna.podcastaddict.activity.LiveStreamSearchEngineActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:label="@string/discoverActivityTitle" android:name="com.bambuna.podcastaddict.activity.DiscoverPodcastActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:label="@string/suggestions" android:name="com.bambuna.podcastaddict.activity.PodcastsSuggestionsActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:label="@string/app_name" android:launchMode="singleTop" android:name="com.bambuna.podcastaddict.activity.TeamPodcastListActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:label="@string/app_name" android:name="com.bambuna.podcastaddict.activity.PodcastDescriptionActivity"/>
+        <activity android:label="@string/new_episodes_activity_title" android:launchMode="singleTop" android:name="com.bambuna.podcastaddict.activity.NewEpisodesActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+            <meta-data android:name="android.app.default_searchable" android:value=".activity.NewEpisodesActivity"/>
+        </activity>
+        <activity android:exported="true" android:label="@string/liveStreams" android:launchMode="singleTop" android:name="com.bambuna.podcastaddict.activity.LiveStreamActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+            <meta-data android:name="android.app.default_searchable" android:value=".activity.NewEpisodesActivity"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:label="@string/app_name" android:name="com.bambuna.podcastaddict.activity.LanguageSelectionActivity"/>
+        <activity android:label="@string/new_downloads_activity_title" android:launchMode="singleTop" android:name="com.bambuna.podcastaddict.activity.NewDownloadsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+            <meta-data android:name="android.app.default_searchable" android:value=".activity.NewDownloadsActivity"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/settings" android:name="com.bambuna.podcastaddict.activity.ITunesCountryPreferencesActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="Twitter" android:name="com.bambuna.podcastaddict.activity.TwitterLoginActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/settings" android:name="com.bambuna.podcastaddict.activity.PreferencesActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MANAGE_NETWORK_USAGE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="com.bambuna.podcastaddict" android:scheme="flattr4j"/>
+            </intent-filter>
+            <intent-filter android:label="@string/restoreAppBackup">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="file"/>
+                <data android:scheme="content"/>
+                <data android:scheme="http"/>
+                <data android:scheme="ftp"/>
+                <data android:scheme="ftps"/>
+                <data android:host="*"/>
+                <data android:mimeType="application/octet-stream"/>
+                <data android:mimeType="application/zip"/>
+                <data android:mimeType="text/plain"/>
+                <data android:pathPattern=".*\\.backup"/>
+                <data android:pathPattern=".*/attachments/.*"/>
+            </intent-filter>
+            <intent-filter android:label="Pref">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.PREFERENCE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.NOTIFICATION_PREFERENCES"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.bambuna.podcastaddict.activity.PodcastPreferencesActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.bambuna.podcastaddict.activity.LiveStreamPreferencesActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:name="com.bambuna.podcastaddict.activity.DashClockWidgetExtensionActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.bambuna.podcastaddict.activity.StorageUnitSelectorActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.bambuna.podcastaddict.activity.WidgetShortcutConfigActivity">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.bambuna.podcastaddict.activity.StorageFolderBrowserActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.bambuna.podcastaddict.activity.FolderBrowserActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:name="com.bambuna.podcastaddict.activity.BackupFileBrowserActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:name="com.bambuna.podcastaddict.activity.BitmapFileBrowserActivity"/>
+        <service android:exported="false" android:label="@string/update_service_name" android:name="com.bambuna.podcastaddict.service.PodcastAddictService"/>
+        <service android:exported="false" android:label="@string/player_service_name" android:name="com.bambuna.podcastaddict.service.PlayerService"/>
+        <service android:label="@string/widget_service_name" android:name="com.bambuna.podcastaddict.widget.HorizontalWidgetProvider$UpdateService"/>
+        <service android:label="@string/widget_service_name" android:name="com.bambuna.podcastaddict.widget.LargeWidgetProvider$UpdateService"/>
+        <service android:label="@string/widget_service_name" android:name="com.bambuna.podcastaddict.widget.WidgetPlayer2x4Provider$UpdateService"/>
+        <service android:icon="@drawable/dash_clock_logo" android:label="@string/app_name" android:name="com.bambuna.podcastaddict.service.DashClockWidgetExtension" android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA">
+            <intent-filter>
+                <action android:name="com.google.android.apps.dashclock.Extension"/>
+            </intent-filter>
+            <meta-data android:name="protocolVersion" android:value="1"/>
+            <meta-data android:name="description" android:value="@string/dashClockWidgetExtension"/>
+            <meta-data android:name="settingsActivity" android:value=".activity.DashClockWidgetExtensionActivity"/>
+        </service>
+        <service android:exported="false" android:name="com.bambuna.podcastaddict.service.SoundService">
+            <intent-filter>
+                <action android:name="com.bambuna.podcastaddict.service.PLAY_AUDIO_ADJUST_SPEED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <service android:icon="@drawable/dash_clock_logo" android:label="@string/update" android:name="com.bambuna.podcastaddict.service.QuickSettingUpdateService" android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+            <meta-data android:name="android.service.quicksettings.ACTIVE_TILE" android:value="true"/>
+        </service>
+        <service android:exported="true" android:name="com.bambuna.podcastaddict.service.AutomaticTrashCleanerJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="true" android:name="com.bambuna.podcastaddict.service.AutomaticUpdateJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="true" android:name="com.bambuna.podcastaddict.receiver.PodcastAddictMediaButtonReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.bambuna.podcastaddict.receiver.PodcastAddictBluetoothReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="android.bluetooth.a2dp.profile.action.CONNECTION_STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.bambuna.podcastaddict.receiver.PodcastAddictRemotePlayerReceiver">
+            <intent-filter>
+                <action android:name="com.bambuna.podcastaddict.remoteplayer.save_position"/>
+                <action android:name="com.bambuna.podcastaddict.remoteplayer.next_episode"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.bambuna.podcastaddict.receiver.PodcastAddictPlayerReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="android.media.AUDIO_BECOMING_NOISY"/>
+                <action android:name="com.bambuna.podcastaddict.service.player.toggle"/>
+                <action android:name="com.bambuna.podcastaddict.service.player.stop"/>
+                <action android:name="com.bambuna.podcastaddict.service.player.play"/>
+                <action android:name="com.bambuna.podcastaddict.service.player.pause"/>
+                <action android:name="com.bambuna.podcastaddict.service.player.nexttrack"/>
+                <action android:name="com.bambuna.podcastaddict.service.player.previoustrack"/>
+                <action android:name="com.bambuna.podcastaddict.service.player.jumpforward"/>
+                <action android:name="com.bambuna.podcastaddict.service.player.jumpbackward"/>
+                <action android:name="com.bambuna.podcastaddict.service.player.1xspeed"/>
+                <action android:name="com.bambuna.podcastaddict.service.player.1.5xspeed"/>
+                <action android:name="com.bambuna.podcastaddict.service.player.2xspeed"/>
+                <action android:name="com.bambuna.podcastaddict.service.player.customspeed"/>
+                <action android:name="com.bambuna.podcastaddict.service.player.stoptimer"/>
+                <action android:name="com.bambuna.podcastaddict.service.player.customtimer"/>
+                <action android:name="com.bambuna.podcastaddict.service.player.15mntimer"/>
+                <action android:name="com.bambuna.podcastaddict.service.player.30mntimer"/>
+                <action android:name="com.bambuna.podcastaddict.service.player.60mntimer"/>
+                <action android:name="com.bambuna.podcastaddict.service.player.playfirstepisode"/>
+                <action android:name="com.bambuna.podcastaddict.service.player.deletecurrentskipnexttrack"/>
+                <action android:name="com.bambuna.podcastaddict.service.player.deletecurrentskipprevioustrack"/>
+                <action android:name="com.bambuna.podcastaddict.openmainscreen"/>
+                <action android:name="com.bambuna.podcastaddict.openplaylist"/>
+                <action android:name="com.bambuna.podcastaddict.openplayer"/>
+                <action android:name="com.bambuna.podcastaddict.opennewepisodes"/>
+                <action android:name="com.bambuna.podcastaddict.opendownloadedepisodes"/>
+                <action android:name="com.bambuna.podcastaddict.service.playlist.dequeue"/>
+                <action android:name="com.bambuna.podcastaddict.service.player.boostVolume"/>
+                <action android:name="com.bambuna.podcastaddict.service.player.quickBookmark"/>
+                <action android:name="com.bambuna.podcastaddict.service.download.pause"/>
+                <action android:name="com.bambuna.podcastaddict.service.download.resume"/>
+                <action android:name="com.bambuna.podcastaddict.service.download.toggle"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.bambuna.podcastaddict.receiver.PodcastAddictBroadcastReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.ACTION_SHUTDOWN"/>
+                <action android:name="com.bambuna.podcastaddict.service.update"/>
+                <action android:name="com.bambuna.podcastaddict.service.toggleDownload"/>
+                <action android:name="com.bambuna.podcastaddict.service.downloadStatusUpdate"/>
+            </intent-filter>
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <action android:name="android.intent.action.PACKAGE_FULLY_REMOVED"/>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.bambuna.podcastaddict.receiver.NotificationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.bambuna.podcastaddict.receiver.NotificationBroadcastReceiver.downloadNotificationCancelled"/>
+                <action android:name="com.bambuna.podcastaddict.receiver.NotificationBroadcastReceiver.newEpisodeNotificationCancelled"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:label="@string/widgetUpdaterName" android:name="com.bambuna.podcastaddict.widget.Widget1x1UpdaterProvider">
+            <intent-filter android:priority="1000">
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_1x1_updater_provider"/>
+        </receiver>
+        <receiver android:exported="true" android:label="@string/widget1x1PlayerName" android:name="com.bambuna.podcastaddict.widget.Widget1x1PlayerProvider">
+            <intent-filter android:priority="1000">
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.bambuna.podcastaddict.widget.WidgetProviderHelper.WidgetUpdate"/>
+                <action android:name="com.bambuna.podcastaddict.widget.WidgetProviderHelper.WidgetThumbnailUpdate"/>
+                <action android:name="com.bambuna.podcastaddict.widget.WidgetProviderHelper.ReleasePlayerUpdate"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_1x1_player_provider"/>
+        </receiver>
+        <receiver android:exported="true" android:name="com.bambuna.podcastaddict.widget.HorizontalWidgetProvider">
+            <intent-filter android:priority="1000">
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.bambuna.podcastaddict.widget.WidgetProviderHelper.WidgetUpdate"/>
+                <action android:name="com.bambuna.podcastaddict.widget.WidgetProviderHelper.WidgetThumbnailUpdate"/>
+                <action android:name="com.bambuna.podcastaddict.widget.WidgetProviderHelper.WidgetPositionUpdate"/>
+                <action android:name="com.bambuna.podcastaddict.widget.WidgetProviderHelper.WidgetSettingsUpdate"/>
+                <action android:name="com.bambuna.podcastaddict.widget.WidgetProviderHelper.ReleasePlayerUpdate"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_horizontal_provider"/>
+        </receiver>
+        <receiver android:exported="true" android:name="com.bambuna.podcastaddict.widget.WidgetPlayer2x4Provider">
+            <intent-filter android:priority="1000">
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.bambuna.podcastaddict.widget.WidgetProviderHelper.WidgetUpdate"/>
+                <action android:name="com.bambuna.podcastaddict.widget.WidgetProviderHelper.WidgetThumbnailUpdate"/>
+                <action android:name="com.bambuna.podcastaddict.widget.WidgetProviderHelper.WidgetPositionUpdate"/>
+                <action android:name="com.bambuna.podcastaddict.widget.WidgetProviderHelper.WidgetSettingsUpdate"/>
+                <action android:name="com.bambuna.podcastaddict.widget.WidgetProviderHelper.ReleasePlayerUpdate"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_player_2x4_provider"/>
+        </receiver>
+        <receiver android:exported="true" android:name="com.bambuna.podcastaddict.widget.LargeWidgetProvider">
+            <intent-filter android:priority="1000">
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.bambuna.podcastaddict.widget.WidgetProviderHelper.WidgetUpdate"/>
+                <action android:name="com.bambuna.podcastaddict.widget.WidgetProviderHelper.WidgetThumbnailUpdate"/>
+                <action android:name="com.bambuna.podcastaddict.widget.WidgetProviderHelper.WidgetPositionUpdate"/>
+                <action android:name="com.bambuna.podcastaddict.widget.WidgetProviderHelper.WidgetSettingsUpdate"/>
+                <action android:name="com.bambuna.podcastaddict.widget.WidgetProviderHelper.ReleasePlayerUpdate"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_large_provider"/>
+        </receiver>
+        <receiver android:exported="true" android:label="@string/shortcutWidget" android:name="com.bambuna.podcastaddict.widget.ShortcutWidgetProvider">
+            <intent-filter android:priority="1000">
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.bambuna.podcastaddict.widget.ShortcutWidgetProvider.SHORTCUT_WIDGET_SETTING_UPDATE"/>
+                <action android:name="com.bambuna.podcastaddict.widget.ShortcutWidgetProvider.SHORTCUT_WIDGET_COUNTER_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_shortcut_provider"/>
+        </receiver>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="com.google.android.libraries.cast.companionlibrary.cast.player.VideoCastControllerActivity" android:parentActivityName="com.bambuna.podcastaddict.activity.PodcastListActivity" android:screenOrientation="sensorPortrait" android:theme="@style/Theme.PodcastAddict.Overlay">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activity.VideoPlayerActivity"/>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <receiver android:name="com.google.android.libraries.cast.companionlibrary.remotecontrol.VideoIntentReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="android.media.AUDIO_BECOMING_NOISY"/>
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.google.android.libraries.cast.companionlibrary.notification.VideoCastNotificationService"/>
+        <service android:name="com.google.android.libraries.cast.companionlibrary.cast.reconnection.ReconnectionService"/>
+        <meta-data android:name="com.google.android.gms.car.application" android:resource="@xml/automotive_app_desc"/>
+        <meta-data android:name="com.google.android.gms.car.application.theme" android:resource="@style/CarTheme"/>
+        <meta-data android:name="com.google.android.gms.car.notification.SmallIcon" android:resource="@drawable/ic_stat_logo_notification"/>
+        <service android:exported="true" android:name="com.bambuna.podcastaddict.service.AndroidAutoMediaBrowserService">
+            <intent-filter>
+                <action android:name="android.media.browse.MediaBrowserService"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.bambuna.podcastaddict.artworkFileProvider" android:exported="true" android:grantUriPermissions="true" android:name="com.bambuna.podcastaddict.provider.ArtworkFileProvider"/>
+        <provider android:authorities="com.bambuna.podcastaddict.fileProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.bambuna.podcastaddict.provider.FileProvider"/>
+        <meta-data android:name="com.google.android.wearable.media.theme" android:resource="@style/WearTheme"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="1512c0ca3917aa2e9fb888930f66a422f02c9b9b"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.amazon.device.ads.AdActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MoPubActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MraidActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.common.MoPubBrowser"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MraidVideoPlayerActivity"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.sec.android.support.multiwindow" android:value="true"/>
+        <activity android:exported="true" android:name="com.google.android.gms.appinvite.PreviewActivity" android:theme="@style/Theme.AppInvite.Preview">
+            <intent-filter>
+                <action android:name="com.google.android.gms.appinvite.ACTION_PREVIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.bambuna.podcastaddict"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"/>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.bambuna.podcastaddict.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity" android:theme="@style/Theme.IAPTheme"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+    </application>
+</manifest>

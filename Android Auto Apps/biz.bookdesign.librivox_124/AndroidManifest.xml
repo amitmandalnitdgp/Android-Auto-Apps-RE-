@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="biz.bookdesign.librivox">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:maxSdkVersion="18" android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <supports-screens android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="biz.bookdesign.librivox.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="biz.bookdesign.librivox.permission.C2D_MESSAGE"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <application android:allowBackup="true" android:icon="@drawable/ic_lv" android:label="@string/app_name" android:logo="@drawable/ic_lv" android:name="biz.bookdesign.librivox.LibriVoxFreeApp" android:theme="@style/LVActionBarTheme">
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.google.android.gms.car.application" android:resource="@xml/automotive_app_desc"/>
+        <meta-data android:name="com.google.android.gms.car.notification.SmallIcon" android:resource="@drawable/ic_lv"/>
+        <meta-data android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME" android:value="biz.bookdesign.librivox.support.CastOptionsProvider"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="biz.bookdesign.librivox.LibriVoxActivity">
+            <intent-filter>
+                <action android:name="biz.bookdesign.librivox.MAIN"/>
+                <action android:name="android.intent.action.SEARCH"/>
+                <action android:name="biz.bookdesign.librivox.SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <data android:host="librivox.bookdesign.biz" android:pathPrefix="/book" android:scheme="http"/>
+                <data android:host="librivox.bookdesign.biz" android:pathPrefix="/retail" android:scheme="http"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <action android:name="android.intent.action.VIEW"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.media.action.MEDIA_PLAY_FROM_SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:label="@string/book" android:launchMode="singleTask" android:name="biz.bookdesign.librivox.BookTabsActivity">
+            <intent-filter>
+                <action android:name="biz.bookdesign.librivox.LISTEN"/>
+                <action android:name="biz.bookdesign.librivox.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="biz.bookdesign.librivox.LibriVoxActivity"/>
+            <meta-data android:name="android.app.default_searchable" android:value="biz.bookdesign.librivox.LibriVoxActivity"/>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="biz.bookdesign.catalogbase.CatalogDetailsActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="biz.bookdesign.librivox.LibriVoxActivity"/>
+            <meta-data android:name="android.app.default_searchable" android:value="biz.bookdesign.librivox.LibriVoxActivity"/>
+        </activity>
+        <activity android:label="@string/librivox_preferences" android:name="biz.bookdesign.librivox.SettingsActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="biz.bookdesign.librivox.LibriVoxActivity"/>
+        </activity>
+        <activity android:label="@string/bookmarks" android:name="biz.bookdesign.librivox.BookmarkActivity" android:theme="@style/LVDialogTheme">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="biz.bookdesign.librivox.BookTabsActivity"/>
+        </activity>
+        <activity android:label="@string/rate" android:name="biz.bookdesign.librivox.ReviewActivity" android:theme="@style/LVDialogTheme" android:windowSoftInputMode="adjustResize">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="biz.bookdesign.librivox.BookTabsActivity"/>
+        </activity>
+        <activity android:label="@string/google_account" android:name="biz.bookdesign.librivox.GoogleAccountActivity" android:theme="@style/LVDialogTheme"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <service android:exported="false" android:name="com.paypal.android.sdk.payments.PayPalService"/>
+        <activity android:name="com.paypal.android.sdk.payments.PaymentActivity"/>
+        <activity android:name="com.paypal.android.sdk.payments.LoginActivity"/>
+        <activity android:name="com.paypal.android.sdk.payments.PaymentMethodActivity"/>
+        <activity android:name="com.paypal.android.sdk.payments.PaymentConfirmActivity"/>
+        <activity android:name="com.paypal.android.sdk.payments.PayPalFuturePaymentActivity"/>
+        <activity android:name="com.paypal.android.sdk.payments.FuturePaymentConsentActivity"/>
+        <activity android:name="com.paypal.android.sdk.payments.FuturePaymentInfoActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="io.card.payment.CardIOActivity"/>
+        <activity android:name="io.card.payment.DataEntryActivity"/>
+        <service android:label="@string/audio_service" android:name="biz.bookdesign.librivox.LocalAudioService"/>
+        <service android:label="@string/download_service" android:name="biz.bookdesign.librivox.DownloadService"/>
+        <service android:exported="true" android:name="biz.bookdesign.librivox.LibriVoxMediaBrowserService">
+            <intent-filter>
+                <action android:name="android.media.browse.MediaBrowserService"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="biz.bookdesign.librivox.RemoteControlReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="biz.bookdesign.librivox.BDSearchSuggestionProvider" android:name="biz.bookdesign.librivox.BDSearchSuggestionProvider"/>
+        <provider android:authorities="biz.bookdesign.librivox.firebaseperfprovider" android:exported="false" android:initOrder="101" android:name="com.google.firebase.perf.provider.FirebasePerfProvider"/>
+        <meta-data android:name="android.support.VERSION" android:value="26.1.0"/>
+        <receiver android:name="com.google.android.gms.cast.framework.media.MediaIntentReceiver"/>
+        <service android:name="com.google.android.gms.cast.framework.media.MediaNotificationService"/>
+        <service android:name="com.google.android.gms.cast.framework.ReconnectionService"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"/>
+        <activity android:name="com.paypal.android.sdk.payments.PayPalProfileSharingActivity"/>
+        <activity android:name="com.paypal.android.sdk.payments.ProfileSharingConsentActivity"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="biz.bookdesign.librivox"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"/>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="biz.bookdesign.librivox.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <meta-data android:name="android.arch.lifecycle.VERSION" android:value="27.0.0-SNAPSHOT"/>
+    </application>
+</manifest>

@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="fm.player" platformBuildVersionCode="25" platformBuildVersionName="7.1.1">
+    <permission android:name="fm.player.permission.READ"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission-sdk-23 android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission-sdk-23 android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="com.samsung.wmanager.ENABLE_NOTIFICATION"/>
+    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY"/>
+    <uses-feature android:name="android.hardware.bluetooth" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.portrait" android:required="false"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="fm.player.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="fm.player.permission.C2D_MESSAGE"/>
+    <application android:allowBackup="true" android:hardwareAccelerated="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:name="fm.player.App" android:supportsRtl="@bool/supports_rtl" android:theme="@style/Theme.PlayerFM">
+        <provider android:authorities="fm.player" android:exported="false" android:name="fm.player.data.providers.ApiProvider" android:permission="fm.player.permission.READ"/>
+        <provider android:authorities="fm.player.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <meta-data android:name="android.max_aspect" android:value="2.1"/>
+        <meta-data android:name="com.google.android.gms.car.application" android:resource="@xml/automotive_app_desc"/>
+        <meta-data android:name="com.google.android.gms.car.notification.SmallIcon" android:resource="@drawable/app_icon_notification_logo_new"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="fm.player.ui.GlideConfiguration" android:value="GlideModule"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="fm.player.ui.MainActivity">
+            <meta-data android:name="android.app.shortcuts" android:resource="@xml/shortcuts"/>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER"/>
+            </intent-filter>
+            <intent-filter android:label="@string/intent_filter_play_audio">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:mimeType="audio/*"/>
+                <data android:scheme="file"/>
+                <data android:scheme="content"/>
+            </intent-filter>
+            <intent-filter android:label="@string/intent_filter_play_audio">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.EDIT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="*"/>
+                <data android:scheme="file"/>
+                <data android:scheme="content"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:mimeType="*/*"/>
+                <data android:pathPattern=".*\\.mp3"/>
+                <data android:pathPattern=".*\\.m4a"/>
+                <data android:pathPattern=".*\\.3gp"/>
+                <data android:pathPattern=".*\\.mp4"/>
+                <data android:pathPattern=".*\\.aac"/>
+                <data android:pathPattern=".*\\.ogg"/>
+                <data android:pathPattern=".*\\.MP3"/>
+                <data android:pathPattern=".*\\.M4A"/>
+                <data android:pathPattern=".*\\.3GP"/>
+                <data android:pathPattern=".*\\.MP4"/>
+                <data android:pathPattern=".*\\.AAC"/>
+                <data android:pathPattern=".*\\.OGG"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.media.action.MEDIA_PLAY_FROM_SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/content_description_episode_detail" android:name="fm.player.ui.EpisodeDetailActivity" android:theme="@style/Theme.PlayerFM.EpisodeDetailPopup">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="fm.player.ui.MainActivity"/>
+        </activity>
+        <activity android:label="@string/content_description_series_detail" android:name="fm.player.ui.SeriesDetailActivity" android:windowSoftInputMode="stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="fm.player.ui.MainActivity"/>
+        </activity>
+        <activity android:label="@string/settings_title" android:launchMode="singleTask" android:name="fm.player.ui.settings.SettingsMainActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="fm.player.ui.MainActivity"/>
+        </activity>
+        <activity android:label="@string/settings_connection_and_account_title" android:launchMode="singleTask" android:name="fm.player.ui.settings.connection.ConnectionSettingsActivity" android:theme="@style/Theme.PlayerFM.Settings">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="fm.player.ui.settings.SettingsMainActivity"/>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="fm.player.ui.settings.connection.ChannelSettingsActivity" android:theme="@style/Theme.PlayerFM.Settings" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/sync_scheduling_title" android:launchMode="singleTask" android:name="fm.player.ui.settings.connection.SyncSchedulingActivity" android:theme="@style/Theme.PlayerFM.Settings" android:windowSoftInputMode="stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="fm.player.ui.settings.connection.ConnectionSettingsActivity"/>
+        </activity>
+        <activity android:label="@string/settings_display_title" android:launchMode="singleTask" android:name="fm.player.ui.settings.display.DisplaySettingsActivity" android:theme="@style/Theme.PlayerFM.Settings">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="fm.player.ui.settings.SettingsMainActivity"/>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="fm.player.ui.settings.downloads.DownloadSettingsActivity" android:theme="@style/Theme.PlayerFM.Settings">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="fm.player.ui.settings.SettingsMainActivity"/>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="fm.player.ui.settings.downloads.PowerDownloadingWifiListActivity" android:theme="@style/Theme.PlayerFM.Settings">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="fm.player.ui.settings.downloads.DownloadSettingsActivity"/>
+        </activity>
+        <activity android:label="@string/settings_playback_title" android:launchMode="singleTask" android:name="fm.player.ui.settings.playback.PlaybackSettingsActivity" android:theme="@style/Theme.PlayerFM.Settings">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="fm.player.ui.settings.SettingsMainActivity"/>
+        </activity>
+        <activity android:label="@string/settings_update_alert_title" android:launchMode="singleTask" android:name="fm.player.ui.settings.notifications.NotificationsSettingsActivity" android:theme="@style/Theme.PlayerFM.Settings">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="fm.player.ui.settings.SettingsMainActivity"/>
+        </activity>
+        <activity android:label="@string/settings_experimental_title" android:launchMode="singleTask" android:name="fm.player.ui.settings.experimental.ExperimentalSettingsActivity" android:theme="@style/Theme.PlayerFM.TranslucentStatusFalse" android:windowSoftInputMode="stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="fm.player.ui.settings.SettingsMainActivity"/>
+        </activity>
+        <activity android:label="@string/settings_about_title" android:launchMode="singleTask" android:name="fm.player.ui.settings.about.AboutSettingsActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="fm.player.ui.settings.SettingsMainActivity"/>
+        </activity>
+        <activity android:label="@string/menu_help_faq" android:launchMode="singleTask" android:name="fm.player.ui.settings.about.FaqHelpActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="fm.player.ui.settings.about.AboutSettingsActivity"/>
+        </activity>
+        <activity android:name="fm.player.catalogue2.CatalogueNewActivity"/>
+        <activity android:name="fm.player.ui.WebActivity"/>
+        <activity android:label="@string/downloads_title" android:name="fm.player.ui.ListDownloadedFilesActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="fm.player.ui.settings.experimental.ExperimentalSettingsActivity"/>
+        </activity>
+        <activity android:label="@string/download_settings_storage_location" android:name="fm.player.ui.settings.downloads.SelectDownloadsFolderActivity" android:theme="@style/Theme.PlayerFM.TranslucentStatusFalse">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="fm.player.ui.settings.downloads.DownloadSettingsActivity"/>
+        </activity>
+        <activity android:label="" android:name="fm.player.ui.settings.downloads.BrowseFoldersActivity" android:theme="@style/Theme.PlayerFM.TranslucentStatusFalse">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="fm.player.ui.settings.downloads.SelectDownloadsFolderActivity"/>
+        </activity>
+        <activity android:label="@string/login_activity_title" android:name="fm.player.login.LoginActivity" android:theme="@style/Theme.PlayerFM.TranslucentStatusFalse" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="fm.player.login.HANDLE_AUTHORIZATION_RESPONSE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="net.openid.appauth.RedirectUriReceiverActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="fm.player"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="fm.player.catalogue2.search.SearchActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.google.android.gms.actions.SEARCH_ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="android.app.default_searchable" android:value="fm.player.catalogue2.SearchActivity"/>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable2"/>
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="fm.player.ui.MainActivity"/>
+            <meta-data android:name="android.app.shortcuts" android:resource="@xml/shortcuts"/>
+        </activity>
+        <activity android:name="fm.player.intro.AppIntroTour"/>
+        <activity android:label="@string/import_title" android:launchMode="singleTop" android:name="fm.player.importing.ImportActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="fm.player.ui.MainActivity"/>
+        </activity>
+        <activity android:label="@string/import_your_feeds_title" android:name="fm.player.importing.ImportYourFeedsActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="fm.player.ui.MainActivity"/>
+            <intent-filter android:label="@string/import_subscribe_on_android">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:pathPattern=".*\\..*/.*"/>
+                <data android:host="subscribeonandroid.com"/>
+                <data android:host="www.subscribeonandroid.com"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+            </intent-filter>
+            <intent-filter android:label="@string/intent_filter_import">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.EDIT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="itunes.apple.com" android:pathPattern=".*\\podcast.*" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter android:label="@string/intent_filter_import">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.EDIT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="*"/>
+                <data android:mimeType="application/octet-stream"/>
+                <data android:pathPattern=".*\\.opml"/>
+                <data android:pathPattern=".*\\.xml"/>
+            </intent-filter>
+            <intent-filter android:label="@string/intent_filter_import">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.EDIT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="*" android:mimeType="*/*" android:pathPattern=".*\\.opml" android:scheme="file"/>
+                <data android:host="*" android:mimeType="*/*" android:pathPattern=".*\\.xml" android:scheme="file"/>
+            </intent-filter>
+            <intent-filter android:label="@string/intent_filter_import">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="*"/>
+                <data android:pathPattern=".*\\.rss"/>
+                <data android:pathPattern=".*\\.xml"/>
+                <data android:pathPattern=".*\\.atom"/>
+                <data android:pathPattern=".*\\/rss"/>
+                <data android:pathPattern=".*\\/xml"/>
+                <data android:pathPattern=".*\\/atom"/>
+            </intent-filter>
+            <intent-filter android:label="@string/intent_filter_import">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="feeds.feedburner.com"/>
+                <data android:host="feedproxy.google.com"/>
+                <data android:host="feedburner.google.com"/>
+                <data android:host="feeds2.feedburner.com"/>
+                <data android:host="feedsproxy.google.com"/>
+            </intent-filter>
+            <intent-filter android:label="@string/intent_filter_import">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:mimeType="text/xml"/>
+                <data android:mimeType="application/rss+xml"/>
+                <data android:mimeType="application/atom+xml"/>
+                <data android:mimeType="application/xml"/>
+            </intent-filter>
+            <intent-filter android:label="@string/intent_filter_import">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="itms"/>
+                <data android:scheme="itms-pcast"/>
+                <data android:scheme="itms-pcasts"/>
+                <data android:scheme="itms-podcast"/>
+                <data android:scheme="itms-podcasts"/>
+                <data android:scheme="itpc"/>
+                <data android:scheme="pcast"/>
+                <data android:scheme="feed"/>
+                <data android:scheme="rss"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:label="@string/app_name" android:launchMode="singleTop" android:name="fm.player.ui.ParseDeepLinkActivity">
+            <intent-filter>
+                <action android:name="com.google.android.apps.plus.VIEW_DEEP_LINK"/>
+                <data android:scheme="vnd.google.deeplink"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true" android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="player.fm" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="player.fm" android:pathPattern="/.*" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter android:label="@string/intent_filter_subscribe">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="player.fm"/>
+                <data android:scheme="https"/>
+                <data android:scheme="http"/>
+                <data android:pathPrefix="/subscribe"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/settings_theme_editor_title" android:name="fm.player.ui.themes.ThemeEditorActivity">
+            <intent-filter android:label="@string/intent_filter_import_theme">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.EDIT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="*"/>
+                <data android:mimeType="application/octet-stream"/>
+                <data android:pathPattern=".*\\.theme.json"/>
+            </intent-filter>
+            <intent-filter android:label="@string/intent_filter_import_theme">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.EDIT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="*" android:mimeType="*/*" android:pathPattern=".*\\.theme.json" android:scheme="file"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/report_problem_title" android:launchMode="singleTask" android:name="fm.player.ui.settings.about.ReportProblemActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="fm.player.ui.settings.about.AboutSettingsActivity"/>
+        </activity>
+        <activity android:label="@string/billing_screen_title" android:launchMode="singleTask" android:name="fm.player.premium.BillingActivity"/>
+        <activity android:excludeFromRecents="true" android:icon="@drawable/qcircle_ic_launcher" android:label="@string/app_name" android:name="fm.player.qcircle.QCircleActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="com.lge.quickcover"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="fm.player.channels.playlists.FilesystemPlaylistHandlerActivity">
+            <intent-filter android:label="@string/intent_filter_add_to_playlist">
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="audio/*"/>
+                <data android:mimeType="video/*"/>
+            </intent-filter>
+            <intent-filter android:label="@string/intent_filter_add_to_playlist">
+                <action android:name="android.intent.action.SEND_MULTIPLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="audio/*"/>
+                <data android:mimeType="video/*"/>
+                <data android:mimeType="*/*"/>
+            </intent-filter>
+            <intent-filter android:label="@string/intent_filter_add_to_playlist">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.SEND"/>
+                <action android:name="android.intent.action.SEND_MULTIPLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="*"/>
+                <data android:scheme="file"/>
+                <data android:scheme="content"/>
+                <data android:scheme="*"/>
+            </intent-filter>
+            <intent-filter android:label="@string/intent_filter_add_to_playlist">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:mimeType="audio/*"/>
+                <data android:mimeType="video/*"/>
+                <data android:scheme="file"/>
+                <data android:scheme="content"/>
+            </intent-filter>
+            <intent-filter android:label="@string/intent_filter_add_to_playlist">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.EDIT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="*"/>
+                <data android:scheme="file"/>
+                <data android:scheme="content"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:mimeType="*/*"/>
+                <data android:pathPattern=".*\\.mp3"/>
+                <data android:pathPattern=".*\\.m4a"/>
+                <data android:pathPattern=".*\\.3gp"/>
+                <data android:pathPattern=".*\\.mp4"/>
+                <data android:pathPattern=".*\\.aac"/>
+                <data android:pathPattern=".*\\.ogg"/>
+                <data android:pathPattern=".*\\.MP3"/>
+                <data android:pathPattern=".*\\.M4A"/>
+                <data android:pathPattern=".*\\.3GP"/>
+                <data android:pathPattern=".*\\.MP4"/>
+                <data android:pathPattern=".*\\.AAC"/>
+                <data android:pathPattern=".*\\.OGG"/>
+            </intent-filter>
+        </activity>
+        <service android:exported="true" android:name="fm.player.chromecustomtabs.KeepAliveService"/>
+        <service android:name="com.google.android.libraries.cast.companionlibrary.cast.reconnection.ReconnectionService"/>
+        <service android:name="fm.player.services.NotificationsService"/>
+        <service android:name="fm.player.services.MigrationIntentService"/>
+        <service android:exported="true" android:name="fm.player.sync.SyncService">
+            <intent-filter>
+                <action android:name="fm.player.update.conditional"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="fm.player.update.unconditional"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="fm.player.download.unconditional"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name="fm.player.sync.SyncJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="true" android:name="fm.player.playback.PlaybackService" android:stopWithTask="false">
+            <intent-filter>
+                <action android:name="com.google.android.gms.wearable.BIND_LISTENER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="fm.player.playback.play"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="fm.player.playback.pause"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="fm.player.playback.jumpforward"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="fm.player.playback.jumpback"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="fm.player.playback.next"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="fm.player.playback.previous"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="fm.player.playback.stop"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="fm.player.playback.toggle"/>
+            </intent-filter>
+        </service>
+        <service android:name="fm.player.playback.HistoryIntentService"/>
+        <service android:exported="true" android:name="fm.player.channels.playlists.PlaylistsIntentService"/>
+        <service android:exported="true" android:name="fm.player.downloads.manual.ManualDownloadsIntentService"/>
+        <service android:exported="true" android:name="fm.player.auto.AutoMediaBrowserService">
+            <intent-filter>
+                <action android:name="android.media.browse.MediaBrowserService"/>
+            </intent-filter>
+        </service>
+        <service android:name="fm.player.services.MarkPlayedUnplayedIntentService"/>
+        <service android:name="fm.player.downloads.downloadmanager.DownloadService"/>
+        <service android:name="fm.player.services.SeriesNotificationsIntentService"/>
+        <service android:name="fm.player.services.DownloadImagesIntentService"/>
+        <service android:name="fm.player.downloads.spacesaver.SpaceSaverIntentService"/>
+        <receiver android:name="fm.player.receivers.PowerConnectionReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="fm.player.receivers.NetworkReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="fm.player.receivers.NetworkReceiver$DelayedNetworkReceiver">
+            <intent-filter>
+                <action android:name="fm.player.DELAYED_NETWORK_ACTION"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="fm.player.receivers.RemoteControlReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="fm.player.receivers.BootCompletedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="fm.player.receivers.UpdateReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="fm.player.receivers.LocationNetworkProviderChangedReceiver">
+            <intent-filter>
+                <action android:name="android.location.PROVIDERS_CHANGED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:name="fm.player.widget.WidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/resizable_widget_info"/>
+        </receiver>
+        <activity android:name="fm.player.widget.ResizableWidgetConfigureActivity" android:theme="@style/Theme.PlayerFM.TranslucentStatusFalse">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="com.crashlytics.ApiKey" android:value="9040939b7bacdbd350dd3d173fb626eaf0da7059"/>
+        <uses-library android:name="com.sec.android.app.multiwindow" android:required="false"/>
+        <meta-data android:name="com.sec.android.support.multiwindow" android:value="true"/>
+        <meta-data android:name="com.sec.android.multiwindow.DEFAULT_SIZE_W" android:resource="@dimen/app_defaultsize_w"/>
+        <meta-data android:name="com.sec.android.multiwindow.DEFAULT_SIZE_H" android:resource="@dimen/app_defaultsize_h"/>
+        <meta-data android:name="com.sec.android.multiwindow.MINIMUM_SIZE_W" android:resource="@dimen/app_minimumsize_w"/>
+        <meta-data android:name="com.sec.android.multiwindow.MINIMUM_SIZE_H" android:resource="@dimen/app_minimumsize_h"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="fm.player"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"/>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="fm.player.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <meta-data android:name="com.google.android.wearable.beta.app" android:resource="@xml/android_wear_micro_apk"/>
+    </application>
+</manifest>

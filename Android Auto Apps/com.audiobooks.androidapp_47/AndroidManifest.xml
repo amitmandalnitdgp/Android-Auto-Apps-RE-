@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.audiobooks.androidapp" platformBuildVersionCode="21" platformBuildVersionName="5.0.1-1624448">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <permission android:name="com.audiobooks.androidapp.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <application android:allowBackup="true" android:allowClearUserData="true" android:hardwareAccelerated="true" android:icon="@drawable/icon" android:label="@string/app_name" android:largeHeap="true" android:name="com.audiobooks.androidapp.AudiobooksApp" android:supportsRtl="false" android:theme="@style/ABCTheme">
+        <meta-data android:name="com.google.android.gms.car.application" android:resource="@xml/automotive_app_desc"/>
+        <meta-data android:name="com.google.android.gms.car.notification.SmallIcon" android:resource="@drawable/icon"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.audiobooks.androidapp.HMIParentActivity" android:screenOrientation="portrait" android:theme="@style/HMITheme"/>
+        <activity android:hardwareAccelerated="true" android:label="@string/app_name" android:name="com.audiobooks.androidapp.SplashActivity" android:noHistory="true" android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.audiobooks.androidapp.MainActivity" android:noHistory="true" android:theme="@style/ParentActivityTheme"/>
+        <activity android:name="com.audiobooks.androidapp.DialogActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="true" android:hardwareAccelerated="true" android:launchMode="singleTask" android:name="com.audiobooks.androidapp.ParentActivity" android:screenOrientation="portrait" android:showOnLockScreen="true" android:theme="@style/ParentActivityTheme" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.media.action.MEDIA_PLAY_FROM_SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:hardwareAccelerated="true" android:launchMode="singleInstance" android:name="com.audiobooks.androidapp.FeedbackActivity" android:screenOrientation="portrait"/>
+        <receiver android:label="Audiobooks 4x1" android:name="com.audiobooks.androidapp.WidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.audiobooks.androidapp.MediaPlayerService_ACTION"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_info"/>
+        </receiver>
+        <receiver android:label="Audiobooks 4x2" android:name="com.audiobooks.androidapp.LargeWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.audiobooks.androidapp.MediaPlayerService_ACTION"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/large_appwidget_info"/>
+        </receiver>
+        <service android:name="com.audiobooks.androidapp.MediaPlayerService"/>
+        <service android:exported="true" android:name="com.audiobooks.androidapp.AudiobooksBrowserService">
+            <intent-filter>
+                <action android:name="android.media.browse.MediaBrowserService"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.audiobooks.androidapp.MediaPlayerService_ACTION"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.audiobooks.androidapp.MediaPlayerService_ACTION_INFORMATION"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.audiobooks.androidapp.GCMIntentService"/>
+        <receiver android:name="com.audiobooks.androidapp.GCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.audiobooks.androidapp"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.audiobooks.androidapp.RemoteControlReceiver">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+                <action android:name="android.media.AUDIO_BECOMING_NOISY"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.audiobooks.androidapp.PowerStatusReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+                <action android:name="android.intent.action.ACTION_BATTERY_LOW"/>
+                <action android:name="android.intent.action.ACTION_BATTERY_OKAY"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="usesMySPINServerSDK" android:value="true"/>
+        <meta-data android:name="com.crashlytics.ApiKey" android:value="ecb6b6ea3b9a8240d62a36d84b715309e0136f56"/>
+    </application>
+</manifest>

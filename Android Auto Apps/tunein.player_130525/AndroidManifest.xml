@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="internalOnly" package="tunein.player" platformBuildVersionCode="25" platformBuildVersionName="7.1.1">
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <permission android:name="tunein.player.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="tunein.player.permission.C2D_MESSAGE"/>
+    <supports-screens/>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.nfc" android:required="false"/>
+    <uses-feature android:name="android.hardware.gps" android:required="false"/>
+    <uses-feature android:name="android.software.leanback" android:required="false"/>
+    <uses-feature android:name="android.hardware.microphone" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.network" android:required="false"/>
+    <uses-feature android:name="android.hardware.location" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+    <uses-feature android:name="android.hardware.bluetooth" android:required="false"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <meta-data android:name="android.support.VERSION" android:value="25.3.0"/>
+    <application android:allowBackup="false" android:description="@string/app_desc" android:hardwareAccelerated="true" android:icon="@drawable/icon" android:label="@string/app_name" android:name="tunein.library.common.TuneIn" android:process="@string/tunein_process" android:supportsRtl="true" android:theme="@style/Theme.TuneIn">
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <meta-data android:name="com.mobclix.APPLICATION_ID" android:value="4d1bb87f-e39b-4c8a-a5a3-0de5495abd39"/>
+        <meta-data android:name="ADMOB_PUBLISHER_ID" android:value="a14ed55bb85217a"/>
+        <meta-data android:name="SMAATO_PUBLISHER_ID" android:value="923835814"/>
+        <meta-data android:name="SMAATO_ADSPACE_ID" android:value="65739752"/>
+        <meta-data android:name="GoogleNowActions" android:resource="@xml/google_now_actions"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|layoutDirection|locale|mcc|mnc|navigation|screenLayout|touchscreen|uiMode" android:label="@string/app_name" android:launchMode="singleTask" android:name="tunein.ui.actvities.HomeActivity" android:theme="@style/Theme.TuneIn" android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="welcome" android:scheme="tunein"/>
+                <data android:host="skiptohome" android:scheme="tunein"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="browse" android:scheme="tunein"/>
+                <data android:host="android" android:scheme="tunein"/>
+                <data android:host="carmode" android:scheme="tunein"/>
+                <data android:host="search" android:scheme="tunein"/>
+                <data android:host="station" android:scheme="tunein"/>
+                <data android:host="program" android:scheme="tunein"/>
+                <data android:host="topic" android:scheme="tunein"/>
+                <data android:host="friends" android:scheme="tunein"/>
+                <data android:host="home" android:scheme="tunein"/>
+                <data android:host="feed" android:scheme="tunein"/>
+                <data android:host="profile" android:scheme="tunein"/>
+                <data android:host="tune" android:scheme="tunein"/>
+                <data android:host="explore" android:scheme="tunein"/>
+                <data android:host="premiumunlock" android:scheme="tunein"/>
+                <data android:host="signup" android:scheme="tunein"/>
+                <data android:host="echoes" android:scheme="tunein"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="tunein.com" android:pathPrefix="/android" android:scheme="http"/>
+                <data android:host="tunein.com" android:pathPrefix="/radio" android:scheme="http"/>
+                <data android:host="tunein.com" android:pathPrefix="/station" android:scheme="http"/>
+                <data android:host="tunein.com" android:pathPrefix="/program" android:scheme="http"/>
+                <data android:host="tunein.com" android:pathPrefix="/topic" android:scheme="http"/>
+                <data android:host="tunein.com" android:pathPrefix="/genre" android:scheme="http"/>
+                <data android:host="tunein.com" android:pathPrefix="/live" android:scheme="http"/>
+                <data android:host="tunein.com" android:pathPrefix="/home" android:scheme="http"/>
+                <data android:host="tunein.com" android:pathPrefix="/explore" android:scheme="http"/>
+                <data android:host="tunein.com" android:path="/" android:scheme="http"/>
+                <data android:host="tunein.com" android:scheme="http"/>
+                <data android:host="tunein.com" android:pathPrefix="/account" android:scheme="https"/>
+                <data android:host="www.tunein.com" android:pathPrefix="/android" android:scheme="http"/>
+                <data android:host="www.tunein.com" android:pathPrefix="/radio" android:scheme="http"/>
+                <data android:host="www.tunein.com" android:pathPrefix="/station" android:scheme="http"/>
+                <data android:host="www.tunein.com" android:pathPrefix="/program" android:scheme="http"/>
+                <data android:host="www.tunein.com" android:pathPrefix="/topic" android:scheme="http"/>
+                <data android:host="www.tunein.com" android:pathPrefix="/genre" android:scheme="http"/>
+                <data android:host="www.tunein.com" android:pathPrefix="/live" android:scheme="http"/>
+                <data android:host="www.tunein.com" android:pathPrefix="/home" android:scheme="http"/>
+                <data android:host="www.tunein.com" android:pathPrefix="/explore" android:scheme="http"/>
+                <data android:host="www.tunein.com" android:path="/" android:scheme="http"/>
+                <data android:host="www.tunein.com" android:scheme="http"/>
+                <data android:host="www.tunein.com" android:pathPrefix="/account" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="tune"/>
+                <action android:name="browse_category"/>
+                <action android:name="browse_program"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.media.action.MEDIA_PLAY_FROM_SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="tunein"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="tunein.googlenow.actions.PLAY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="tunein.googlenow.actions.OPEN_CAR_MODE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="tunein.googlenow.actions.ADD_TO_FAVORITES"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="tunein.googlenow.actions.PLAY_RELATED_STATION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MoPubActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MraidActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.common.MoPubBrowser"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MraidVideoPlayerActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:name="com.millennialmedia.android.MMActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.amazon.device.ads.AdActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.jirbo.adcolony.AdColonyOverlay" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.jirbo.adcolony.AdColonyFullscreen" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.jirbo.adcolony.AdColonyBrowser" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+        <receiver android:name="tunein.alarm.AlarmReceiver">
+            <intent-filter>
+                <action android:name="tunein.player.sleep_timer"/>
+                <action android:name="tunein.player.alarm_clock_start"/>
+                <action android:name="tunein.player.alarm_clock_end"/>
+                <action android:name="tunein.player.alarm_clock_cancel_or_skip"/>
+                <action android:name="tunein.player.sched_recording_start"/>
+                <action android:name="tunein.player.sched_recording_end"/>
+                <action android:name="tunein.player.sched_recording_cancel_or_skip"/>
+                <action android:name="tunein.player.release_wake_lock"/>
+                <data android:host="sleep_timer" android:scheme="tunein.alarm"/>
+                <data android:host="alarm_clock" android:scheme="tunein.alarm"/>
+                <data android:host="sched_recording" android:scheme="tunein.alarm"/>
+                <data android:host="release_wake_lock" android:scheme="tunein.alarm"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="tunein.library.push.c2dm.C2DMPushReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="tunein.player"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="tunein.library.push.c2dm.C2DMPushService">
+            <intent-filter>
+                <action android:name="tunein.player.C2DM"/>
+                <category android:name="tunein.player"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="tunein.ui.actvities.SplashScreenActivity" android:theme="@style/Theme.TuneIn.Splash" android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <data android:host="open" android:scheme="tunein"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity-alias android:exported="true" android:name="tunein.ui.actvities.TuneInHomeActivity" android:targetActivity="tunein.ui.actvities.SplashScreenActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="tv.ouya.intent.category.APP"/>
+            </intent-filter>
+        </activity-alias>
+        <activity android:launchMode="singleTop" android:name="tunein.ui.actvities.TuneInSearchActivity" android:theme="@style/Theme.TuneIn.SearchActivity" android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.RUN"/>
+                <action android:name="android.media.action.MEDIA_PLAY_FROM_SEARCH"/>
+                <action android:name="android.intent.action.SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.google.android.gms.actions.SEARCH_ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:name="tunein.ui.actvities.TuneInSettings" android:theme="@style/Theme.TunePref" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="tunein.ui.actvities.PlayerActivity" android:parentActivityName="tunein.ui.actvities.HomeActivity" android:theme="@style/Theme.TuneIn.ActionBarNowPlaying" android:windowSoftInputMode="stateAlwaysHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="tunein.ui.actvities.HomeActivity"/>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="tune.station" android:scheme="@string/tunein_push_scheme"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="tunein.ui.actvities.PlayerActivityV2" android:parentActivityName="tunein.ui.actvities.HomeActivity" android:theme="@style/Theme.TuneIn.ActionBarNowPlayingV2" android:windowSoftInputMode="stateAlwaysHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="tunein.ui.actvities.HomeActivity"/>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="tune.station" android:scheme="@string/tunein_push_scheme"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="tunein.ui.actvities.TuneInCarModeActivity" android:theme="@style/Theme.TuneIn.CarMode" android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="carmode" android:scheme="@string/tunein_process"/>
+            </intent-filter>
+        </activity>
+        <activity android:excludeFromRecents="true" android:name="tunein.ui.actvities.Proxy" android:stateNotNeeded="true" android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.RUN"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="tune" android:scheme="@string/tunein_push_scheme"/>
+                <data android:host="browse" android:scheme="@string/tunein_push_scheme"/>
+            </intent-filter>
+        </activity>
+        <activity android:icon="@drawable/actionbar_echo" android:label="@string/post_echo" android:name="tunein.activities.EchoActivity" android:theme="@style/Theme.TuneIn.EchoTransparent"/>
+        <activity android:name="tunein.activities.ProfileActivity" android:theme="@style/Theme.TuneIn.Transparent"/>
+        <activity android:label="@string/profile" android:name="tunein.activities.EditProfileActivity" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.facebook.LoginActivity"/>
+        <activity android:name="tunein.ui.actvities.RegWallActivity" android:theme="@style/Theme.TuneIn.RegWall" android:windowSoftInputMode="adjustNothing|stateHidden"/>
+        <activity android:name="tunein.ui.actvities.ViewModelActivity" android:theme="@style/Theme.TuneIn.DarkTransparent"/>
+        <activity android:name="tunein.ui.actvities.OpmlActivity" android:theme="@style/Theme.TuneIn.DarkTransparent"/>
+        <activity android:launchMode="singleInstance" android:name="tunein.ui.actvities.AlarmClockActivity"/>
+        <activity android:name="tunein.library.common.GooglePlusDeepLinkParser">
+            <intent-filter>
+                <action android:name="com.google.android.apps.plus.VIEW_DEEP_LINK"/>
+                <data android:scheme="vnd.google.deeplink"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="tunein.activities.PlayerOptionsActivity" android:theme="@style/Theme.TuneIn.Light"/>
+        <activity android:name="tunein.activities.RecentsActivity" android:theme="@style/Theme.TuneIn.Light"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_id"/>
+        <meta-data android:name="RADIOTIME_PROVIDER" android:value="ggl"/>
+        <meta-data android:name="STORE_LOGsS" android:value="false"/>
+        <meta-data android:name="VERBOSE_DEBUG_TRACING" android:value="false"/>
+        <receiver android:label="@string/widget_label_light" android:name="tunein.library.widget.TuneInWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_provider"/>
+        </receiver>
+        <receiver android:label="@string/widget_label_dark" android:name="tunein.library.widget.TuneInWidgetProviderDark">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_provider_dark"/>
+        </receiver>
+        <receiver android:label="@string/widget_label_mini" android:name="tunein.library.widget.TuneInWidgetProviderMini">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_provider_mini"/>
+        </receiver>
+        <receiver android:name="tunein.ui.helpers.MediaButtonIntentReceiver" android:priority="1000000001">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="tunein.services.OptionsService"/>
+        <service android:exported="false" android:name="tunein.services.BountyService"/>
+        <service android:label="AudioSessionManager" android:name="tunein.audio.audiosession.AudioSessionService" android:stopWithTask="false"/>
+        <service android:name="tunein.recents.RecentsSaveService"/>
+        <service android:label="@string/app_service_name" android:name="tunein.audio.audioservice.AudioService" android:process="@string/tunein_service_process"/>
+        <service android:label="ConsolidationService" android:name="tunein.analytics.metrics.MetricConsolidationService" android:process="@string/tunein_service_process"/>
+        <service android:enabled="true" android:exported="false" android:name="tunein.services.DebugService"/>
+        <provider android:authorities="@string/repository_authority" android:exported="false" android:name="tunein.library.repository.RepositoryProvider"/>
+        <provider android:authorities="@string/settings_repository_authority" android:exported="false" android:name="tunein.settings.SettingsProvider"/>
+        <provider android:authorities="@string/tasks_repository_authority" android:exported="false" android:name="tunein.alarm.TaskContentProvider"/>
+        <provider android:authorities="@string/schedule_repository_authority" android:exported="false" android:name="tunein.alarm.SchedContentProvider"/>
+        <provider android:authorities="@string/cookie_repository_authority" android:exported="false" android:name="tunein.network.cookies.CookieContentProvider"/>
+        <provider android:authorities="@string/offline_repository_authority" android:exported="false" android:name="tunein.offline.OfflineContentProvider"/>
+        <provider android:authorities="@string/autodownload_repository_authority" android:exported="false" android:name="tunein.offline.autodownload.AutoDownloadContentProvider"/>
+        <provider android:authorities="@string/data_repository_authority" android:exported="false" android:name="tunein.data.common.TuneInContentProvider"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.analytics.AnalyticsReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService"/>
+        <receiver android:enabled="true" android:name="tunein.billing.google.GoogleBillingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.billing.PURCHASES_UPDATED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.appsflyer.MultipleInstallBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="io.branch.referral.InstallListener">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="tunein.intents.CampaignInstallTrackingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.google.android.gms.analytics.CampaignTrackingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.google.ads.conversiontracking.InstallReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="tunein.intents.DeferredDeepLinkReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="tunein.intents.ProxyReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.RUN"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="stop" android:scheme="tunein.player"/>
+                <data android:host="browse" android:scheme="tunein.player"/>
+                <data android:host="search" android:scheme="tunein.player"/>
+                <data android:host="tune" android:scheme="tunein.player"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="tunein.analytics.ComscoreMonitoringReceiver" android:process="@string/tunein_service_process">
+            <intent-filter>
+                <action android:name="tunein.analytics.broadcast.FOREGROUND"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.crashlytics.ApiKey" android:value="a2dec7961f4a9ba3f3b9e5645916efde255703a6"/>
+        <activity android:icon="@drawable/ic_launcher_tv" android:label="@string/app_name" android:logo="@drawable/tunein_banner" android:name="tunein.leanback.LeanBackActivity" android:screenOrientation="landscape" android:theme="@style/Theme.TuneIn.Leanback">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="tunein.leanback.TVPlayerActivity" android:parentActivityName="tunein.leanback.LeanBackActivity" android:screenOrientation="landscape" android:theme="@style/Theme.TuneIn.Leanback"/>
+        <activity android:name="tunein.leanback.VerticalGridActivity" android:screenOrientation="landscape" android:theme="@style/Theme.TuneIn.Leanback"/>
+        <activity android:name="tunein.leanback.LeanBackSearchActivity" android:screenOrientation="landscape" android:theme="@style/Theme.TuneIn.Leanback"/>
+        <activity android:name="tunein.activities.UpsellWebViewActivity" android:parentActivityName="tunein.ui.actvities.HomeActivity" android:theme="@style/Theme.TuneIn.Premium.Upsell.Transparent">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="tunein.ui.actvities.HomeActivity"/>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="subscribe" android:scheme="tunein"/>
+                <data android:host="directsubscribe" android:scheme="tunein"/>
+                <data android:host="directsubscribesecondary" android:scheme="tunein"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="tunein.controllers.MockBillingController$MockSubscribeActivity"/>
+        <activity android:name="tunein.activities.NielsenWebView" android:process="@string/tunein_service_process" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <meta-data android:name="com.google.android.gms.car.application" android:resource="@xml/automotive_app_desc"/>
+        <service android:exported="true" android:name="tunein.services.MediaBrowser">
+            <intent-filter>
+                <action android:name="android.media.browse.MediaBrowserService"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="tunein.offline.autodownload.AutoDownloadService"/>
+        <receiver android:exported="false" android:name="tunein.offline.autodownload.AutoDownloadReceiver">
+            <intent-filter>
+                <action android:name="tunein.offline.autodownload.check_auto_download"/>
+                <action android:name="tunein.offline.autodownload.auto_download"/>
+                <data android:host="auto_download" android:scheme="tunein.download"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:name="tunein.leanback.BootupReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="tunein.alarm.AlarmSystemConfigReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:name="tunein.leanback.RecommendationService"/>
+        <activity android:label="" android:name="tunein.prompts.PromptActivity" android:theme="@style/PromptStyle.Opaque"/>
+        <activity android:configChanges="orientation|screenSize" android:name="tunein.unlock.UnlockActivity" android:screenOrientation="landscape"/>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@string/fb_login_protocol_scheme"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live_pilLHxFoocAOEAnIpTvvRefeuwoDn1lh"/>
+        <meta-data android:name="com.facebook.sdk.AutoLogAppEventsEnabled" android:value="false"/>
+        <activity android:exported="true" android:name="com.google.android.gms.appinvite.PreviewActivity" android:theme="@style/Theme.AppInvite.Preview">
+            <intent-filter>
+                <action android:name="com.google.android.gms.appinvite.ACTION_PREVIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <receiver android:enabled="true" android:name="com.google.android.gms.measurement.AppMeasurementReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="tunein.player"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"/>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <provider android:authorities="tunein.player.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <provider android:authorities="tunein.player.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"/>
+        <activity android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity" android:theme="@style/Theme.IAPTheme"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:label="@string/mmadsdk_app_name" android:name="com.millennialmedia.internal.MMActivity" android:theme="@style/Theme.MMTransparent"/>
+        <activity android:label="sdk" android:name="com.millennialmedia.internal.MMIntentWrapperActivity"/>
+    </application>
+</manifest>

@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="preferExternal" package="com.appgeneration.itunerfree" platformBuildVersionCode="25" platformBuildVersionName="7.1.1">
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <permission android:name="com.appgeneration.itunerfree.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.appgeneration.itunerfree.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="true"/>
+    <uses-feature android:name="android.hardware.location" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.network" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.landscape" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.portrait" android:required="false"/>
+    <uses-feature android:name="android.hardware.bluetooth" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+    <uses-feature android:name="android.hardware.faketouch" android:required="false"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.wifi" android:required="false"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <uses-permission android:name="com.android.vending.CHECK_LICENSE"/>
+    <meta-data android:name="android.support.VERSION" android:value="25.3.1"/>
+    <application android:allowBackup="false" android:hardwareAccelerated="true" android:icon="@mipmap/ic_launcher" android:killAfterRestore="true" android:label="@string/app_name" android:largeHeap="true" android:logo="@drawable/tv_app_logo" android:name="com.appgeneration.ituner.MyApplication" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <meta-data android:name="com.google.android.gms.car.application" android:resource="@xml/automotive_app_desc"/>
+        <meta-data android:name="com.google.android.gms.car.notification.SmallIcon" android:resource="@drawable/auto_notif_icon"/>
+        <meta-data android:name="com.google.android.gms.car.application.theme" android:resource="@style/AndroidAutoTheme"/>
+        <service android:exported="true" android:name="com.appgeneration.ituner.auto.AutoMediaBrowserService">
+            <intent-filter>
+                <action android:name="android.media.browse.MediaBrowserService"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="@string/manifest_key_app_def_free" android:value="true"/>
+        <meta-data android:name="@string/manifest_key_app_def_codename" android:value="@string/manifest_key_version_google_free"/>
+        <meta-data android:name="@string/manifest_key_app_def_app_url" android:value="https://play.google.com/store/apps/details?id=com.appgeneration.itunerfree"/>
+        <meta-data android:name="@string/manifest_key_app_def_pro_url" android:value="https://play.google.com/store/apps/details?id=com.appgeneration.itunerpro"/>
+        <meta-data android:name="@string/manifest_key_app_def_billing_public_key" android:value="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAk4GZexaiZKMCZe4ukjssjH20q+HR8GZOWTMaokfSVn7iLxy5m4xhDmUN8GrXEnB3sml7ouFh7m5VUsQ1Qg2bs49q61eS5YpouB1Dpkihh2NXCwQ46bKrqf7VHvtuh7xFoOdz/hzYsKADrBluaFtlvEHUgKo4UBZqFfiaiJePpCWLEJSbd6sHeEq/8r/7gofiV/4kst7KpabLJZWOdqLkWuzByJ7lVeRIU6jrcVx+0wl/qIYsJKBaXhH2D33kPJ4NLcO3oNFjsZ6Y3uzNKnksmgn8YbQXs7RXOXmuE6OQiLIRbCTpGdPhTag6StWwKeDbOzsvJBj5pdTT410MNf6M3QIDAQAB"/>
+        <meta-data android:name="@string/manifest_key_app_def_billing_sku" android:value="pro_upgrade"/>
+        <meta-data android:name="@string/manifest_key_analytics_google_analytics" android:value="UA-44912974-3"/>
+        <meta-data android:name="@string/manifest_key_analytics_cross_selling" android:value="L30"/>
+        <meta-data android:name="@string/manifest_key_analytics_cross_selling_sender_id" android:value="L651104354482"/>
+        <meta-data android:name="@string/manifest_key_analytics_amazon" android:value="673d6a1d46154889a73af1836e553563"/>
+        <meta-data android:name="@string/manifest_key_pub_amazon" android:value="673d6a1d46154889a73af1836e553563"/>
+        <meta-data android:name="@string/manifest_key_pub_facebook_banner" android:value="594495070580008_858611464168366"/>
+        <meta-data android:name="@string/manifest_key_pub_mopub_banner_tablet" android:value="cc467c55947d499fbc219c27c6dbfd24"/>
+        <meta-data android:name="@string/manifest_key_pub_mopub_banner_phone" android:value="15326bfa021d4ae49fe714b802d256d3"/>
+        <meta-data android:name="@string/manifest_key_pub_facebook_interstitial" android:value="594495070580008_858612437501602"/>
+        <meta-data android:name="@string/manifest_key_pub_mopub_interstitial_phone" android:value="f3532820b21a46eeaf60a0ac505c2f2a"/>
+        <meta-data android:name="@string/manifest_key_pub_mopub_interstitial_tablet" android:value="5f416d21519d442daa094a820257f45d"/>
+        <meta-data android:name="@string/manifest_key_pub_admob_banner_1" android:value="ca-app-pub-0085763304086106/9762032824"/>
+        <meta-data android:name="@string/manifest_key_pub_admob_banner_2" android:value="ca-app-pub-0085763304086106/5385030420"/>
+        <meta-data android:name="@string/manifest_key_pub_admob_banner_3" android:value="ca-app-pub-0085763304086106/2431564026"/>
+        <meta-data android:name="@string/manifest_key_pub_admob_banner_4" android:value="ca-app-pub-0085763304086106/3908297221"/>
+        <meta-data android:name="@string/manifest_key_pub_admob_banner_5" android:value="ca-app-pub-0085763304086106/1070561221"/>
+        <meta-data android:name="@string/manifest_key_pub_admob_interstitial_1" android:value="ca-app-pub-0085763304086106/2238766026"/>
+        <meta-data android:name="@string/manifest_key_pub_admob_interstitial_2" android:value="ca-app-pub-0085763304086106/9815230022"/>
+        <meta-data android:name="@string/manifest_key_pub_admob_interstitial_3" android:value="ca-app-pub-0085763304086106/6861763624"/>
+        <meta-data android:name="@string/manifest_key_pub_admob_interstitial_4" android:value="ca-app-pub-0085763304086106/8338496829"/>
+        <meta-data android:name="@string/manifest_key_pub_admob_interstitial_5" android:value="ca-app-pub-0085763304086106/2547294429"/>
+        <service android:name="com.appgeneration.agcrossselling2.openudid.OpenUDID_service">
+            <intent-filter>
+                <action android:name="org.openudid.GETUDID"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.appgeneration.mytuner.dataprovider.helpers.openudid.OpenUDID_service">
+            <intent-filter>
+                <action android:name="org.openudid.GETUDID"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.appgeneration.ituner.application.services.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.appgeneration.ituner.media.service.MediaButtonIntentReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+                <action android:name="android.media.AUDIO_BECOMING_NOISY"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.appgeneration.ituner.application.LongTimeNoSeeReceiver"/>
+        <receiver android:name="com.appgeneration.ituner.utils.AlarmScheduler"/>
+        <receiver android:name="com.google.android.gcm.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.google.android.gcm"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.appgeneration.ituner.wear.WearListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.wearable.MESSAGE_RECEIVED"/>
+                <action android:name="com.google.android.gms.wearable.DATA_CHANGED"/>
+                <data android:host="*" android:pathPrefix="/mytunerwear" android:scheme="wear"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="@string/search_suggest_authority" android:exported="true" android:name="com.appgeneration.ituner.application.providers.SearchContentProvider"/>
+        <service android:name="com.google.android.gcm.GcmIntentService"/>
+        <receiver android:name="com.appgeneration.ituner.widget.MyTunerWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info"/>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.appgeneration.ituner.application.activities.SplashActivity" android:theme="@style/myTunerSplashStyle">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="mytuner.mobi" android:pathPrefix="/radio/" android:scheme="http"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.mytuner.mobi" android:pathPrefix="/radio/" android:scheme="http"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.media.action.MEDIA_PLAY_FROM_SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.appgeneration.ituner.application.activities.DrawerMainActivity" android:theme="@style/myTunerStyle" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.appgeneration.ituner.application.activities.TabletMainActivity" android:screenOrientation="sensorLandscape" android:theme="@style/myTunerStyle_tablet" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.appgeneration.ituner.application.activities.SearchActivity" android:parentActivityName="com.appgeneration.ituner.application.activities.DrawerMainActivity" android:theme="@style/myTunerSearchStyle" android:windowSoftInputMode="stateVisible">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".application.activities.DrawerMainActivity"/>
+        </activity>
+        <activity android:name="com.appgeneration.ituner.application.activities.ContentListActivity" android:theme="@style/myTunerStyle"/>
+        <activity android:launchMode="singleTask" android:name="com.appgeneration.ituner.application.activities.OnboardingActivity" android:theme="@style/myTunerOnboardingStyle"/>
+        <activity android:name="com.appgeneration.ituner.application.activities.SuggestRadioActivity" android:theme="@style/myTunerDialogStyle"/>
+        <activity android:name="com.appgeneration.ituner.application.activities.LoginActivity" android:theme="@style/myTunerDialogStyle"/>
+        <activity android:name="com.appgeneration.ituner.application.activities.BadgesActivity" android:theme="@style/myTunerDialogStyle"/>
+        <activity android:name="com.appgeneration.ituner.application.activities.PodcastEpisodesPopupActivity" android:theme="@style/myTunerDialogStyle"/>
+        <activity android:name="com.appgeneration.ituner.application.activities.RaterActivity" android:noHistory="true" android:theme="@style/myTunerDialogStyle"/>
+        <activity android:name="com.appgeneration.ituner.application.activities.WebPlayerActivity" android:theme="@style/myTunerDialogStyle"/>
+        <service android:name="com.appgeneration.ituner.media.service.MediaService"/>
+        <service android:name="com.appgeneration.ituner.data.APISyncService"/>
+        <meta-data android:name="com.crashlytics.ApiKey" android:value="e94168ebead5295ff1db3e5546223ff7edf72e59"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.analytics.AnalyticsReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService"/>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@string/fb_login_protocol_scheme"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="@string/manifest_key_app_type" android:value="radio"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.facebook.ads.InterstitialAdActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.amazon.device.ads.AdActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MoPubActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MraidActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.common.MoPubBrowser"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MraidVideoPlayerActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.RewardedMraidActivity"/>
+        <receiver android:exported="true" android:name="com.appgeneration.ituner.ad.ReferrerReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:hardwareAccelerated="true" android:name="com.inmobi.rendering.InMobiAdActivity" android:resizeableActivity="false" android:theme="@android:style/Theme.NoTitleBar"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.inmobi.commons.core.utilities.uid.ImIdShareBroadCastReceiver">
+            <intent-filter>
+                <action android:name="com.inmobi.share.id"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.mobfox.sdk.interstitialads.InterstitialActivity"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <provider android:authorities="com.appgeneration.itunerfree.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"/>
+        <service android:exported="true" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:exported="true" android:name="com.google.android.gms.appinvite.PreviewActivity" android:theme="@style/Theme.AppInvite.Preview">
+            <intent-filter>
+                <action android:name="com.google.android.gms.appinvite.ACTION_PREVIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.facebook.ads.AudienceNetworkActivity"/>
+        <activity android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity" android:theme="@style/Theme.IAPTheme"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:label="@string/mmadsdk_app_name" android:name="com.millennialmedia.internal.MMActivity" android:theme="@style/Theme.MMTransparent"/>
+        <activity android:label="sdk" android:name="com.millennialmedia.internal.MMIntentWrapperActivity"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.appgeneration.itunerfree"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"/>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.appgeneration.itunerfree.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <meta-data android:name="com.google.android.wearable.beta.app" android:resource="@xml/android_wear_micro_apk"/>
+    </application>
+</manifest>

@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.abc.abcnews" platformBuildVersionCode="24" platformBuildVersionName="7.0">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-feature android:name="android.hardware.touchscreen.multitouch" android:required="false"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COURSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <permission android:name="com.abc.abcnews.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.abc.abcnews.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_SYNC_STATS"/>
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <application android:allowBackup="false" android:hardwareAccelerated="true" android:icon="@drawable/ic_launcher_abcnews" android:label="@string/app_name" android:logo="@drawable/ic_abcnews_actionbar_logo" android:name="com.abc.abcnews.AbcNewsApplication" android:networkSecurityConfig="@xml/network_security_config" android:supportsRtl="false" android:theme="@style/Theme.ABC" name=".BRDemoApplication">
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:label="@string/app_name" android:name="com.abc.abcnews.ui.StartActivity" android:noHistory="true" android:screenOrientation="portrait" android:theme="@style/AppTheme.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="optly8310063212"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/app_name" android:name="com.abc.abcnews.ui.SlideshowViewingActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/app_name" android:launchMode="singleTask" android:name="com.abc.abcnews.ui.SectionsPagerActivity" android:screenOrientation="portrait" android:theme="@style/Theme.ABC">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="change_tags" android:scheme="abcnewstags"/>
+                <data android:host="deeplink" android:scheme="abcnewsapplink"/>
+                <data android:host="abcnews.go.com" android:scheme="abcnewsdailyrewind"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/app_name" android:name="com.abc.abcnews.ui.NewsItemPagerActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/app_name" android:name="com.abc.abcnews.ui.FilmStripActivity" android:screenOrientation="portrait" android:theme="@style/Theme.ABC"/>
+        <activity android:configChanges="orientation|screenSize" android:hardwareAccelerated="true" android:label="@string/app_name" android:name="com.abc.abcnews.ui.NewsItemActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="abcnews.go.com" android:pathPrefix="/" android:scheme="http"/>
+                <data android:host="abcnews.go.com" android:pathPrefix="/" android:scheme="https"/>
+                <data android:host="qa.n7.abcnews.go.com" android:scheme="http"/>
+                <data android:host="qa.n7.abcnews.go.com" android:scheme="https"/>
+                <data android:scheme="abcnews"/>
+                <data android:host="com.abc.abcnews" android:scheme="android-app"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/app_name" android:launchMode="singleTop" android:name="com.abc.abcnews.ui.live.LiveVideoActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="com.google.android.libraries.cast.companionlibrary.cast.player.VideoCastControllerActivity" android:parentActivityName="com.abc.abcnews.ui.SectionsPagerActivity" android:theme="@style/Theme.AppCompat.NoActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.abc.abcnews.ui.SectionsPagerActivity"/>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.abc.abcnews.ui.WebViewActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/app_name" android:name="com.abc.abcnews.ui.SettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.abc.abcnews.ui.ChromecastTutorialActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/app_name" android:name="com.abc.abcnews.ui.SearchActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/app_name" android:name="com.abc.abcnews.ui.OnBoardingPagerActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Holo.Light.NoActionBar"/>
+        <activity android:launchMode="singleTask" android:name="com.abc.abcnews.ui.myAlerts.AlertsActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.abc.abcnews.ui.listen.ListenActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.abc.abcnews.ui.originalsAndShows.OriginalsShowsPagerActivity" android:screenOrientation="portrait"/>
+        <activity android:name="net.hockeyapp.android.UpdateActivity"/>
+        <activity android:launchMode="singleTask" android:name="com.abc.abcnews.ui.hashtag.HashtagTopicActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.abc.abcnews.ui.views.LocalVideoItemActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.abc.abcnews.ui.AndroidAutoActivity">
+            <intent-filter>
+                <action android:name="android.media.action.MEDIA_PLAY_FROM_SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.abc.abcnews.features.fullEpisodes.Activity.FullEpisodesActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.abc.abcnews.features.fullEpisodes.Activity.MvpdLoginActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.abc.abcnews.features.fullEpisodes.Activity.MvpdSelectionActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.abc.abcnews.features.fullEpisodes.Activity.FullEpisodesVideoPlayerActivity" android:screenOrientation="landscape"/>
+        <service android:label="AccessEnabler service" android:name="com.adobe.adobepass.accessenabler.api.AccessEnablerService"/>
+        <activity android:configChanges="orientation|screenSize" android:launchMode="singleTask" android:name="com.abc.abcnews.ui.videoPlaylist.VideoPlaylistActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Transparent"/>
+        <provider android:authorities="com.abc.abcnews" android:exported="false" android:name="com.abc.abcnews.data.AbcNewsDbProvider"/>
+        <service android:name="com.abc.abcnews.slacker.SlackerRadioServiceExternal"/>
+        <service android:name="com.abc.abcnews.legacy.LegacyService"/>
+        <service android:name="com.abc.abcnews.service.NewsItemDownloadService"/>
+        <service android:name="com.abc.abcnews.service.SectionSyncService"/>
+        <service android:name="com.abc.abcnews.service.GoogleNowCredentialsService"/>
+        <service android:name="com.abc.abcnews.service.GoogleNowAuthorizationService"/>
+        <service android:name="com.abc.abcnews.service.GoogleNowActivityRecorderService"/>
+        <service android:name="com.abc.abcnews.service.WearFeedDownloadService"/>
+        <service android:name="com.abc.abcnews.service.RegisterWearDeviceService"/>
+        <service android:name="com.abc.abcnews.slacker.SlackerRadioServiceExternal"/>
+        <service android:name="com.abc.abcnews.legacy.LegacyService"/>
+        <service android:name="com.abc.abcnews.service.NewsItemDownloadService"/>
+        <service android:name="com.abc.abcnews.service.SectionSyncService"/>
+        <service android:name="com.abc.abcnews.service.GoogleNowCredentialsService"/>
+        <service android:name="com.abc.abcnews.service.GoogleNowAuthorizationService"/>
+        <service android:name="com.abc.abcnews.service.GoogleNowActivityRecorderService"/>
+        <service android:name="com.abc.abcnews.service.WearFeedDownloadService"/>
+        <service android:name="com.abc.abcnews.service.RegisterWearDeviceService"/>
+        <service android:name="com.abc.abcnews.service.VideoOverlayService"/>
+        <service android:name="com.abc.abcnews.service.HandheldWearableListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.wearable.DATA_CHANGED"/>
+                <action android:name="com.google.android.gms.wearable.MESSAGE_RECEIVED"/>
+                <data android:host="*" android:scheme="wear"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name="com.abc.abcnews.service.AbcMediaBrowserService">
+            <intent-filter>
+                <action android:name="android.media.browse.MediaBrowserService"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name="com.abc.abcnews.sync.SyncService">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter"/>
+            </intent-filter>
+            <meta-data android:name="android.content.SyncAdapter" android:resource="@xml/syncadapter"/>
+        </service>
+        <service android:exported="true" android:name="com.abc.abcnews.sync.AuthenticationService">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+            <meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@xml/authenticator"/>
+        </service>
+        <service android:name="com.bottlerocketapps.images.ImageDownloadService"/>
+        <service android:name="com.abc.abcnews.widget.AbcLargeWidgetService" android:permission="android.permission.BIND_REMOTEVIEWS"/>
+        <service android:name="com.abc.abcnews.widget.AbcSmallWidgetService" android:permission="android.permission.BIND_REMOTEVIEWS"/>
+        <service android:exported="false" android:name="com.google.android.libraries.cast.companionlibrary.notification.VideoCastNotificationService">
+            <intent-filter>
+                <action android:name="com.google.android.libraries.cast.companionlibrary.action.toggleplayback"/>
+                <action android:name="com.google.android.libraries.cast.companionlibrary.action.stop"/>
+                <action android:name="com.google.android.libraries.cast.companionlibrary.action.notificationvisibility"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.abc.abcnews.service.PodcastPlayerService"/>
+        <receiver android:name="com.bottlerocketapps.images.ImageCacheVacuumReceiver"/>
+        <receiver android:exported="true" android:name="com.abc.abcnews.slacker.SlackerReceiver">
+            <intent-filter>
+                <action android:name="com.abc.abcnews.slacker.DISPLAY_NOTIFICATION"/>
+                <action android:name="com.abc.abcnews.slacker.UPDATE_NOTIFICATION"/>
+                <action android:name="com.abc.abcnews.slacker.REMOVE_NOTIFICATION"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.abc.abcnews.handlers.GoogleNowAuthorizationResponseHandler">
+            <intent-filter>
+                <action android:name="com.abc.abcnews.BROADCAST"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.abc.abcnews.handlers.WearResponseHandler">
+            <intent-filter>
+                <action android:name="com.abc.abcnews.BROADCAST_WEAR"/>
+                <action android:name="com.abc.abcnews.broadcast_wear_rich_push_action"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.abc.abcnews.handlers.WearMessageHandler">
+            <intent-filter>
+                <action android:name="com.abc.abcnews.broadcast_notification_acknowledgement"/>
+                <action android:name="com.abc.abcnews.broadcast_wear_rich_push_delete"/>
+                <action android:name="com.abc.abcnews.broadcast_data_response_message"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.abc.abcnews.handlers.NotificationActionHandler">
+            <intent-filter>
+                <action android:name="com.abc.abcnews.broadcast_notification_action"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.abc.abcnews.appboy.NotificationReceiver">
+            <intent-filter>
+                <action android:name="com.abc.abcnews.intent.APPBOY_PUSH_RECEIVED"/>
+                <action android:name="com.abc.abcnews.intent.APPBOY_NOTIFICATION_OPENED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.appboy.AppboyGcmReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.abc.abcnews"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.appboy.ui.AppboyWebViewActivity" android:theme="@android:style/Theme"/>
+        <activity android:name="com.appboy.ui.activities.AppboyFeedActivity" android:theme="@android:style/Theme"/>
+        <receiver android:label="@string/widget_label_large" android:name="com.abc.abcnews.widget.AbcAppWidgetProviderLarge">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/abc_large_widget_provider_info"/>
+        </receiver>
+        <receiver android:label="@string/widget_label_small" android:name="com.abc.abcnews.widget.AbcAppWidgetProviderSmall">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.abc.abcnews.widget.pagecounterupdate"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/abc_small_widget_provider_info"/>
+        </receiver>
+        <receiver android:name="com.google.android.libraries.cast.companionlibrary.remotecontrol.VideoIntentReceiver">
+            <intent-filter>
+                <action android:name="android.media.AUDIO_BECOMING_NOISY"/>
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+                <action android:name="com.google.android.libraries.cast.companionlibrary.action.toggleplayback"/>
+                <action android:name="com.google.android.libraries.cast.companionlibrary.action.stop"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.abc.abcnews.handlers.PodcastPlayerHandler">
+            <intent-filter>
+                <action android:name="android.media.AUDIO_BECOMING_NOISY"/>
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="io.fabric.ApiKey" android:value="2a041341f2d33126c624b9cc79d786efdaecbb6e"/>
+        <meta-data android:name="com.google.android.gms.car.application" android:resource="@xml/automotive_app_desc"/>
+        <activity android:label="@string/app_name" android:name="com.bottlerocketapps.shared.BRSharedActivity"/>
+        <activity android:name="com.bottlerocketapps.shared.TestFeedDownloadActivity"/>
+        <activity android:name="com.bottlerocketapps.shared.TestBETVideoListActivity"/>
+        <activity android:name="com.bottlerocketapps.shared.TestUploadServiceActivity"/>
+        <service android:name="com.bottlerocketapps.service.FeedDownloadService"/>
+        <service android:name="com.bottlerocketapps.service.FileUploadService"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.facebook.ads.AudienceNetworkActivity"/>
+        <service android:name="com.yieldmo.sdk.InitializationService"/>
+        <service android:exported="false" android:name="com.optimizely.OptlyIoService"/>
+        <receiver android:name="com.optimizely.OptlyIoReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.optimizely.PreviewExpsActivity" android:theme="@style/previewExpTheme"/>
+        <activity android:name="com.optimizely.PreviewVarsActivity" android:parentActivityName="com.optimizely.PreviewExpsActivity" android:theme="@style/previewVarTheme"/>
+        <activity android:name="com.optimizely.PreviewLogActivity" android:parentActivityName="com.optimizely.PreviewExpsActivity" android:theme="@style/previewLogTheme"/>
+        <activity android:name="com.optimizely.EditInfoActivity" android:theme="@style/editInfoTheme"/>
+        <activity android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity" android:theme="@style/Theme.IAPTheme"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.abc.abcnews.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.twitter.sdk.android.tweetui.PlayerActivity" android:theme="@style/MediaTheme"/>
+        <activity android:name="com.twitter.sdk.android.tweetui.GalleryActivity" android:theme="@style/MediaTheme"/>
+        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:exported="false" android:name="com.twitter.sdk.android.core.identity.OAuthActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:exported="false" android:icon="@drawable/tw__transparent" android:label="@string/kit_name" android:name="com.twitter.sdk.android.core.identity.ShareEmailActivity"/>
+        <service android:name="com.appboy.services.AppboyDataSyncService"/>
+        <activity android:label="@string/title_activity_pz_settings" android:name="com.packetzoom.speed.PZSettingsActivity"/>
+        <meta-data android:name="com.google.android.wearable.beta.app" android:resource="@xml/android_wear_micro_apk"/>
+    </application>
+</manifest>

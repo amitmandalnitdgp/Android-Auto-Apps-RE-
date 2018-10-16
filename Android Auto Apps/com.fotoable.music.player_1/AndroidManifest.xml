@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.fotoable.music.player" platformBuildVersionCode="23" platformBuildVersionName="6.0-2704002">
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.BODY_SENSORS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:name="com.ytwd.mp3player.Mp3PlayerApplication" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <activity android:name="com.ytwd.mp3player.WelcomeActivity" android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="file"/>
+                <data android:mimeType="audio/*"/>
+                <data android:mimeType="application/ogg"/>
+                <data android:mimeType="application/x-ogg"/>
+                <data android:mimeType="application/itunes"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:mimeType="audio/*"/>
+                <data android:mimeType="application/ogg"/>
+                <data android:mimeType="application/x-ogg"/>
+                <data android:mimeType="application/itunes"/>
+            </intent-filter>
+            <intent-filter android:priority="-1">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="content"/>
+                <data android:mimeType="audio/*"/>
+                <data android:mimeType="application/ogg"/>
+                <data android:mimeType="application/x-ogg"/>
+                <data android:mimeType="application/itunes"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|layoutDirection|orientation|screenSize" android:name="com.ytwd.mp3player.MainActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="keyboardHidden|layoutDirection|orientation|screenSize" android:name="com.ytwd.mp3player.activity.SearchResourceActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="keyboardHidden|layoutDirection|orientation|screenSize" android:name="com.ytwd.mp3player.activity.AudioPlayActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="keyboardHidden|layoutDirection|orientation|screenSize" android:name="com.ytwd.mp3player.activity.SettingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="keyboardHidden|layoutDirection|orientation|screenSize" android:name="com.ytwd.mp3player.activity.SkinActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <service android:enabled="true" android:exported="true" android:name="com.ytwd.mp3player.service.AudioService"/>
+        <service android:enabled="true" android:exported="true" android:name="com.ytwd.mp3player.service.AlarmService"/>
+        <receiver android:name="com.ytwd.mp3player.util.AlarmReceiver"/>
+        <receiver android:name="com.ytwd.mp3player.util.NotificationReciver"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.facebook.ads.InterstitialAdActivity"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="f73680e85183df2ff7467a9b14570bd9cbfb329d"/>
+    </application>
+</manifest>

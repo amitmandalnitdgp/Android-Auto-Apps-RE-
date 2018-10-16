@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="uk.co.sevendigital.android" platformBuildVersionCode="24" platformBuildVersionName="7.0">
+    <uses-permission android:name="pioneer.permission.appradio.ADVANCED_APPMODE"/>
+    <uses-permission android:name="uk.co.sevendigital.installation.information.ACCESS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="uk.co.sevendigital.android.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY"/>
+    <uses-permission android:name="com.samsung.wmanager.ENABLE_NOTIFICATION"/>
+    <permission android:name="uk.co.sevendigital.android.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-feature android:name="android.hardware.nfc" android:required="false"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <application android:allowBackup="false" android:description="@string/app_description" android:hardwareAccelerated="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="uk.co.sevendigital.android.library.SDAApplication" android:networkSecurityConfig="@xml/network_security_config" android:theme="@style/Theme.7di">
+        <meta-data android:name="com.google.android.gms.car.application" android:resource="@xml/automotive_app_desc"/>
+        <meta-data android:name="com.google.android.gms.car.notification.SmallIcon" android:resource="@drawable/brand_icon_white"/>
+        <service android:exported="true" android:name="uk.co.sevendigital.android.library.service.auto.SDIMediaBrowserService">
+            <intent-filter>
+                <action android:name="android.media.browse.MediaBrowserService"/>
+            </intent-filter>
+        </service>
+        <activity android:icon="@drawable/ic_launcher" android:label="@string/app_name_store" android:name="uk.co.sevendigital.android.library.ui.SDIShopLaunchActivity" android:theme="@style/Theme.7di.Transparent"/>
+        <activity-alias android:exported="true" android:name="uk.co.sevendigital.android.library.ui.SDIStartActivity" android:targetActivity="uk.co.sevendigital.android.library.ui.SDIShopLaunchActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity android:label="@string/app_name_music" android:name="uk.co.sevendigital.android.library.ui.SDIMusicLaunchActivity" android:theme="@style/Theme.7di.Transparent"/>
+        <activity android:label="@string/app_name_store" android:launchMode="singleTask" android:name="uk.co.sevendigital.android.library.ui.SDIShopHomeActivity" android:theme="@style/Theme.7di.Store.NavDrawer" android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
+            <meta-data android:name="android.app.default_searchable" android:value="uk.co.sevendigital.android.library.ui.shop.SDIShopSearchActivity"/>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.media.action.MEDIA_PLAY_FROM_SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:icon="@drawable/ic_launcher" android:label="@string/your_music" android:launchMode="singleTask" android:name="uk.co.sevendigital.android.library.ui.music.SDIMusicMainActivity" android:theme="@style/Theme.7di.Music.NavDrawer">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="" android:scheme="sevendigital"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="android.app.default_searchable" android:value="uk.co.sevendigital.android.library.ui.music.SDIMusicSearchActivity"/>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="uk.co.sevendigital.android.library.ui.shop.SDIShopSearchActivity" android:theme="@style/Theme.7di.Store.NoActionBar.TranslucentStatusBar" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+                <action android:name="uk.co.sevendigital.android.intent.action.SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/shop_searchable"/>
+        </activity>
+        <activity android:name="uk.co.sevendigital.android.library.ui.shop.SDIShopSearchViewAllListActivity" android:theme="@style/Theme.7di.Store.NoActionBar.TranslucentStatusBar"/>
+        <activity android:name="uk.co.sevendigital.android.library.ui.SDIShopArtistDetailsActivity" android:theme="@style/Theme.7di.Store.NoActionBar.TranslucentStatusBar">
+            <meta-data android:name="android.app.default_searchable" android:value="uk.co.sevendigital.android.library.ui.shop.SDIShopSearchActivity"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="uk.co.sevendigital.android.library.ui.SDIShopArtistReleaseTrackListsActivity" android:theme="@style/Theme.7di.Store.NoActionBar.TranslucentStatusBar">
+            <meta-data android:name="android.app.default_searchable" android:value="uk.co.sevendigital.android.library.ui.shop.SDIShopSearchActivity"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="uk.co.sevendigital.android.library.ui.SDIShopArtistTracksListActivity" android:theme="@style/Theme.7di.Store">
+            <meta-data android:name="android.app.default_searchable" android:value="uk.co.sevendigital.android.library.ui.shop.SDIShopSearchActivity"/>
+        </activity>
+        <activity android:name="uk.co.sevendigital.android.library.ui.SDIShopReleaseActivity" android:theme="@style/Theme.7di.Store.NoActionBar.TranslucentStatusBar" android:windowSoftInputMode="adjustPan">
+            <meta-data android:name="android.app.default_searchable" android:value="uk.co.sevendigital.android.library.ui.shop.SDIShopSearchActivity"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="uk.co.sevendigital.android.library.ui.SDIShopGenreReleaseArtistListsActivity" android:theme="@style/Theme.7di.Store.NoActionBar.TranslucentStatusBar">
+            <meta-data android:name="android.app.default_searchable" android:value="uk.co.sevendigital.android.library.ui.shop.SDIShopSearchActivity"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="uk.co.sevendigital.android.library.ui.SDIShopRecommendedReleaseListActivity" android:theme="@style/Theme.7di.Store.NoActionBar.TranslucentStatusBar">
+            <meta-data android:name="android.app.default_searchable" android:value="uk.co.sevendigital.android.library.ui.shop.SDIShopSearchActivity"/>
+        </activity>
+        <activity android:name="uk.co.sevendigital.android.library.ui.SDIShopEditorialListActivity" android:theme="@style/Theme.7di.Store.NoActionBar.TranslucentStatusBar" android:windowSoftInputMode="stateHidden">
+            <meta-data android:name="android.app.default_searchable" android:value="uk.co.sevendigital.android.library.ui.shop.SDIShopSearchActivity"/>
+        </activity>
+        <activity android:name="uk.co.sevendigital.android.library.ui.shop.SDIShopEditorialGridActivity" android:theme="@style/Theme.7di.Store.NoActionBar.TranslucentStatusBar" android:windowSoftInputMode="stateHidden">
+            <meta-data android:name="android.app.default_searchable" android:value="uk.co.sevendigital.android.library.ui.shop.SDIShopSearchActivity"/>
+        </activity>
+        <activity android:name="uk.co.sevendigital.android.library.ui.shop.SDIShopMerchandisingGridActivity" android:theme="@style/Theme.7di.Store.NoActionBar.TranslucentStatusBar" android:windowSoftInputMode="stateHidden">
+            <meta-data android:name="android.app.default_searchable" android:value="uk.co.sevendigital.android.library.ui.shop.SDIShopSearchActivity"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="uk.co.sevendigital.android.library.ui.SDIShopPurchaseConfirmationActivity" android:theme="@style/Theme.7di.Dialog" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="uk.co.sevendigital.android.library.ui.SDIShopPurchasePaypalActivity" android:theme="@style/Theme.7di.Store"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTask" android:name="uk.co.sevendigital.android.library.ui.SDIDownloadTrackListActivity" android:theme="@style/Theme.7di.Music.NoActionBar.TranslucentStatusBar"/>
+        <activity android:launchMode="singleTask" android:name="uk.co.sevendigital.android.library.ui.music.SDIMusicSearchActivity" android:theme="@style/Theme.7di.Music.NoActionBar" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+                <action android:name="uk.co.sevendigital.android.intent.action.SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/music_searchable"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden" android:name="uk.co.sevendigital.android.library.ui.SDIMusicReleaseDetailsActivity" android:theme="@style/Theme.7di.Music.NoActionBar.TranslucentStatusBar">
+            <meta-data android:name="android.app.default_searchable" android:value="uk.co.sevendigital.android.library.ui.music.SDIMusicSearchActivity"/>
+        </activity>
+        <activity android:name="uk.co.sevendigital.android.library.ui.SDIMusicArtistDetailsActivity" android:theme="@style/Theme.7di.Music.NoActionBar.TranslucentStatusBar">
+            <meta-data android:name="android.app.default_searchable" android:value="uk.co.sevendigital.android.library.ui.music.SDIMusicSearchActivity"/>
+        </activity>
+        <activity android:name="uk.co.sevendigital.android.library.ui.SDIMusicPlayerActivity" android:theme="@style/Theme.7di.Music.NoActionBar.TranslucentStatusBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.media.action.MEDIA_PLAY_FROM_SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:mimeType="audio/*" android:scheme="file"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="uk.co.sevendigital.android.library.ui.SDIMusicPlaylistViewActivity" android:theme="@style/Theme.7di.Music.NoActionBar.TranslucentStatusBar">
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="application/uk.co.sevendigital.android.playlistbeam"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="uk.co.sevendigital.android.library.ui.SDIMusicPlayQueueActivity" android:theme="@style/Theme.7di.Music.NoActionBar.TranslucentStatusBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="uk.co.sevendigital.android.library.ui.SDIMusicWishlistListActivity" android:theme="@style/Theme.7di.Music.NoActionBar.TranslucentStatusBar"/>
+        <activity android:excludeFromRecents="true" android:label="@string/sign_up" android:name="uk.co.sevendigital.android.library.ui.SDICreateAccountActivity" android:theme="@style/Theme.7di.Store" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:label="@string/sign_in" android:name="uk.co.sevendigital.android.library.ui.SDILoginActivity" android:theme="@style/Theme.7di.Store"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:label="@string/about" android:name="uk.co.sevendigital.android.library.ui.SDIAboutPreferenceActivity" android:theme="@style/Theme.7di.Store"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:label="@string/settings" android:name="uk.co.sevendigital.android.library.ui.SDIPreferenceActivity" android:theme="@style/Theme.7di.Store"/>
+        <activity-alias android:name="uk.co.sevendigital.android.library.ui.SDIStorePreferenceActivity" android:targetActivity="uk.co.sevendigital.android.library.ui.SDIPreferenceActivity" android:theme="@style/Theme.7di.Store"/>
+        <activity-alias android:name="uk.co.sevendigital.android.library.ui.SDIMusicPreferenceActivity" android:targetActivity="uk.co.sevendigital.android.library.ui.SDIPreferenceActivity" android:theme="@style/Theme.7di.Store"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:name="uk.co.sevendigital.android.library.ui.SDIFilePickerActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="uk.co.sevendigital.android.library.ui.SDIAutoUpgradeDialogActivity" android:theme="@style/Theme.7di.Transparent"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="uk.co.sevendigital.android.library.ui.SDISelectDownloadDirectoryDialogActivity" android:theme="@style/Theme.7di.Transparent"/>
+        <activity android:excludeFromRecents="true" android:name="uk.co.sevendigital.android.library.shop.SDIExternalActionActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="uk.co.sevendigital.android.intent.action.VIEW_ARTIST"/>
+                <action android:name="uk.co.sevendigital.android.intent.action.VIEW_ALBUM"/>
+                <action android:name="uk.co.sevendigital.android.intent.action.PLAY_TRACK"/>
+                <action android:name="uk.co.sevendigital.android.intent.action.PLAY_RELEASE"/>
+                <action android:name="uk.co.sevendigital.android.intent.action.VIEW_SYNC_DOWNLOADS"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="sdigital"/>
+            </intent-filter>
+        </activity>
+        <service android:label="@string/_seven_digital_service_player" android:name="uk.co.sevendigital.android.library.service.SDIPlayerService"/>
+        <service android:label="@string/_seven_digital_service_chart_new_releases_update" android:name="uk.co.sevendigital.android.library.service.SDINewReleasesUpdateService"/>
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.database.launcher.SDIDatabaseJobLauncher$GetMediaStoreInfoIntentService"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.database.launcher.SDIDatabaseJobLauncher$AddProductsToWishlistIntentService"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.database.launcher.SDIDatabaseJobLauncher$RemoveProductsFromWishlistIntentService"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.database.launcher.SDIDatabaseJobLauncher$UpdateLocalWishlistIntentService"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.database.launcher.SDIDatabaseJobLauncher$UpdateTrackCacheStateIntentService"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.database.launcher.SDIDatabaseJobLauncher$UpdateReleaseCacheStateIntentService"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.database.launcher.SDIDatabaseJobLauncher$UpdateArtistCacheStateIntentService"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.database.launcher.SDIDatabaseJobLauncher$UpdateTrackDownloadDateIntentService"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.database.launcher.SDIDatabaseJobLauncher$AddToDownloadQueueIntentService"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.database.launcher.SDIDatabaseJobLauncher$RestoreFailedDownloadsIntentService"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.database.launcher.SDIDatabaseJobLauncher$RemoveFromDownloadQueueIntentService"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.database.launcher.SDIDatabaseJobLauncher$ClearDownloadQueueIntentService"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.database.launcher.SDIDatabaseJobLauncher$ClearCompletedDownloadsIntentService"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.database.launcher.SDIDatabaseJobLauncher$UpdateDownloadNotificationIntentService"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.database.launcher.SDIDatabaseJobLauncher$IncrementTrackPlayCountIntentService"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.database.launcher.SDIDatabaseJobLauncher$DeleteTracksIntentService"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.database.launcher.SDIDatabaseJobLauncher$UpdateSessionPurchasedDownloadQueueIntentService"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.server.util.SDIServerJobUtil$UpdateReleaseGenresIntentService"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.server.util.SDIServerJobUtil$SendLastFmScrobblesIntentService"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.server.util.SDIServerJobUtil$SendWishlistIntentService"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.server.util.SDIServerJobUtil$SendPingLogIntentService"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.model.util.SDIModelJobUtil$UpdateModelDownloadReleaseIntentService"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.service.util.SDIServiceJobUtil$UpdatePartnerDetailsIntentService"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.service.util.SDIServiceJobUtil$ScanWithMediaScannerIntentService"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.filesystem.util.SDIFileSystemJobUtil$SpringCleanCacheTracksIntentService"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.filesystem.util.SDIFileSystemJobUtil$ClearCacheTracksIntentService"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.filesystem.util.SDIFileSystemJobUtil$TidyMediaStoreIntentService"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.application.launcher.SDIApplicationJobLauncher$UpdateLoggedInUserIdIntentService"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.application.launcher.SDIApplicationJobLauncher$UpdateEditorialListIntentService"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.application.launcher.SDIApplicationJobLauncher$SyncPlaylistsIntentService"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.application.util.SDIUiApplicationJobUtil$UpdatePushNotificationTagsIntentService"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.application.util.SDIUiApplicationJobUtil$ProcessPushNotificationIntentService"/>
+        <receiver android:enabled="true" android:name="uk.co.sevendigital.android.library.localmusic.SDIMediaScannerFinishedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_SCANNER_FINISHED"/>
+                <data android:scheme="file"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:name="uk.co.sevendigital.android.library.player.SDIMediaButtonDefaultBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.media.AUDIO_BECOMING_NOISY"/>
+            </intent-filter>
+            <intent-filter android:priority="9000">
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:name="uk.co.sevendigital.android.library.player.SDIMediaButtonAudioManagerBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.media.AUDIO_BECOMING_NOISY"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="uk.co.sevendigital.android.library.SDIReferralBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="uk.co.sevendigital.android.library.SDIUiNetworkStateChangeReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.net.wifi.STATE_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:icon="@drawable/ic_launcher" android:name="uk.co.sevendigital.android.library.appwidget.SDIAppWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_provider"/>
+        </receiver>
+        <receiver android:name="uk.co.sevendigital.android.library.gcm.SDIGcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="uk.co.sevendigital.android"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="uk.co.sevendigital.android.library.eo.application.job.SDIProcessPushNotificationJob$MessagePushNotificationOpenBroadcastReceiver"/>
+        <receiver android:name="uk.co.sevendigital.android.library.eo.application.job.SDIProcessPushNotificationJob$MessagePushNotificationDismissBroadcastReceiver"/>
+        <service android:name="uk.co.sevendigital.android.library.update.SDICheckForUpdateService"/>
+        <meta-data android:name="com.crashlytics.ApiKey" android:value="168450ee0dcf5c05b9e10a5d9e4d824d96e80cf4"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="AccessoryServicesLocation" android:value="/res/xml/gear2.xml"/>
+        <receiver android:name="com.samsung.android.sdk.accessory.ServiceConnectionIndicationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.accessory.service.action.ACCESSORY_SERVICE_CONNECTION_IND"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.samsung.android.sdk.accessory.RegisterUponInstallReceiver">
+            <intent-filter>
+                <action android:name="android.accessory.device.action.REGISTER_AFTER_INSTALL"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="@string/search_authority" android:exported="false" android:name="uk.co.sevendigital.android.library.search.SDISearchSuggestionProviderImpl"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="pioneer_supported_aam" android:value="true"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.application.util.SDIApplicationJobUtil$DetermineCountryCodeIntentService"/>
+        <service android:name="uk.co.sevendigital.android.library.service.remoteservice.gear2.SDIGear2RemoteControlService"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.application.launcher.SDIApplicationJobLauncher$UpdateCustomDownloadDirectoryIntentService"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.database.launcher.SDIDatabaseJobLauncher$UpdateStorageFoldersIntentService"/>
+        <service android:name="uk.co.sevendigital.android.library.eo.model.util.SDIModelJobUtil$CacheStorageFolderStatesIntentService"/>
+        <service android:enabled="true" android:exported="false" android:name="uk.co.sevendigital.android.library.service.remoteservice.SDITransferPlaylistService"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+    </application>
+</manifest>

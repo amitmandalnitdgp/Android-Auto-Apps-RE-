@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.doubleTwist.androidPlayer">
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-feature android:name="android.hardware.wifi" android:required="false"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.bluetooth" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.portrait" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.network" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+    <uses-feature android:name="android.hardware.location" android:required="false"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="com.doubleTwist.androidPlayer.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.doubleTwist.androidPlayer.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <application android:allowBackup="true" android:icon="@mipmap/app_icon_classic" android:label="@string/app_name" android:name="com.doubleTwist.cloudPlayer.App" android:supportsRtl="true" android:theme="@style/Theme.CloudPlayer">
+        <provider android:authorities="dtmedia" android:exported="true" android:multiprocess="false" android:name="com.doubleTwist.providers.NGMediaProvider"/>
+        <provider android:authorities="dtpodcast" android:exported="false" android:multiprocess="false" android:name="com.doubleTwist.providers.NGPodcastProvider"/>
+        <service android:exported="false" android:name="com.doubleTwist.sync.SyncService"/>
+        <meta-data android:name="android.max_aspect" android:value="2.1"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.google.android.gms.car.application" android:resource="@xml/automotive_app_desc"/>
+        <meta-data android:name="com.google.android.gms.car.notification.SmallIcon" android:resource="@drawable/notify_audioplayerservice"/>
+        <meta-data android:name="com.google.android.gms.car.application.theme" android:resource="@style/Theme.CloudPlayer.Car"/>
+        <meta-data android:name="com.google.android.wearable.media.theme" android:resource="@style/Theme.CloudPlayer.Wear"/>
+        <provider android:authorities="com.doubleTwist.androidPlayer.provider" android:exported="false" android:grantUriPermissions="true" android:multiprocess="false" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <service android:exported="true" android:name="com.doubleTwist.cloudPlayer.AudioPlayerService">
+            <intent-filter>
+                <action android:name="android.media.browse.MediaBrowserService"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.doubleTwist.cloudPlayer.OfflineCacheService"/>
+        <service android:exported="false" android:name="com.doubleTwist.cloudPlayer.MediaLibraryService"/>
+        <service android:exported="false" android:name="com.doubleTwist.cloudPlayer.MetadataService"/>
+        <service android:exported="false" android:name="com.doubleTwist.cloudPlayer.DownloadService"/>
+        <service android:exported="false" android:name="com.doubleTwist.podcast.PodcastUpdateService"/>
+        <service android:name="com.doubleTwist.cloudPlayer.MessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="android.support.v4.media.session.MediaButtonReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.doubleTwist.cloudPlayer.BluetoothStateChangeReceiver">
+            <intent-filter>
+                <action android:name="android.bluetooth.a2dp.profile.action.CONNECTION_STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:label="@string/app_name" android:launchMode="singleTop" android:name="com.doubleTwist.cloudPlayer.HomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.APP_MUSIC"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MUSIC_PLAYER"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.media.action.MEDIA_PLAY_FROM_SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="content"/>
+                <data android:scheme="file"/>
+                <data android:mimeType="audio/*"/>
+                <data android:mimeType="application/ogg"/>
+                <data android:mimeType="application/x-ogg"/>
+                <data android:mimeType="application/itunes"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:mimeType="audio/mp3"/>
+                <data android:mimeType="audio/x-mp3"/>
+                <data android:mimeType="audio/mpeg"/>
+                <data android:mimeType="audio/mp4"/>
+                <data android:mimeType="audio/mp4a-latm"/>
+            </intent-filter>
+        </activity>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTop" android:name="com.doubleTwist.cloudPlayer.LockPlayerActivity" android:screenOrientation="portrait" android:taskAffinity=""/>
+        <activity android:name="com.doubleTwist.cloudPlayer.SongsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.PICK"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="vnd.android.cursor.item/vnd.doubleTwist.song"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.doubleTwist.cloudPlayer.AlbumsActivity"/>
+        <activity android:name="com.doubleTwist.cloudPlayer.AlbumActivity"/>
+        <activity android:name="com.doubleTwist.cloudPlayer.ArtistsActivity"/>
+        <activity android:name="com.doubleTwist.cloudPlayer.PlaylistsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.PICK"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="vnd.android.cursor.dir/vnd.doubleTwist.playlist.members"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.doubleTwist.cloudPlayer.FoldersActivity"/>
+        <activity android:name="com.doubleTwist.cloudPlayer.ComposersActivity"/>
+        <activity android:name="com.doubleTwist.cloudPlayer.GenresActivity"/>
+        <activity android:name="com.doubleTwist.cloudPlayer.RadioActivity"/>
+        <activity android:name="com.doubleTwist.cloudPlayer.PodcastsActivity"/>
+        <activity android:name="com.doubleTwist.cloudPlayer.PodcastEpisodesActivity"/>
+        <activity android:name="com.doubleTwist.cloudPlayer.PodcastDirectoryActivity"/>
+        <activity android:name="com.doubleTwist.cloudPlayer.VideosActivity"/>
+        <activity android:name="com.doubleTwist.cloudPlayer.SettingsActivity"/>
+        <activity android:name="com.doubleTwist.cloudPlayer.FirstLaunchActivity" android:theme="@style/Theme.CloudPlayer.BlackStatus"/>
+        <activity android:name="com.doubleTwist.cloudPlayer.GoogleSignInActivity" android:theme="@style/Theme.CloudPlayer.Translucent"/>
+        <activity android:name="com.doubleTwist.cloudPlayer.GoogleSignOutActivity" android:theme="@style/Theme.CloudPlayer.Translucent"/>
+        <activity android:name="com.doubleTwist.cloudPlayer.StoreActivity"/>
+        <activity android:name="com.doubleTwist.cloudPlayer.EqualizerActivity"/>
+        <activity android:name="com.doubleTwist.storage.DropboxActivity" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name="com.doubleTwist.storage.OneDriveActivity" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name="com.doubleTwist.cloudPlayer.DirectoryChooserActivity"/>
+        <activity android:name="com.doubleTwist.cloudPlayer.MetadataEditorActivity"/>
+        <activity android:name="com.doubleTwist.cloudPlayer.ArtworkPickerActivity"/>
+        <activity android:name="com.doubleTwist.cloudPlayer.DownloadsActivity"/>
+        <activity android:name="com.doubleTwist.cloudPlayer.ContactActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.doubleTwist.cloudPlayer.VideoPlayerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:scheme="content"/>
+                <data android:scheme="file"/>
+                <data android:mimeType="video/mpeg4"/>
+                <data android:mimeType="video/mp4"/>
+                <data android:mimeType="video/3gp"/>
+                <data android:mimeType="video/3gpp"/>
+                <data android:mimeType="video/3gpp2"/>
+                <data android:mimeType="video/webm"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:mimeType="audio/x-mpegurl"/>
+                <data android:mimeType="audio/mpegurl"/>
+                <data android:mimeType="application/vnd.apple.mpegurl"/>
+                <data android:mimeType="application/x-mpegurl"/>
+            </intent-filter>
+        </activity>
+        <receiver android:label="@string/small_widget_name" android:name="com.doubleTwist.cloudPlayer.SmallWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/small_widget_info"/>
+        </receiver>
+        <receiver android:label="@string/small_dark_widget_name" android:name="com.doubleTwist.cloudPlayer.SmallDarkWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/small_dark_widget_info"/>
+        </receiver>
+        <receiver android:label="@string/large_widget_name" android:name="com.doubleTwist.cloudPlayer.LargeWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/large_widget_info"/>
+        </receiver>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_application_id"/>
+        <meta-data android:name="com.facebook.sdk.AutoLogAppEventsEnabled" android:value="true"/>
+        <activity android:exported="false" android:label="" android:name="com.firebase.ui.auth.KickoffActivity" android:theme="@style/FirebaseUI.Transparent"/>
+        <activity android:exported="false" android:label="@string/fui_title_recover_password_activity" android:name="com.firebase.ui.auth.ui.email.RecoverPasswordActivity"/>
+        <activity android:exported="false" android:label="@string/fui_sign_in_default" android:name="com.firebase.ui.auth.ui.email.RegisterEmailActivity"/>
+        <activity android:exported="false" android:label="@string/fui_sign_in_with_phone_number" android:name="com.firebase.ui.auth.ui.phone.PhoneVerificationActivity" android:windowSoftInputMode="stateAlwaysVisible"/>
+        <activity android:exported="false" android:label="@string/fui_title_welcome_back_idp_prompt" android:name="com.firebase.ui.auth.ui.accountlink.WelcomeBackIdpPrompt"/>
+        <activity android:exported="false" android:label="@string/fui_title_welcome_back_password_prompt" android:name="com.firebase.ui.auth.ui.accountlink.WelcomeBackPasswordPrompt"/>
+        <activity android:exported="false" android:label="@string/fui_default_toolbar_title" android:name="com.firebase.ui.auth.ui.idp.AuthMethodPickerActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity"/>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@string/facebook_login_protocol_scheme"/>
+            </intent-filter>
+        </activity>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"/>
+        <service android:exported="true" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.doubleTwist.androidPlayer"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"/>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.doubleTwist.androidPlayer.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.android.billingclient.api.ProxyBillingActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="ignore" android:value="ignore"/>
+        <activity android:name="pl.brightinventions.slf4android.NotifyDeveloperDialogDisplayActivity" android:theme="@android:style/Theme.NoDisplay"/>
+        <receiver android:name="com.zendesk.sdk.power.BatteryStateBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+            </intent-filter>
+        </receiver>
+        <activity android:label="@string/contact_fragment_title" android:name="com.zendesk.sdk.feedback.ui.ContactZendeskActivity" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:label="@string/contact_fragment_title" android:name="com.zendesk.sdk.requests.ViewRequestActivity" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/request_list_activity_title" android:name="com.zendesk.sdk.requests.RequestActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.zendesk.sdk.support.ViewArticleActivity"/>
+        <activity android:label="@string/support_activity_title" android:name="com.zendesk.sdk.support.SupportActivity" android:windowSoftInputMode="adjustResize"/>
+        <receiver android:exported="false" android:name="com.zendesk.sdk.deeplinking.ZendeskDeepLinkingBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.zendesk.sdk.deeplinking"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="android.support.VERSION" android:value="26.1.0"/>
+        <provider android:authorities="com.doubleTwist.androidPlayer.belvedere.attachments" android:exported="false" android:grantUriPermissions="true" android:name="com.zendesk.belvedere.BelvedereFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/belvedere_attachment_storage"/>
+        </provider>
+        <meta-data android:name="android.arch.lifecycle.VERSION" android:value="27.0.0-SNAPSHOT"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="3010ad17617b3551ad0f52f001917a0e0c39042a"/>
+    </application>
+</manifest>

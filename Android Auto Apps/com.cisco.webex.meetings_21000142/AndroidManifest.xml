@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.cisco.webex.meetings" platformBuildVersionCode="24" platformBuildVersionName="7.0">
+    <permission android:description="@string/BROADCAST_PERMISSION_DESCRIPTION_FOR_EXTERNAL" android:label="@string/BROADCAST_PERMISSION_DESCRIPTION_FOR_EXTERNAL" android:name="com.cisco.webex.permission.UI_BROADCAST" android:permissionGroup="android.permission-group.SYSTEM_TOOLS" android:protectionLevel="dangerous"/>
+    <permission android:description="@string/BROADCAST_PERMISSION_DESCRIPTION" android:label="@string/BROADCAST_PERMISSION_DESCRIPTION" android:name="com.cisco.webex.permission.INTERNAL_BROADCAST" android:permissionGroup="android.permission-group.SYSTEM_TOOLS" android:protectionLevel="signature"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.bluetooth" android:required="false"/>
+    <uses-feature android:name="android.hardware.microphone" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.REORDER_TASKS"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.sec.MDM_LICENSE_INTERNAL"/>
+    <uses-permission android:name="android.permission.sec.ENTERPRISE_DEVICE_ADMIN"/>
+    <uses-permission android:name="android.permission.sec.MDM_REMOTE_CONTROL"/>
+    <uses-permission android:name="android.permission.sec.MDM_PHONE_RESTRICTION"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="com.cisco.proxy.PROXY_CONFIG_PERMISSION"/>
+    <uses-permission android:name="com.cisco.webex.permission.UI_BROADCAST"/>
+    <uses-permission android:name="com.cisco.webex.permission.INTERNAL_BROADCAST"/>
+    <uses-permission android:name="com.cisco.android.permission.SIMPLE_MODE_BROWSER"/>
+    <uses-permission android:name="android.permission.READ_CALENDAR"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <application android:allowBackup="false" android:description="@string/APPLICATION_NAME" android:icon="@drawable/ic_launcher" android:label="@string/APPLICATION_NAME" android:name="com.cisco.webex.meetings.app.MeetingApplication" android:networkSecurityConfig="@xml/network_security_config" android:resizeableActivity="true" android:theme="@style/AppTheme">
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.cisco.webex.meetings.client.model.WbxGlideModuleForStringUrl" android:value="GlideModule"/>
+        <meta-data android:name="com.cisco.webex.meetings.client.model.WbxGlideModuleForAvatarInfo" android:value="GlideModule"/>
+        <activity android:label="@string/LAUNCHER_LABEL" android:name="com.cisco.webex.meetings.ui.premeeting.welcome.WebExMeeting">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <layout android:gravity="end|center|top" android:minHeight="240.0dip" android:minWidth="320.0dip"/>
+        </activity>
+        <activity android:label="@string/LAUNCHER_LABEL" android:launchMode="singleTask" android:name="com.cisco.webex.meetings.ui.integration.IntegrationActivity" android:theme="@style/IntegrationTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="wbx"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.cisco.webex.meetings.ui.integration.IntegrationInternalActivity" android:permission="com.cisco.webex.permission.INTERNAL_BROADCAST" android:theme="@style/IntegrationTheme">
+            <intent-filter>
+                <action android:name="com.cisco.webex.app.internal.call"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="wbxin"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.cisco.webex.meetings.ui.integration.IntegrationFakeActivity" android:theme="@style/IntegrationTheme"/>
+        <activity android:name="com.cisco.webex.meetings.ui.integration.IntegrationAuthorizationActivity" android:theme="@style/IntegrationThemeNoTranslucent"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cisco.webex.meetings.ui.integration.IntegrationServiceAuthorizationActivity" android:theme="@style/IntegrationTheme"/>
+        <activity android:excludeFromRecents="true" android:name="com.cisco.webex.meetings.app.PermissionCheckActivity" android:noHistory="true"/>
+        <activity android:name="com.cisco.webex.meetings.ui.integration.IntegrationWrapScheduleActivity" android:theme="@style/IntegrationThemeNoTranslucent"/>
+        <activity android:name="com.cisco.webex.meetings.ui.integration.IntegrationWrapSigninActivity" android:theme="@style/IntegrationTheme"/>
+        <activity android:excludeFromRecents="true" android:name="com.cisco.webex.meetings.ui.integration.IntegrationWrapAccountActivity" android:noHistory="true" android:theme="@style/IntegrationTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="vnd.android.cursor.item/vnd.com.cisco.webex.adapter.launch"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.cisco.webex.meetings.ui.signin.synergy.SetupActivity" android:theme="@style/Theme.WizardLoginPanel"/>
+        <activity android:name="com.cisco.webex.meetings.ui.premeeting.SettingAndroidAutoActivity"/>
+        <activity android:name="com.cisco.webex.meetings.ui.premeeting.welcome.TermsofUseActivity"/>
+        <activity android:name="com.cisco.webex.meetings.ui.premeeting.welcome.WebexAccountActivity"/>
+        <activity android:name="com.cisco.webex.meetings.ui.component.CrashHandlerActivity" android:process=":crashhandler"/>
+        <activity android:launchMode="singleTask" android:name="com.cisco.webex.meetings.ui.component.ProxyActivity"/>
+        <activity android:name="com.cisco.webex.meetings.ui.premeeting.AboutActivity"/>
+        <activity android:name="com.cisco.webex.meetings.ui.premeeting.welcome.WelcomeActivity" android:windowSoftInputMode="adjustPan|stateUnchanged"/>
+        <activity android:name="com.cisco.webex.meetings.ui.premeeting.meetinglist.MeetingListActivity"/>
+        <activity android:name="com.cisco.webex.meetings.ui.inmeeting.MeetingClient" android:theme="@style/WbxThemeActionbar" android:windowSoftInputMode="adjustPan|stateUnchanged"/>
+        <activity android:name="com.cisco.webex.meetings.ui.premeeting.SettingActivity"/>
+        <activity android:name="com.cisco.webex.meetings.ui.premeeting.SettingHelpActivity"/>
+        <activity android:launchMode="singleTask" android:name="com.cisco.webex.meetings.ui.premeeting.SettingSeamlessActivity"/>
+        <activity android:name="com.cisco.webex.meetings.ui.premeeting.ReportActivity"/>
+        <activity android:name="com.cisco.webex.meetings.client.premeeting.MyAccountActivity"/>
+        <activity android:name="com.cisco.webex.meetings.client.premeeting.MyRoomInfoActivity"/>
+        <activity android:name="com.cisco.webex.meetings.client.premeeting.OtherRoomInfoActivity"/>
+        <activity android:excludeFromRecents="true" android:name="com.cisco.webex.meetings.app.DisableEmulatorActivity" android:noHistory="true"/>
+        <activity android:excludeFromRecents="true" android:name="com.cisco.webex.meetings.app.UnsupportDeviceActivity" android:noHistory="true"/>
+        <activity android:icon="@drawable/p_r_ic" android:launchMode="singleInstance" android:name="com.cisco.webex.meetings.ui.premeeting.ShortcutActivity" android:theme="@style/WbxFixedToolBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.CREATE_SHORTCUT"/>
+            </intent-filter>
+        </activity>
+        <service android:label="@string/APPLICATION_NAME" android:name="com.cisco.webex.meetings.service.MeetingService" android:process=":mtgsvc"/>
+        <receiver android:name="com.cisco.webex.meetings.receiver.MeetingStatusUpdater" android:permission="com.cisco.webex.permission.INTERNAL_BROADCAST">
+            <intent-filter>
+                <action android:name="com.webex.meeting.internal.MEETING_UPDATED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.cisco.webex.meetings.receiver.LocaleChangeReceiver" android:permission="com.cisco.webex.permission.UI_BROADCAST">
+            <intent-filter>
+                <action android:name="android.intent.action.LOCALE_CHANGED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.cisco.webex.meetings.receiver.SendLogStatusReceiver" android:permission="com.cisco.webex.permission.UI_BROADCAST">
+            <intent-filter>
+                <action android:name="com.webex.meeting.SENDLOG_RESULT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.cisco.webex.meetings.receiver.SimChangedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.SIM_STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:name="com.cisco.webex.meetings.receiver.MeetingWidgetProvider" android:permission="com.cisco.webex.permission.INTERNAL_BROADCAST">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.webex.meeting.internal.MEETING_UPDATED"/>
+                <action android:name="com.webex.meeting.MEETING_DELETED"/>
+                <action android:name="com.webex.meeting.MEETING_SCHEDULED"/>
+                <action android:name="com.webex.meeting.MEETING_RELOADED"/>
+                <action android:name="com.webex.meeting.widget.REFRESH"/>
+                <action android:name="com.webex.meeting.widget.AUTO_REFRESH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.webex.meeting.widget.UPDATE_TIME_AT_MIDNIGHT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.webex.meeting.widget.GET_MEETING"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="wbx"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/meeting_appwidget_info"/>
+        </receiver>
+        <service android:name="com.cisco.webex.meetings.service.TabletWidgetService" android:permission="android.permission.BIND_REMOTEVIEWS"/>
+        <service android:name="com.cisco.webex.meetings.service.AccountAuthenticatorService" android:permission="com.cisco.webex.permission.INTERNAL_BROADCAST">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+            <meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@xml/authenticator"/>
+        </service>
+        <service android:configChanges="locale" android:name="com.cisco.webex.meetings.service.AccountSyncAdapterService" android:permission="com.cisco.webex.permission.INTERNAL_BROADCAST">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter"/>
+            </intent-filter>
+            <meta-data android:name="android.content.SyncAdapter" android:resource="@xml/sync_contacts"/>
+            <meta-data android:name="android.provider.CONTACTS_STRUCTURE" android:resource="@xml/contacts"/>
+        </service>
+        <receiver android:name="com.cisco.webex.meetings.receiver.IMRequestReceiver" android:permission="com.cisco.webex.permission.UI_BROADCAST">
+            <intent-filter>
+                <action android:name="com.webex.meeting.IM_REQUEST"/>
+                <action android:name="com.webex.meeting.MEETING_STATUS"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.cisco.webex.meetings.receiver.LoginStatusRequestReceiver" android:permission="com.cisco.webex.permission.UI_BROADCAST">
+            <intent-filter android:priority="1">
+                <action android:name="com.webex.meeting.LOGIN_STATUS"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:description="@string/APPLICATION_NAME" android:label="@string/APPLICATION_NAME" android:name="com.cisco.webex.samsung.AdminReceiver" android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <meta-data android:name="android.app.device_admin" android:resource="@xml/device_admin"/>
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:name="com.cisco.webex.meetings.service.WBXUrlApiService">
+            <intent-filter>
+                <action android:name="com.cisco.webex.meetings.service.IWBXUrlApiService"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:name="com.cisco.webex.meetings.service.WBXInfoService">
+            <intent-filter>
+                <action android:name="com.cisco.webex.meetings.service.IWBXInfoService"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:name="com.cisco.webex.meetings.service.WBXService">
+            <intent-filter>
+                <action android:name="com.cisco.webex.meetings.service.IWBXService"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:name="com.cisco.webex.meetings.service.WBXUrlApiSecureService" android:permission="com.cisco.webex.permission.UI_BROADCAST">
+            <intent-filter>
+                <action android:name="com.cisco.webex.meetings.service.IWBXUrlApiSecureService"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:name="com.cisco.webex.meetings.service.AndroidAutoService"/>
+        <service android:enabled="true" android:name="com.cisco.webex.meetings.service.NewForegroundService"/>
+        <service android:name="com.cisco.webex.meetings.ui.inmeeting.floating.OverlayService"/>
+        <service android:enabled="true" android:exported="true" android:name="com.cisco.android.lib.wearcommon.WbxWatchListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.wearable.BIND_LISTENER"/>
+            </intent-filter>
+        </service>
+        <receiver android:enabled="true" android:name="com.google.android.gms.analytics.AnalyticsReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.analytics.CampaignTrackingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:name="com.google.android.gms.analytics.CampaignTrackingService"/>
+        <provider android:authorities="com.cisco.webex.meetings.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/filepaths"/>
+        </provider>
+        <service android:name="com.cisco.webex.notification.WbxAlarmService"/>
+        <receiver android:name="com.cisco.webex.notification.WbxAlarmReceiver"/>
+        <activity android:label="RecyclerViewTestActivity" android:name="android.support.v7.widget.TestActivity"/>
+        <meta-data android:name="com.google.android.wearable.beta.app" android:resource="@xml/android_wear_micro_apk"/>
+    </application>
+</manifest>

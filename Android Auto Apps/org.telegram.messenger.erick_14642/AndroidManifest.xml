@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="org.telegram.messenger.erick" platformBuildVersionCode="25" platformBuildVersionName="7.1.1">
+    <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.network" android:required="false"/>
+    <uses-feature android:name="android.hardware.location" android:required="false"/>
+    <uses-feature android:name="android.hardware.LOCATION" android:required="false"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="org.telegram.messenger.erick.permission.MAPS_RECEIVE"/>
+    <uses-permission android:name="org.telegram.messenger.erick.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
+    <permission android:name="org.telegram.messenger.erick.permission.MAPS_RECEIVE" android:protectionLevel="signature"/>
+    <permission android:name="org.telegram.messenger.erick.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.wifi" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.PORTRAIT" android:required="false"/>
+    <uses-feature android:name="android.hardware.microphone" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera2" android:required="false"/>
+    <uses-feature android:name="android.hardware.bluetooth" android:required="false"/>
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="false"/>
+    <uses-feature android:name="android.hardware.FAKETOUCH" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.LANDSCAPE" android:required="false"/>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="false"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="false"/>
+    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.REAL_GET_TASKS"/>
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION"/>
+    <uses-permission android:name="android.permission.READ_CALENDAR"/>
+    <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_PROFILE"/>
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <uses-permission android:name="android.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.READ"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE"/>
+    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT"/>
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE"/>
+    <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE"/>
+    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT"/>
+    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_APP_BADGE"/>
+    <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS"/>
+    <application android:allowBackup="false" android:hardwareAccelerated="@bool/useHardwareAcceleration" android:icon="@drawable/ic_launcher" android:label="@string/AppName" android:largeHeap="true" android:manageSpaceActivity="org.telegram.ui.ManageSpaceActivity" android:name="org.telegram.messenger.ApplicationLoader" android:roundIcon="@drawable/ic_launcher" android:supportsRtl="true" android:theme="@style/Theme.TMessages.Start">
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyCUOMoVYETkPaAjQgC3Oblkkt20eUChIf4"/>
+        <activity android:name="net.hockeyapp.android.UpdateActivity"/>
+        <receiver android:exported="true" android:name="com.google.android.gms.gcm.GcmReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="org.telegram.messenger.erick"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="org.telegram.messenger.GcmPushListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="org.telegram.messenger.GcmInstanceIDListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="org.telegram.messenger.GcmRegistrationIntentService"/>
+        <uses-library android:name="com.google.android.maps" android:required="false"/>
+        <receiver android:enabled="false" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="false" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <meta-data android:name="PW_APPID" android:value="E526D-1758B"/>
+        <meta-data android:name="PW_PROJECT_ID" android:value="A155962155522"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:hardwareAccelerated="@bool/useHardwareAcceleration" android:launchMode="singleTask" android:name="org.telegram.ui.LaunchActivity" android:theme="@style/Theme.AppCompat.Light" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="video/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND_MULTIPLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="*/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND_MULTIPLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="*/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="vnd.android.cursor.item/vnd.org.telegram.messenger.android.profile"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="telegram.me" android:scheme="http"/>
+                <data android:host="telegram.me" android:scheme="https"/>
+                <data android:host="telegram.dog" android:scheme="http"/>
+                <data android:host="telegram.dog" android:scheme="https"/>
+                <data android:host="telesco.pe" android:scheme="http"/>
+                <data android:host="telesco.pe" android:scheme="https"/>
+                <data android:host="t.me" android:scheme="http"/>
+                <data android:host="t.me" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter android:icon="@drawable/ic_launcher" android:priority="1">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="tg"/>
+                <data android:scheme="zap"/>
+                <data android:scheme="zapsocial"/>
+                <data android:scheme="zapgroup"/>
+                <data android:scheme="bitcoin"/>
+            </intent-filter>
+            <meta-data android:name="android.service.chooser.chooser_target_service" android:value=".TgChooserTargetService"/>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:hardwareAccelerated="@bool/useHardwareAcceleration" android:name="org.telegram.ui.ShareActivity" android:stateNotNeeded="true" android:theme="@style/Theme.TMessages.Transparent" android:windowSoftInputMode="adjustPan">
+            <intent-filter android:icon="@drawable/ic_launcher" android:priority="1">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="tgb"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:hardwareAccelerated="@bool/useHardwareAcceleration" android:launchMode="singleTask" android:name="org.telegram.ui.ManageSpaceActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="org.telegram.ui.IntroActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:exported="true" android:name="org.telegram.messenger.OpenChatReceiver"/>
+        <activity android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:excludeFromRecents="true" android:launchMode="singleTask" android:name="org.telegram.ui.PopupNotificationActivity" android:resizeableActivity="false" android:taskAffinity="" android:theme="@style/Theme.TMessages.PopupNotification" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:name="org.telegram.ui.VoIPActivity" android:taskAffinity="org.telegram.messenger.erick.voip"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:name="org.telegram.ui.VoIPPermissionActivity" android:taskAffinity="org.telegram.messenger.erick.voip" android:theme="@style/Theme.TMessages.Transparent"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:name="org.telegram.ui.VoIPFeedbackActivity" android:taskAffinity="org.telegram.messenger.erick.voip_feedback" android:theme="@style/Theme.TMessages.TransparentWithAlerts"/>
+        <receiver android:exported="false" android:name="org.telegram.messenger.AutoMessageHeardReceiver">
+            <intent-filter>
+                <action android:name="org.telegram.messenger.ACTION_MESSAGE_HEARD"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="org.telegram.messenger.AutoMessageReplyReceiver">
+            <intent-filter>
+                <action android:name="org.telegram.messenger.ACTION_MESSAGE_REPLY"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="org.telegram.messenger.CallReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="org.telegram.messenger.SmsListener">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="org.telegram.messenger.AuthenticatorService">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+            <meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@xml/auth"/>
+        </service>
+        <service android:exported="true" android:name="org.telegram.messenger.ContactsSyncAdapterService">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter"/>
+            </intent-filter>
+            <meta-data android:name="android.content.SyncAdapter" android:resource="@xml/sync_contacts"/>
+            <meta-data android:name="android.provider.CONTACTS_STRUCTURE" android:resource="@xml/contacts"/>
+        </service>
+        <service android:label="@string/AppName" android:name="org.telegram.messenger.TgChooserTargetService" android:permission="android.permission.BIND_CHOOSER_TARGET_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.chooser.ChooserTargetService"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:name="org.telegram.messenger.BringAppForegroundService"/>
+        <service android:enabled="true" android:name="org.telegram.messenger.NotificationsService"/>
+        <service android:exported="false" android:name="org.telegram.messenger.NotificationRepeat"/>
+        <service android:exported="false" android:name="org.telegram.messenger.ClearCacheService"/>
+        <service android:enabled="true" android:name="org.telegram.messenger.VideoEncodingService"/>
+        <service android:enabled="true" android:name="org.telegram.messenger.voip.VoIPService"/>
+        <service android:enabled="true" android:exported="true" android:name="org.telegram.messenger.MusicPlayerService"/>
+        <service android:exported="true" android:name="org.telegram.messenger.MusicBrowserService">
+            <intent-filter>
+                <action android:name="android.media.browse.MediaBrowserService"/>
+            </intent-filter>
+        </service>
+        <service android:name="org.telegram.messenger.WearDataLayerListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.wearable.DATA_CHANGED"/>
+                <action android:name="com.google.android.gms.wearable.MESSAGE_RECEIVED"/>
+                <action android:name="com.google.android.gms.wearable.CAPABILITY_CHANGED"/>
+                <action android:name="com.google.android.gms.wearable.CHANNEL_EVENT"/>
+                <data android:host="*" android:scheme="wear"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="org.telegram.messenger.MusicPlayerReceiver">
+            <intent-filter>
+                <action android:name="org.telegram.android.musicplayer.close"/>
+                <action android:name="org.telegram.android.musicplayer.pause"/>
+                <action android:name="org.telegram.android.musicplayer.next"/>
+                <action android:name="org.telegram.android.musicplayer.play"/>
+                <action android:name="org.telegram.android.musicplayer.previous"/>
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+                <action android:name="android.media.AUDIO_BECOMING_NOISY"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="org.telegram.messenger.voip.VoIPMediaButtonReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:name="org.telegram.messenger.AppStartReceiver">
+            <intent-filter>
+                <action android:name="org.telegram.start"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:name="org.telegram.messenger.WearReplyReceiver"/>
+        <receiver android:enabled="true" android:name="org.telegram.messenger.PopupReplyReceiver"/>
+        <receiver android:enabled="true" android:name="org.telegram.messenger.ShareBroadcastReceiver"/>
+        <receiver android:exported="false" android:name="org.telegram.messenger.NotificationDismissReceiver"/>
+        <provider android:authorities="org.telegram.messenger.erick.provider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <uses-library android:name="com.sec.android.app.multiwindow" android:required="false"/>
+        <meta-data android:name="com.sec.android.support.multiwindow" android:value="true"/>
+        <meta-data android:name="com.sec.android.multiwindow.DEFAULT_SIZE_W" android:value="632dp"/>
+        <meta-data android:name="com.sec.android.multiwindow.DEFAULT_SIZE_H" android:value="598dp"/>
+        <meta-data android:name="com.sec.android.multiwindow.MINIMUM_SIZE_W" android:value="632dp"/>
+        <meta-data android:name="com.sec.android.multiwindow.MINIMUM_SIZE_H" android:value="598dp"/>
+        <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES" android:value="face"/>
+        <meta-data android:name="com.samsung.android.icon_container.has_icon_container" android:value="true"/>
+        <meta-data android:name="android.max_aspect" android:value="2.5"/>
+        <receiver android:exported="true" android:name="org.telegram.zapzap.ApplicationReferrerReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.analytics.CampaignTrackingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <activity android:name="com.google.android.gms.samples.appinvite.MainInvite" android:theme="@style/Theme.AppCompat"/>
+        <activity android:name="com.google.android.gms.samples.appinvite.Invite" android:theme="@style/Theme.AppCompat"/>
+        <activity android:label="ZapWorld" android:name="org.telegram.zapzap.go.CustomMarkerClusteringDemoActivity" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:label="ZapAfiliados" android:name="org.telegram.zapzap.ZapAfiliados" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:label="ZapAfiliados - Cadastro" android:name="org.telegram.zapzap.ZapAfiliadosCadastroNew" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:label="ZapMarket" android:name="org.telegram.zapzap.ZapMarket" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:launchMode="singleTask" android:name="org.telegram.zapzap.ZapFeed" android:theme="@style/AppThemeGroups"/>
+        <activity android:launchMode="standard" android:name="org.telegram.zapzap.ZapFeedUsuario" android:theme="@style/AppThemeGroups"/>
+        <activity android:launchMode="singleTask" android:name="org.telegram.zapzap.zapgrupos.TabsRound" android:theme="@style/AppThemeGroups"/>
+        <activity android:launchMode="singleTask" android:name="org.telegram.zapzap.zapgrupos.DescZapGrupos" android:theme="@style/AppThemeGroups"/>
+        <activity android:label="ZapMarket" android:launchMode="singleTask" android:name="org.telegram.zapzap.zapgrupos.TabsRoundCanais" android:theme="@style/AppThemeGroups"/>
+        <activity android:launchMode="singleTask" android:name="org.telegram.zapzap.zapgrupos.GroupMaps" android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"/>
+        <activity android:launchMode="singleTask" android:name="org.telegram.zapzap.zapgrupos.UsersMaps" android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"/>
+        <activity android:label="@string/Z_ConvidarTodosMenu" android:launchMode="singleTask" android:name="org.telegram.zapzap.GoogleInvite" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:label="@string/Z_ConvidarTodosMenu" android:launchMode="singleTask" android:name="org.telegram.zapzap.GoogleInviteGroups" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:label="Comentários" android:name="org.telegram.zapzap.TimeLineActivity" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:label="@string/Z_Comentar" android:name="org.telegram.zapzap.TimelineDotCard" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:label="@string/Z_MsgAnonymous" android:launchMode="singleTask" android:name="org.telegram.zapzap.anonymous.AnomActivity" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:label="Ganhos" android:launchMode="singleTask" android:name="org.telegram.zapzap.Ganhos" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:label="Ganhos" android:launchMode="singleTask" android:name="org.telegram.zapzap.GanhosNew" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:label="ZapMarket" android:launchMode="singleTask" android:name="org.telegram.zapzap.ZapMarketNew" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:label="Ganhos" android:launchMode="singleTask" android:name="org.telegram.zapzap.GanhosGrafico" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:label="Anúncio de Grupo ou Canal" android:launchMode="singleTask" android:name="org.telegram.zapzap.Cupom" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.thefinestartist.finestwebview.FinestWebViewActivity" android:theme="@style/FinestWebViewTheme.Light"/>
+        <activity android:label="ZapAfiliados" android:launchMode="singleTask" android:name="org.telegram.zapzap.ZapAfiliadosCadastro" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:launchMode="singleTask" android:name="org.telegram.zapzap.go.ZapSlides" android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"/>
+        <activity android:label="@string/title_activity_location_picker" android:name="com.schibstedspain.leku.LocationPickerActivity" android:parentActivityName="org.telegram.ui.LaunchActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="org.telegram.ui.LaunchActivity"/>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.flurry.android.FlurryFullscreenTakeoverActivity"/>
+        <service android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:launchMode="singleTop" android:name="com.yandex.zensample.app.ZenService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.appnext.core.AdsService"/>
+        <activity android:label="@string/Z_ZapNews" android:launchMode="singleTask" android:name="com.yandex.zensample.app.ZenActivity" android:theme="@style/ZenActivityTheme"/>
+        <activity android:label="@string/Z_AppMarket" android:name="org.telegram.zapzap.AppWallAppNext" android:theme="@style/AppThemeAppWall"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MoPubActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MraidActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.common.MoPubBrowser"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MraidVideoPlayerActivity"/>
+        <activity android:label="ZapWallet" android:launchMode="singleTask" android:name="info.androidhive.navigationdrawer.activity.MainActivity" android:theme="@style/AppThemeDrawer.NoActionBar"/>
+        <activity android:label="Sobre" android:name="info.androidhive.navigationdrawer.activity.AboutUsActivity" android:theme="@style/AppThemeDrawer"/>
+        <activity android:label="Política de Privacidade" android:name="info.androidhive.navigationdrawer.activity.PrivacyPolicyActivity" android:theme="@style/AppThemeDrawer"/>
+        <service android:enabled="true" android:name="com.amazonaws.mobileconnectors.s3.transferutility.TransferService"/>
+        <receiver android:name="org.telegram.zapzap.ShakeReceiver">
+            <intent-filter>
+                <action android:name="shake.detector"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="org.telegram.zapzap.services.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="org.telegram.zapzap.services.MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:label="@string/Search" android:name="org.telegram.zchat.SearchToolbarLight" android:theme="@style/NoActionBarTheme"/>
+        <activity android:name="org.telegram.zchat.Visitas" android:theme="@style/NoActionBarTheme"/>
+        <activity android:name="org.telegram.zchat.Games" android:theme="@style/NoActionBarTheme"/>
+        <activity android:name="org.telegram.zchat.Stickers" android:theme="@style/NoActionBarTheme"/>
+        <activity android:name="com.desmond.squarecamera.CameraActivity"/>
+        <activity android:label="ZapWallet" android:launchMode="singleTask" android:name="info.androidhive.navigationdrawer.activity.LoginActivity" android:theme="@style/AppThemeLogin"/>
+        <activity android:label="ZapWallet" android:launchMode="singleTask" android:name="info.androidhive.navigationdrawer.activity.SendBitcoinActivity" android:theme="@style/AppThemeLogin"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="56752736e8aedcaa8df7264ad93296f8e350bd8c"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <meta-data android:name="android.support.VERSION" android:value="25.4.0"/>
+        <activity android:name="net.hockeyapp.android.FeedbackActivity" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:name="net.hockeyapp.android.PaintActivity"/>
+        <activity android:name="net.hockeyapp.android.LoginActivity"/>
+        <activity android:name="net.hockeyapp.android.ExpiryInfoActivity"/>
+        <activity android:launchMode="singleTask" android:name="com.privatehost.zapzap.Welcome" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name="com.adclient.android.sdk.install.AdClientPopupActivity" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.adclient.android.sdk.view.AdClientSdkActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.adclient.android.sdk.inapp.landing.AdClientInAppLandingActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <receiver android:name="com.adclient.android.sdk.install.DownloadCompleteReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.adclient.android.sdk.synchronization.AdClientSynchronizer"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.RewardedMraidActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.facebook.ads.AudienceNetworkActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.applovin.adview.AppLovinInterstitialActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.applovin.adview.AppLovinConfirmationActivity"/>
+        <activity android:name="com.mobvista.msdk.out.LoadingActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:hardwareAccelerated="true" android:name="com.inlocomedia.android.ads.AdActivity" android:theme="@style/Theme.InLocoMedia.NoActionBar.Fullscreen"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:hardwareAccelerated="true" android:name="com.inlocomedia.android.ads.VideoAdActivity" android:theme="@style/Theme.InLocoMedia.Video.Fullscreen"/>
+        <receiver android:exported="false" android:name="com.inlocomedia.android.ads.AdReceiver"/>
+        <service android:exported="false" android:name="com.inlocomedia.android.location.InLocoMediaService"/>
+        <receiver android:exported="false" android:name="com.inlocomedia.android.location.LocationReceiver"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.inlocomedia.android.core.InLocoMediaActivity" android:theme="@style/Theme.InLocoMedia.NoActionBar.Fullscreen"/>
+        <service android:exported="false" android:name="com.avocarrot.sdk.CallbackService"/>
+        <service android:exported="false" android:name="com.avocarrot.sdk.CallbackJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.yandex.mobile.ads.AdActivity"/>
+        <activity android:autoRemoveFromRecents="true" android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="Zen" android:launchMode="singleTop" android:name="com.yandex.zenkit.webBrowser.ItemBrowserActivity" android:noHistory="false" android:taskAffinity="com.yandex.zenkit.Browser" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.yandex.zenkit.webBrowser.MenuBrowserActivity" android:noHistory="true" android:theme="@style/ZenMenuBrowserActivityTheme"/>
+        <activity android:configChanges="keyboard|keyboardHidden|screenSize" android:name="com.yandex.zenkit.webBrowser.VideoActivity" android:noHistory="true" android:theme="@android:style/Theme.Holo.Light.NoActionBar"/>
+        <service android:enabled="true" android:exported="true" android:name="com.yandex.metrica.MetricaService" android:process=":Metrica">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="com.yandex.metrica.IMetricaService"/>
+                <data android:scheme="metrica"/>
+            </intent-filter>
+            <meta-data android:name="metrica:api:level" android:value="45"/>
+        </service>
+        <receiver android:enabled="true" android:exported="true" android:name="com.yandex.metrica.MetricaEventHandler">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="true" android:name="com.google.android.gms.appinvite.PreviewActivity" android:theme="@style/Theme.AppInvite.Preview">
+            <intent-filter>
+                <action android:name="com.google.android.gms.appinvite.ACTION_PREVIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:name="com.desmond.squarecamera.RuntimePermissionActivity" android:theme="@style/squarecamera__CameraFullScreenTheme.NoUI"/>
+        <service android:enabled="true" android:exported="false" android:name="com.appnext.base.services.OperationService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.appnext.base.services.ReceiverService" android:persistent="true"/>
+        <receiver android:enabled="true" android:name="com.appnext.base.receivers.imp.bootreceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="org.telegram.messenger.erick.crashlyticsinitprovider" android:exported="false" android:initOrder="100" android:name="com.crashlytics.android.CrashlyticsInitProvider"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="org.telegram.messenger.erick"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="org.telegram.messenger.erick.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+    </application>
+</manifest>
